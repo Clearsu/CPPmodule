@@ -6,22 +6,23 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/11 15:39:58 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/11 15:37:36 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
 CC = c++
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 
+#-Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = Megaphone.cpp
+SRCS = phonebook.cpp
 
 $(NAME) : $(SRCS)
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
+	$(CC) $(FLAGS) -o $(NAME) $(SRCS) -I .
 
 all : $(NAME)
 

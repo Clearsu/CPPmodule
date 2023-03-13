@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 18:17:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/11 15:40:16 by jincpark         ###   ########.fr       */
+/*   Created: 2023/03/11 15:03:53 by jincpark          #+#    #+#             */
+/*   Updated: 2023/03/11 16:35:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "PhoneBook.hpp"
 
-int	main(int argc, char **argv)
+void	executePhoneBook(void)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
+	PhoneBook	phonebook;
+	std::string	str;
+
+	while (TRUE)
 	{
-		while (*(++argv))
-		{
-			while (**argv)
-				std::cout << static_cast<char>(std::toupper(*(*argv)++));
-		}
+		std::getline(std::cin, str);
+		if (str == "ADD")
+			phonebook.add();
+		else if (str == "SEARCH")
+			phonebook.search();
+		else if (str == "EXIT")
+			phonebook.exitProgram();
+		else
+			displayErrorMessage();
 	}
-	std::cout << "\n";
-	return (0);
+}
+
+int	main(void)
+{
+	PhoneBook phonebook;
 }
