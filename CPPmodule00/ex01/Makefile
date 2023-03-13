@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/11 15:37:36 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/13 21:42:33 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FLAGS = -std=c++98
 
 RM = rm -f
 
-SRCS = phonebook.cpp
+SRCS = main.cpp Contact.cpp PhoneBook.cpp
 
 $(NAME) : $(SRCS)
 	$(CC) $(FLAGS) -o $(NAME) $(SRCS) -I .
