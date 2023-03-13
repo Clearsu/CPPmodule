@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 15:38:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/11 15:41:58 by jincpark         ###   ########.fr       */
+/*   Created: 2023/03/13 15:10:36 by jincpark          #+#    #+#             */
+/*   Updated: 2023/03/13 15:55:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	main(void)
 {
-	PhoneBook
+	PhoneBook	phonebook;
+	Contact		contact[8];
 }

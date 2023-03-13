@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:03:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/11 16:36:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:09:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,80 +16,44 @@
 # include <iostream>
 # include <string>
 
-# define FALSE 0
-# define TRUE 1
-# define MAX 8
-
-class Contact
+void	addFirstName(std::string str)
 {
-	public :
-		int			isFilled;
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
-		std::string phoneNumber;
-		std::string darkestSecret;
-	private :
-		Contact()
-		{
-			isFilled = FALSE;
-			firstName = 0;
-			lastName = 0;
-			nickName = 0;
-			phoneNumber = 0;
-			darkestSecret = 0;
-		}
-};
+	std::cout << "first name: ";
+	std::getline(std::cin, str);
+}
+
+void	addLastName(std::string str)
+{
+	std::cout << "last name: ";
+	std::getline(std::cin, str);
+}
+
+void	addNickName(std::string str)
+{
+	std::cout << "nickname: ";
+	std::getline(std::cin, str);
+}
+
+void	addPhoneNumber(std::string str)
+{
+	std::cout << "phone number: ";
+	std::getline(std::cin, str);
+}
+
+void	addDarkestSecret(std::string str)
+{
+	std::cout << "darkest secret: ";
+	std::getline(std::cin, str);
+}
 
 class PhoneBook
 {
-	private :
-		int		i;
-		Contact contact[MAX];
-		PhoneBook()
-		{
-			i = 0;
-		}
-		~PhoneBook()
-		{
-		}
-		void	modifyContactIndex(Contact contact[MAX], int *i)
-		{
-			if (contact[*i].isFilled == TRUE && *i < MAX - 1)
-			{
-				*i += 1;
-				return ;
-			}
-			if (contact[*i].isFilled = FALSE)
-				return ;
-			if (*i == MAX - 1)
-			{
-				*i = 0;
-				return ;
-			}
-		}
 	public :
-		void add(void)
-		{
-			modifyContactIndex(contact, &i);
-			std::cout << "first name: ";
-			std::getline(std::cin, contact[i].firstName);
-			std::cout << "last name: ";
-			std::getline(std::cin, contact[i].lastName);
-			std::cout << "nickname: ";
-			std::getline(std::cin, contact[i].nickName);
-			std::cout << "phone number: ";
-			std::getline(std::cin, contact[i].phoneNumber);
-			std::cout << "darkest secret: ";
-			std::getline(std::cin, contact[i].darkestSecret);
-		}
-		void search(void)
-		{
-		}
-		void exitProgram(void)
-		{
-			exit(0);
-		}
+		void addFirstName(std::string str);
+		void addLastName(std::string str);
+		void addNickName(std::string str);
+		void addPhoneNumber(std::string str);
+		void addDarkestSecret(std::string str);
 };
 
 #endif
