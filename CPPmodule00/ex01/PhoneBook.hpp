@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:03:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/14 21:12:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 22:58:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,24 @@
 
 # include "Contact.hpp"
 
+// error flag
 # define INVALID_COMMAND 0
-# define INVALID_INDEX 1
+# define INDEX_OUT_OF_RANGE 1
 
 class PhoneBook
 {
 	private :
 		Contact contact[8];
-		int		i;
-		void increaseIndex(void);
-		void printCategories(void);
-		void printInformations(int idx);
+		int		currentIdx;
+		void	increaseIndex(void);
+		void	printCategories(void);
+		void	printAllByIndex(void);
+		void	printInformation(int idx);
+		int		getIdxToPrint(void);	
 	public :
 		PhoneBook()
 		{
-			i = 0;
+			currentIdx = 0;
 		}
 		void add(void);
 		void search(void);
