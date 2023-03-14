@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:03:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/14 13:33:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 21:12:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class PhoneBook
 		Contact contact[8];
 		int		i;
 		void increaseIndex(void);
+		void printCategories(void);
+		void printInformations(int idx);
 	public :
 		PhoneBook()
 		{

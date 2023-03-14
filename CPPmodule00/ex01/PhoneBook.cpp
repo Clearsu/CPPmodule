@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/14 13:34:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 21:15:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,42 @@ void	PhoneBook::add(void) {
 	increaseIndex();
 }
 
-void	PhoneBook::search(void) {
-	std::string idxString;
-	int			idx;
-
+void	PhoneBook::printCategories(void) {
+	std::cout << std::endl;
 	std::cout << std::setw(10);
-	std::cout << "\nINDEX" << "|";
+	std::cout << "INDEX" << "|";
 	std::cout << std::setw(10);
 	std::cout << "FIRST NAME" << "|";
 	std::cout << std::setw(10);
 	std::cout << "LAST NAME" << "|";
 	std::cout << std::setw(10);
-	std::cout << "NICKNAME\n";
+	std::cout << "NICKNAME";
+	std::cout << std::endl;
+}
+
+void	PhoneBook::printInformations(int idx) {
+	std::cout << std::setw(10);
+	std::cout << idx << "|";
+	std::cout << std::setw(10);
+	std::cout << contact[idx].getFirstName() << "|";
+	std::cout << std::setw(10);
+	std::cout << contact[idx].getLastName() << "|";
+	std::cout << std::setw(10);
+	std::cout << contact[idx].getNickName();
+	std::cout << std::endl;
+}
+
+void	PhoneBook::search(void) {
+	std::string idxString;
+	int			idx;
+
+	printCategories();
 	for (int i = 0; i < 8; ++i) {
 		if (contact[i].getState() == true) {
-			std::cout << std::setw(10);
-			std::cout << i << "|";
-			std::cout << std::setw(10);
-			std::cout << contact[i].getFirstName() << "|";
-			std::cout << std::setw(10);
-			std::cout << contact[i].getLastName() << "|";
-			std::cout << std::setw(10);
-			std::cout << contact[i].getNickName() << "\n";
+			printInformations(i);
 		}
 	}
-	std::cout << "\ntype an index you want > ";
+	std::cout << std::endl << "type an index you want > ";
 	std::getline(std::cin, idxString);
 	std::stringstream ssInt(idxString);
 	ssInt >> idx;
@@ -77,11 +88,11 @@ void	PhoneBook::search(void) {
 		printError(INVALID_INDEX);
 		return ;
 	}
-	std::cout << "\nFirst name: " << contact[idx].getFirstName() << std::endl;
+	std::cout << std::endl << "First name: " << contact[idx].getFirstName() << std::endl;
 	std::cout << "Last name: " << contact[idx].getLastName() << std::endl;
 	std::cout << "Nickname: " << contact[idx].getNickName() << std::endl;
 	std::cout << "Phone number: " << contact[idx].getPhoneNumber() << std::endl;
-	std::cout << "Darkest secret: " << contact[idx].getDarkestSecret() << "\n\n";
+	std::cout << "Darkest secret: " << contact[idx].getDarkestSecret() << std::endl << std::endl;
 }
 
 void	PhoneBook::exitPhoneBook(void) {
