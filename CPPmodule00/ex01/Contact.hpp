@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:43:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/13 22:04:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:33:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ class Contact
 		{
 			state = false;
 		}
+		// getter
 		bool		getState(void);
 		std::string getFirstName(void);
 		std::string getLastName(void);
 		std::string getNickName(void);
 		std::string getPhoneNumber(void);
 		std::string getDarkestSecret(void);
+		// setter
 		void		setState(bool newState);
 		void		setFirstName(std::string newFirstName);
 		void		setLastName(std::string newLastName);
