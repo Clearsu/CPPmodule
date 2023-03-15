@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:10:36 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/13 22:57:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:37:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	main(void)
 		else if (input == "SEARCH")
 			phonebook.search();
 		else if (input == "EXIT")
-			phonebook.exitPhoneBook();
+			break ;
 		else
 			phonebook.printError(INVALID_COMMAND);
 	}
+	return (0);
 }

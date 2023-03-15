@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/15 18:12:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:37:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,6 @@ void	PhoneBook::printInformation(int idxToPrint) {
 	std::cout << "Nickname: " << contact[idxToPrint].getNickName() << "\n";
 	std::cout << "Phone number: " << contact[idxToPrint].getPhoneNumber() << "\n";
 	std::cout << "Darkest secret: " << contact[idxToPrint].getDarkestSecret() << "\n\n";
-}
-
-//exit()
-void	PhoneBook::exitPhoneBook(void) {
-	exit(0);
 }
 
 //printError()

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:03:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/15 18:18:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:37:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class PhoneBook
 		}
 		void add(void);
 		void search(void);
-		void exitPhoneBook(void);
 		void printError(int flag);
 };
 
