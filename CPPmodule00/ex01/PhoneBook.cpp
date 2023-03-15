@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/14 22:58:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:49:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	PhoneBook::exitPhoneBook(void) {
 void	PhoneBook::printError(int flag)
 {
 	if (flag == INVALID_COMMAND)
-		std::cout << "phonebook: invalid command\n";
+		std::cout << "phonebook: error: invalid command\n";
 	else if (flag == INDEX_OUT_OF_RANGE)
-		std::cout << "phonebook: index out of range\n";
+		std::cout << "phonebook: error: index out of range\n";
 }
 
 void	PhoneBook::increaseIndex(void) {
@@ -81,17 +81,29 @@ void	PhoneBook::printCategories(void) {
 	std::cout << std::endl;
 }
 
+std::string	PhoneBook::putDotIfLong(std::string str) {
+	std::string ret;
+
+	if (str.length() <= 10)
+		return (str);
+	ret = str.substr(0, 10);
+	ret[9] = '.';
+	return (ret);
+}
+
 void	PhoneBook::printAllByIndex(void) {
 	for (int i = 0; i < 8; ++i) {
 		if (contact[i].getState() == true) {
 			std::cout << std::setw(10);
 			std::cout << i << "|";
 			std::cout << std::setw(10);
-			std::cout << contact[i].getFirstName() << "|";
+			std::cout << putDotIfLong(contact[i].getFirstName());
+			std::cout << "|";
 			std::cout << std::setw(10);
-			std::cout << contact[i].getLastName() << "|";
+			std::cout << putDotIfLong(contact[i].getLastName());
+			std::cout << "|";
 			std::cout << std::setw(10);
-			std::cout << contact[i].getNickName();
+			std::cout << putDotIfLong(contact[i].getNickName());
 			std::cout << "\n";
 		}
 	}

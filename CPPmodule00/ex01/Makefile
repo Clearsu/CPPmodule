@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/13 21:42:33 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/15 15:18:44 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,16 @@ NAME = phonebook
 
 CC = c++
 
-FLAGS = -std=c++98 
-#-Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
+DFLAGS = -fsanitize=address
 
 RM = rm -f
 
 SRCS = main.cpp Contact.cpp PhoneBook.cpp
+
+ifdef IF_DEBUG
+	$(FLAGS) += $(DFLAGS)
+endif
 
 $(NAME) : $(SRCS)
 	$(CC) $(FLAGS) -o $(NAME) $(SRCS) -I .
@@ -32,3 +36,6 @@ clean :
 re :
 	$(MAKE) clean
 	$(MAKE) all
+
+debug :
+	$(MAKE) IF_DEBUG=1
