@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:08:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/13 22:05:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:19:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ void	Contact::setState(bool newState) {
 	state = newState;
 }
 
-void	Contact::setFirstName(std::string newFirstName) {
+void	Contact::setFirstName(const std::string newFirstName) {
 	firstName = newFirstName;
 }
 
-void	Contact::setLastName(std::string newLastName) {
+void	Contact::setLastName(const std::string newLastName) {
 	lastName = newLastName;
 }
-void	Contact::setNickName(std::string newNickName) {
+void	Contact::setNickName(const std::string newNickName) {
 	nickName = newNickName;
 }
-void	Contact::setPhoneNumber(std::string newPhoneNumber) {
+void	Contact::setPhoneNumber(const std::string newPhoneNumber) {
 	phoneNumber = newPhoneNumber;
 }
 
-void	Contact::setDarkestSecret(std::string newDarkestSecret) {
+void	Contact::setDarkestSecret(const std::string newDarkestSecret) {
 	darkestSecret = newDarkestSecret;
 }
