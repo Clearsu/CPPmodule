@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 20:31:57 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 21:33:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 21:50:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void) {
 		Weapon	club = Weapon("crued spiked club");
 		HumanA	bob("Bob", club);
 		bob.attack();
-		club.setType("broken club");
+		club.setType("some other type of club");
 		bob.attack();
 	}
 	{
@@ -26,7 +26,7 @@ int	main(void) {
 		HumanB	jim("Jim");
 		jim.setWeapon(club);
 		jim.attack();
-		club.setType("broken club");
+		club.setType("some other type of club");
 		jim.attack();
 	}
 	return (0);
