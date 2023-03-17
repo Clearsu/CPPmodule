@@ -6,41 +6,43 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:52:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/17 13:25:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:33:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Sed.hpp"
 
-const std::string	&Sed::getInFilename(void) {
-	const std::string	&ret = infile;
-	return (ret);
+Sed::Sed(char **argv) {
+	std::string fname;
+
+	std::cout << "constructor has been called\n";
+	fname = argv[1];
+	infile.open(fname);
+	outfile.open(fname.append(".replace"));
+	s1 = argv[2];
+	s2 = argv[3];
 }
 
-const std::string	&Sed::getOutFilename(void) {
-	const std::string	&ret = outfile;
-	return (ret);
+Sed::~Sed() {
+	std::cout << "destructer has been called\n";
+	infile.close();
+	outfile.close();
 }
 
-const std::string	&Sed::getS1(void) {
-	const std::string	&ret = s1;
-	return (ret);
-}
+void	Sed::doSed(void) {
+	std::string	line;
+	size_t		lens1 = s1.length();
+	size_t		pos;
 
-const std::string	&Sed::getS2(void) {
-	const std::string	&ret = s2;
-	return (ret);
-}
-
-void	Sed::setFilename(std::string str) {
-	infile = str;
-	outfile = str.append(".replace");
-}
-
-void	Sed::setS1(std::string str) {
-	s1 = str;
-}
-
-void	Sed::setS2(std::string str) {
-	s2 = str;
+	while (std::getline(infile, line)) {
+		pos = 0;
+		pos = line.find(s1, pos);
+		while (pos != std::string::npos) {
+			line.erase(pos, lens1);
+			line.insert(pos, s2);
+			pos = line.find(s1, pos);
+		}
+		outfile << line << "\n";
+	}
 }

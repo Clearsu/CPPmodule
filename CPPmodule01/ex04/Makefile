@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/17 11:57:20 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/17 13:27:15 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ DFLAGS = -fsanitize=address
 
 RM = rm -f
 
-SRCS = main.cpp sed.cpp
+SRCS = main.cpp Sed.cpp
 
 ifdef IF_DEBUG
 	$(FLAGS) += $(DFLAGS)

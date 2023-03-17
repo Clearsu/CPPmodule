@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:48:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/17 12:27:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:46:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 # define SED_HPP
 
 # include <string>
+# include <fstream>
 
 class	Sed {
 	private :
-		std::string infile;
-		std::string	outfile;
-		std::string	s1;
-		std::string s2;
+		std::string		s1;
+		std::string 	s2;
+		std::ifstream	infile;
+		std::ofstream	outfile;
 	public :
-		const std::string	&getInFilename(void);
-		const std::string	&getOutFilename(void);
-		const std::string	&getS1(void);
-		const std::string	&getS2(void);
-		void				setFilename(std::string str);
-		void				setS1(std::string str);
-		void				setS2(std::string str);
+		Sed(char **argv);
+		~Sed();
+		void	doSed(void);
 };
 
 #endif
