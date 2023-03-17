@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:48:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/17 12:02:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:27:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ class	Sed {
 		const std::string	&getOutFilename(void);
 		const std::string	&getS1(void);
 		const std::string	&getS2(void);
-		void				setInFilename(std::string str);
-		void				setOutfilename(std::string str);
+		void				setFilename(std::string str);
 		void				setS1(std::string str);
 		void				setS2(std::string str);
 };

@@ -6,14 +6,19 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:52:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/17 11:57:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:25:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-const std::string	&Sed::getFname(void) {
-	const std::string	&ret = fname;
+const std::string	&Sed::getInFilename(void) {
+	const std::string	&ret = infile;
+	return (ret);
+}
+
+const std::string	&Sed::getOutFilename(void) {
+	const std::string	&ret = outfile;
 	return (ret);
 }
 
@@ -27,8 +32,9 @@ const std::string	&Sed::getS2(void) {
 	return (ret);
 }
 
-void	Sed::setFname(std::string str) {
-	fname = str;
+void	Sed::setFilename(std::string str) {
+	infile = str;
+	outfile = str.append(".replace");
 }
 
 void	Sed::setS1(std::string str) {
