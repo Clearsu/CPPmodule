@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:52:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:33:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:35:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 Sed::Sed(char **argv) {
 	std::string fname;
 
-	std::cout << "constructor has been called\n";
 	fname = argv[1];
 	infile.open(fname);
 	outfile.open(fname.append(".replace"));
@@ -25,7 +24,6 @@ Sed::Sed(char **argv) {
 }
 
 Sed::~Sed() {
-	std::cout << "destructer has been called\n";
 	infile.close();
 	outfile.close();
 }
