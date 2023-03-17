@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/16 19:53:00 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/17 11:57:20 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = violence
+NAME = mysed
 
 CC = c++
 
@@ -19,7 +19,7 @@ DFLAGS = -fsanitize=address
 
 RM = rm -f
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp sed.cpp
 
 ifdef IF_DEBUG
 	$(FLAGS) += $(DFLAGS)
