@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/17 16:37:36 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/18 16:27:32 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,12 @@ NAME = harl
 
 CC = c++
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 #-Wall -Wextra -Werror
 DFLAGS = -fsanitize=address
 
 RM = rm -f
 
-SRCS = main.cpp
+SRCS = main.cpp Harl.cpp
 
 ifdef IF_DEBUG
 	$(FLAGS) += $(DFLAGS)
