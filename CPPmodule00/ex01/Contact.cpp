@@ -6,36 +6,40 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:08:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/15 18:19:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/20 04:43:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
+
+//getter
 bool	Contact::getState(void) {
 	return (state == true);
 }
 
-std::string Contact::getFirstName(void) {
+const std::string Contact::getFirstName(void) {
 	return (firstName);
 }
 
-std::string Contact::getLastName(void) {
+const std::string Contact::getLastName(void) {
 	return (lastName);
 }
 
-std::string Contact::getNickName(void) {
+const std::string Contact::getNickName(void) {
 	return (nickName);
 }
 
-std::string Contact::getPhoneNumber(void) {
+const std::string Contact::getPhoneNumber(void) {
 	return (phoneNumber);
 }
 
-std::string Contact::getDarkestSecret(void) {
+const std::string Contact::getDarkestSecret(void) {
 	return (darkestSecret);
 }
 
+
+//sether
 void	Contact::setState(bool newState) {
 	state = newState;
 }
