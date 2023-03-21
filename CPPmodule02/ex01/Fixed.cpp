@@ -6,11 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/20 19:46:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:59:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <ieee754.h>
 #include "Fixed.hpp"
 
 Fixed::Fixed() {
@@ -26,14 +27,9 @@ Fixed::Fixed(const int value) {
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called\n";
-	int	sign;
-	int	exponent;
-	int	mantissa;
+	ieee754_float	f;
 
-	sign = value >> 31;
-	exponent = (value >> 23) & 0x000000ff; 
-	mantissa = value & 0x007ffffff;
-	if (mantissa & 
+	f.f = value;
 }
 
 Fixed::Fixed(const Fixed &f) {
