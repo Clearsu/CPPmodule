@@ -6,12 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/21 13:59:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:27:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <ieee754.h>
+#include <ostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 Fixed::Fixed() {
@@ -27,9 +28,7 @@ Fixed::Fixed(const int value) {
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called\n";
-	ieee754_float	f;
-
-	f.f = value;
+	_rawBits = roundf(value * (1 << _fracBits));
 }
 
 Fixed::Fixed(const Fixed &f) {
@@ -46,6 +45,11 @@ void	Fixed::operator=(const Fixed &f) {
 	_rawBits = f._rawBits;
 }
 
+std::ostream	&operator<<(std::ostream &os, const Fixed &f) {
+	os << f.toFloat();
+	return (os);
+}
+
 int	Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called\n";
 	return (_rawBits);
@@ -56,10 +60,10 @@ void	Fixed::setRawBits(int const raw) {
 	_rawBits = raw;
 }
 
-/*
 float	Fixed::toFloat(void) const {
+	return (float(_rawBits) / (1 << _fracBits));
 }
 
 int	Fixed::toInt(void) const {
+	return (_rawBits >> _fracBits);
 }
-*/
