@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:05:19 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 18:22:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 02:25:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <iostream>
 #include "Account.hpp"
 
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
 // public
 int	Account::getNbAccounts( void ) {
 	return (_nbAccounts);
@@ -41,7 +45,8 @@ void	Account::displayAccountsInfos( void ) {
 
 Account::Account(int initial_deposit) {
 	_amount = initial_deposit;
-	_nbAccounts++;
+	_accountIndex = _nbAccounts++;
+	_totalAmount += initial_deposit;
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ';';
 	std::cout << "amount:" << _amount << ';';
@@ -59,6 +64,7 @@ Account::~Account(void) {
 void	Account::makeDeposit( int deposit ) {
 	int	p_amount;
 
+	_totalAmount += deposit;
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ';';
 	p_amount = _amount;
@@ -70,6 +76,7 @@ void	Account::makeDeposit( int deposit ) {
 	std::cout << "nb_deposits:" << _nbDeposits << std::endl;
 	_totalNbDeposits++;
 }
+
 bool	Account::makeWithdrawal( int withdrawal ) {
 	int p_amount;
 
@@ -83,6 +90,7 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 	}
 	std::cout << "withdrawal:" << withdrawal << ';';
 	_amount -= withdrawal;
+	_totalAmount -= withdrawal;
 	std::cout << "amount:" << _amount << ';';
 	_nbWithdrawals++;
 	std::cout << "nb_withdrawals:" << _nbWithdrawals << std::endl;
