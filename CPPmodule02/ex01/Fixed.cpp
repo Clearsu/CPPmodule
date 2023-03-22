@@ -6,12 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/21 23:27:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:10:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <ostream>
 #include <cmath>
 #include "Fixed.hpp"
 
@@ -31,7 +30,7 @@ Fixed::Fixed(const float value) {
 	_rawBits = roundf(value * (1 << _fracBits));
 }
 
-Fixed::Fixed(const Fixed &f) {
+Fixed::Fixed(const Fixed& f) {
 	std::cout << "Copy constructor called\n";
 	_rawBits = f._rawBits;
 }
@@ -40,12 +39,12 @@ Fixed::~Fixed() {
 	std::cout << "Destructor called\n";
 }
 
-void	Fixed::operator=(const Fixed &f) {
+void	Fixed::operator=(const Fixed& f) {
 	std::cout << "Copy assignment operator called\n";
 	_rawBits = f._rawBits;
 }
 
-std::ostream	&operator<<(std::ostream &os, const Fixed &f) {
+std::ostream&	operator<<(std::ostream& os, const Fixed& f) {
 	os << f.toFloat();
 	return (os);
 }
