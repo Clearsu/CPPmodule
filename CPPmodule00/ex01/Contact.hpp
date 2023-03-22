@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:43:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/20 04:40:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:04:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,18 @@ class Contact
 		{
 			state = false;
 		}
-		// getter
-		bool		getState(void);
-		const std::string &getFirstName(void);
-		const std::string &getLastName(void);
-		const std::string &getNickName(void);
-		const std::string &getPhoneNumber(void);
-		const std::string &getDarkestSecret(void);
-		// setter
-		void		setState(bool newState);
-		void		setFirstName(const std::string newFirstName);
-		void		setLastName(const std::string newLastName);
-		void		setNickName(const std::string newNickName);
-		void		setPhoneNumber(const std::string newPhoneNumber);
-		void		setDarkestSecret(const std::string newDarkestSecret);
+		bool				getState(void);
+		const std::string	&getFirstName(void) const;
+		const std::string	&getLastName(void) const;
+		const std::string	&getNickName(void) const;
+		const std::string	&getPhoneNumber(void) const;
+		const std::string	&getDarkestSecret(void) const;
+		void				setState(const bool state);
+		void				setFirstName(const std::string firstName);
+		void				setLastName(const std::string lastName);
+		void				setNickName(const std::string nickName);
+		void				setPhoneNumber(const std::string phoneNumber);
+		void				setDarkestSecret(const std::string darkestSecret);
 };
 
 #endif

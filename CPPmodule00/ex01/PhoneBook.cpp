@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/15 18:37:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:14:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	PhoneBook::search(void) {
 	printInformation(idxToPrint);
 }
 
-void	PhoneBook::printCategories(void) {
+void	PhoneBook::printCategories(void) const {
 	std::cout << std::endl;
 	std::cout << std::setw(10);
 	std::cout << "INDEX" << "|";
@@ -84,19 +84,19 @@ void	PhoneBook::printAllByIndex(void) {
 			std::cout << "|";
 			std::cout << std::setw(10);
 			std::cout << putDotIfLong(contact[i].getNickName());
-			std::cout << "\n";
+			std::cout << std::endl;
 		}
 	}
 }
 
-std::string	PhoneBook::putDotIfLong(const std::string str) {
+const std::string	PhoneBook::putDotIfLong(const std::string str) {
 	std::string ret;
 
 	if (str.length() <= 10)
 		return (str);
 	ret = str.substr(0, 10);
 	ret[9] = '.';
-	return (ret);
+	return ret;
 }
 
 int	PhoneBook::getIdxToPrint(void) {
@@ -111,22 +111,21 @@ int	PhoneBook::getIdxToPrint(void) {
 		printError(INDEX_OUT_OF_RANGE);
 		return (-1);
 	}
-	return (idxToPrint);
+	return idxToPrint;
 }
 
-void	PhoneBook::printInformation(int idxToPrint) {
+void	PhoneBook::printInformation(int idxToPrint) const {
 	std::cout << "\nFirst name: " << contact[idxToPrint].getFirstName() << "\n";
 	std::cout << "Last name: " << contact[idxToPrint].getLastName() << "\n";
 	std::cout << "Nickname: " << contact[idxToPrint].getNickName() << "\n";
 	std::cout << "Phone number: " << contact[idxToPrint].getPhoneNumber() << "\n";
-	std::cout << "Darkest secret: " << contact[idxToPrint].getDarkestSecret() << "\n\n";
+	std::cout << "Darkest secret: " << contact[idxToPrint].getDarkestSecret() << std::endl;
 }
 
 //printError()
-void	PhoneBook::printError(int flag)
-{
+void	PhoneBook::printError(int flag) const {
 	if (flag == INVALID_COMMAND)
-		std::cout << "phonebook: error: invalid command\n";
+		std::cout << "phonebook: error: invalid command" << std::endl;
 	else if (flag == INDEX_OUT_OF_RANGE)
-		std::cout << "phonebook: error: index out of range\n";
+		std::cout << "phonebook: error: index out of range" << std::endl;
 }
