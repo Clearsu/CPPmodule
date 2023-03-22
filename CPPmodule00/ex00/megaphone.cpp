@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:17:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/11 15:40:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:31:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(int argc, char **argv)
 		while (*(++argv))
 		{
 			while (**argv)
-				std::cout << static_cast<char>(std::toupper(*(*argv)++));
+				std::cout << char(std::toupper(*(*argv)++));
 		}
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 	return (0);
 }
