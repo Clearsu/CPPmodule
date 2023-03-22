@@ -6,15 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:08:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 13:04:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:47:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-
-//getter
-bool	Contact::getState(void) {
+bool	Contact::getState(void) const {
 	return (state == true);
 }
 
@@ -38,8 +36,6 @@ const std::string&	Contact::getDarkestSecret(void) const {
 	return (darkestSecret);
 }
 
-
-//sether
 void	Contact::setState(const bool state) {
 	this->state = state;
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:43:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 13:04:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:47:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Contact
 		{
 			state = false;
 		}
-		bool				getState(void);
+		bool				getState(void) const;
 		const std::string	&getFirstName(void) const;
 		const std::string	&getLastName(void) const;
 		const std::string	&getNickName(void) const;
