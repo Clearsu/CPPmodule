@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/22 16:12:14 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/22 16:35:01 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ SRCS = megaphone.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-%o : %cpp
+%.o : %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 all : $(NAME)
 

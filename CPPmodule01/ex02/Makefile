@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/16 19:32:19 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/22 16:32:23 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,22 +20,32 @@ DFLAGS = -fsanitize=address
 RM = rm -f
 
 SRCS = main.cpp
+OBJS = ${SRCS:.cpp=.o}
 
 ifdef IF_DEBUG
 	$(FLAGS) += $(DFLAGS)
 endif
 
-$(NAME) : $(SRCS)
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS) -I .
+%.o : %.cpp
+	$(CC) $(FLAGS) -I. -c $< -o $@
+
+$(NAME) : $(OBJS)
+	$(CC) $(FLAGS) -I. $(OBJS) -o $(NAME)
 
 all : $(NAME)
 
 clean :
+	$(RM) $(OBJS)
+
+fclean :
+	$(MAKE) clean
 	$(RM) $(NAME)
 
 re :
-	$(MAKE) clean
+	$(MAKE) fclean
 	$(MAKE) all
 
 debug :
 	$(MAKE) IF_DEBUG=1
+
+.PHONY : all clean fclean re debug
