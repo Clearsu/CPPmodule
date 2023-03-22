@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/11 15:39:58 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/22 16:12:14 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,27 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = Megaphone.cpp
+SRCS = megaphone.cpp
 
-$(NAME) : $(SRCS)
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
+OBJS = ${SRCS:.cpp=.o}
+
+%o : %cpp
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME) : $(OBJS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 all : $(NAME)
 
 clean :
+	$(RM) $(OBJS)
+
+fclean :
+	$(MAKE) clean
 	$(RM) $(NAME)
 
 re :
-	$(MAKE) clean
+	$(MAKE) fclean
 	$(MAKE) all
+
+.PHONY : all clean fclean re
