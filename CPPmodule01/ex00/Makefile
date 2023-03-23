@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/22 16:31:00 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/23 20:23:21 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,11 @@ NAME = zombie
 CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
-DFLAGS = -fsanitize=address
 
 RM = rm -f
 
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS = $(SRCS:.cpp=.o)
-
-ifdef IF_DEBUG
-	$(FLAGS) += $(DFLAGS)
-endif
 
 %.o : %.cpp
 	$(CC) $(FLAGS) -I. -c $< -o $@
@@ -45,7 +40,4 @@ re :
 	$(MAKE) fclean
 	$(MAKE) all
 
-debug :
-	$(MAKE) IF_DEBUG=1
-
-.PHONY : all clean fclean re debug
+.PHONY : all clean fclean re

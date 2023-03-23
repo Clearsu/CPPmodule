@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:55:05 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 17:57:18 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:23:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class Zombie
 	private :
 		std::string	name;
 	public :
-		~Zombie()
-		{
-			std::cout << name << " is killed" << std::endl;
+		~Zombie() {
+			std::cout << name << " is dead" << std::endl;
 		}
 		void	announce(void);
 		void	setName(std::string str);
