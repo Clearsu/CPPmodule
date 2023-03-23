@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:52:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:35:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:36:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	Sed::doSed(void) {
 			line.insert(pos, s2);
 			pos = line.find(s1, pos);
 		}
-		outfile << line << "\n";
+		outfile << line << std::endl;
 	}
 }
