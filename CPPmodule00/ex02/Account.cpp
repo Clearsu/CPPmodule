@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:05:19 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 02:25:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:58:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,9 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 	return (true);
 }
 
-//int		checkAmount( void ) const;
+int		Account::checkAmount( void ) const {
+	return (_amount);
+}
 
 void	Account::displayStatus( void ) const { 
 	_displayTimestamp();
@@ -118,5 +120,3 @@ void	Account::_displayTimestamp( void ) {
 	std::cout << '_' << pLocal->tm_hour << pLocal->tm_min;
 	std::cout << pLocal->tm_sec << ']';
 }
-
-//Account(void);
