@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:24:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 21:33:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:32:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class	HumanB {
 		std::string	name;
 		Weapon		*weapon;
 	public :
-		HumanB(std::string newName) {
-			name = newName;
+		HumanB(std::string name) {
+			this->name = name;
 		}
 		void				setWeapon(Weapon &newWeapon);
 		const std::string	&getName(void);

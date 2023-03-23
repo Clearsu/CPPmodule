@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 20:31:57 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 21:50:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:32:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	main(void) {
 		club.setType("some other type of club");
 		jim.attack();
 	}
-	return (0);
+	return 0;
 }

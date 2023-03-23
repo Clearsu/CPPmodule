@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 20:16:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 21:34:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:29:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include "HumanA.hpp"
 
 const std::string	&HumanA::getName(void) {
-	const std::string	&ref = name;
-	return (ref);
+	return (name);
 }
 
 void	HumanA::attack(void) {

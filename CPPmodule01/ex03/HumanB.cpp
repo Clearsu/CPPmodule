@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jincpark <jincpark@student.42seoul.kr>                    +#+  +:+       +#+        */
+/*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:28:40 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 21:33:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:32:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "HumanB.hpp"
 
-void	HumanB::setWeapon(Weapon &newWeapon) {
-	weapon = &newWeapon;
+void	HumanB::setWeapon(Weapon &weapon) {
+	this->weapon = &weapon;
 }
 
 const std::string	&HumanB::getName(void) {
-	const std::string	&ref = name;
-	return (ref);
+	return (name);
 }
 
 void	HumanB::attack(void) {
