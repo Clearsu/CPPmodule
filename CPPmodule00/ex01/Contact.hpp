@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:43:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 14:47:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:30:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include <string>
 
-class Contact
-{
+class Contact {
 	private :
 		bool		state;
 		std::string firstName;

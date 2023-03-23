@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 13:14:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:29:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ void	PhoneBook::search(void) {
 }
 
 void	PhoneBook::printCategories(void) const {
-	std::cout << std::endl;
+	std::cout << '\n';
 	std::cout << std::setw(10);
-	std::cout << "INDEX" << "|";
+	std::cout << "INDEX" << '|';
 	std::cout << std::setw(10);
-	std::cout << "FIRST NAME" << "|";
+	std::cout << "FIRST NAME" << '|';
 	std::cout << std::setw(10);
-	std::cout << "LAST NAME" << "|";
+	std::cout << "LAST NAME" << '|';
 	std::cout << std::setw(10);
 	std::cout << "NICKNAME";
 	std::cout << std::endl;
@@ -75,13 +75,13 @@ void	PhoneBook::printAllByIndex(void) {
 	for (int i = 0; i < 8; ++i) {
 		if (contact[i].getState() == true) {
 			std::cout << std::setw(10);
-			std::cout << i << "|";
+			std::cout << i << '|';
 			std::cout << std::setw(10);
 			std::cout << putDotIfLong(contact[i].getFirstName());
-			std::cout << "|";
+			std::cout << '|';
 			std::cout << std::setw(10);
 			std::cout << putDotIfLong(contact[i].getLastName());
-			std::cout << "|";
+			std::cout << '|';
 			std::cout << std::setw(10);
 			std::cout << putDotIfLong(contact[i].getNickName());
 			std::cout << std::endl;

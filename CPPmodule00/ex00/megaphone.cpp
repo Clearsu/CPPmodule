@@ -6,14 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:17:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 12:31:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:13:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	main(int argc, char **argv)
-{
+int	main(int argc, char **argv) {
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
