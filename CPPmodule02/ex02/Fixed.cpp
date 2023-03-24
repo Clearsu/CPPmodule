@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 21:51:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:03:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include "Fixed.hpp"
 
 /******************** OCF ********************/
-Fixed::Fixed() {
-	std::cout << "Default constructor called\n";
-	_rawBits = 0;
+void	Fixed::operator=(const Fixed& f) {
+	std::cout << "Copy assignment operator called\n";
+	_rawBits = f._rawBits;
 }
 
+/******************** other constructors ********************/
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called\n";
 	_rawBits = value;
@@ -29,20 +30,6 @@ Fixed::Fixed(const int value) {
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called\n";
 	_rawBits = roundf(value * (1 << _fracBits));
-}
-
-Fixed::Fixed(const Fixed& f) {
-	std::cout << "Copy constructor called\n";
-	_rawBits = f._rawBits;
-}
-
-void	Fixed::operator=(const Fixed& f) {
-	std::cout << "Copy assignment operator called\n";
-	_rawBits = f._rawBits;
-}
-
-Fixed::~Fixed() {
-	std::cout << "Destructor called\n";
 }
 
 /******************** basic member functions ********************/
@@ -64,7 +51,7 @@ int	Fixed::toInt(void) const {
 	return (_rawBits >> _fracBits);
 }
 
-/******************** relational operators ********************/
+/******************** overloading relational operators ********************/
 bool	operator>(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits > f2._rawBits)
 		return (true);
@@ -101,7 +88,7 @@ bool	operator!=(const Fixed& f1, const Fixed& f2) {
 	return (false);
 }
 
-/******************** min and max member functions ********************/
+/******************** overloading arithmetic operators ********************/
 int	operator+(const Fixed& f1, const Fixed& f2) {
 	return (f1._rawBits + f2._rawBits);
 }
@@ -117,6 +104,33 @@ int	operator*(const Fixed& f1, const Fixed& f2) {
 int	operator/(const Fixed& f1, const Fixed& f2) {
 	return (f1._rawBits / f2._rawBits);
 }
+
+/******************** min and max member functions ********************/
+static Fixed&	min(Fixed& f1, Fixed& f2) {
+	if (f1._rawBits < f2._rawBits)
+		return (f1);
+	return (f2);
+}
+
+static Fixed&	min(const Fixed& f1, const Fixed& f2) {
+	if (f1._rawBits < f2._rawBits)
+		return (f1);
+	return (f2);
+}
+
+static Fixed&	max(Fixed& f1, Fixed& f2) {
+	if (f1._rawBits < f2._rawBits)
+		return (f2);
+	return (f1);
+}
+
+static Fixed&	max(const Fixed& f1, const Fixed& f2) {
+	if (f1._rawBits < f2._rawBits)
+		return (f2);
+	return (f1);
+}
+
+/******************** overloading operator << ********************/
 std::ostream&	operator<<(std::ostream& os, const Fixed& f) {
 	os << f.toFloat();
 	return (os);
