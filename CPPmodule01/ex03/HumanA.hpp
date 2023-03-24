@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 20:02:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 21:21:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:22:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@
 
 class	HumanA {
 	private :
-		std::string	name;
-		Weapon 		*weapon;
+		std::string	_name;
+		Weapon& 	_weapon;
 	public :
-		HumanA(std::string newName, Weapon &newWeapon) {
-			name = newName;
-			weapon = &newWeapon;
-		}
-		const std::string	&getName(void);
-		void	attack(void);
+		HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon) {}
+		const std::string&	getName(void);
+		void				attack(void);
 };
 
 #endif
