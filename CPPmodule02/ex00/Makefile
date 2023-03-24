@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/03/20 18:07:05 by jincpark         ###   ########.fr        #
+#    Updated: 2023/03/24 21:51:53 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,27 +15,29 @@ NAME = fixed
 CC = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
-DFLAGS = -fsanitize=address
 
 RM = rm -f
 
 SRCS = main.cpp Fixed.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-ifdef IF_DEBUG
-	$(FLAGS) += $(DFLAGS)
-endif
+%.o : %.cpp
+	$(CC) $(FLAGS) -I. -c $< -o $@
 
-$(NAME) : $(SRCS)
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS) -I .
+$(NAME) : $(OBJS)
+	$(CC) $(FLAGS) -I. $(OBJS) -o $(NAME)
 
 all : $(NAME)
 
 clean :
+	$(RM) $(OBJS)
+
+fclean :
+	$(MAKE) clean
 	$(RM) $(NAME)
 
 re :
-	$(MAKE) clean
+	$(MAKE) fclean
 	$(MAKE) all
 
-debug :
-	$(MAKE) IF_DEBUG=1
+.PHONY : all clean fclean re

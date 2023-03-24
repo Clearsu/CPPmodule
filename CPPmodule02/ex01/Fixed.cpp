@@ -6,18 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 16:43:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 21:49:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath>
 #include "Fixed.hpp"
-
-Fixed::Fixed() {
-	std::cout << "Default constructor called\n";
-	_rawBits = 0;
-}
 
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called\n";
@@ -28,15 +23,6 @@ Fixed::Fixed(const int value) {
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called\n";
 	_rawBits = roundf(value * (1 << _fracBits));
-}
-
-Fixed::Fixed(const Fixed& f) {
-	std::cout << "Copy constructor called\n";
-	_rawBits = f._rawBits;
-}
-
-Fixed::~Fixed() {
-	std::cout << "Destructor called\n";
 }
 
 void	Fixed::operator=(const Fixed& f) {
