@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 21:59:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:18:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ class	Fixed {
 		static Fixed&	min(const Fixed& f1, const Fixed& f2);
 		static Fixed&	max(Fixed& f1, Fixed& f2);
 		static Fixed&	max(const Fixed& f1, const Fixed& f2);
+
+		// overloading increment and decrement operators
+		Fixed	operator++(void);
+		Fixed	operator++(int);
+		Fixed	operator--(void);
+		Fixed	operator--(int);
 }
 
 // << overloading

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 22:03:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:29:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,24 @@ static Fixed&	max(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits < f2._rawBits)
 		return (f2);
 	return (f1);
+}
+
+/******************** overloading increment and decrement operators ********************/
+Fixed	operator++(void) {
+	Fixed	temp;
+
+	temp._rawBits = this._rawBits + 1;
+	return (temp);
+}
+
+Fixed	operator++(int) {
+
+}
+
+Fixed	operator--(void) {
+}
+
+Fixed	operator--(int) {
 }
 
 /******************** overloading operator << ********************/
