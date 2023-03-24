@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 21:49:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 21:57:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <cmath>
 #include "Fixed.hpp"
 
+/******************** OCF ********************/
+void	Fixed::operator=(const Fixed& f) {
+	std::cout << "Copy assignment operator called\n";
+	_rawBits = f._rawBits;
+}
+
+/******************** other constructors ********************/
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called\n";
 	_rawBits = value;
@@ -25,11 +32,8 @@ Fixed::Fixed(const float value) {
 	_rawBits = roundf(value * (1 << _fracBits));
 }
 
-void	Fixed::operator=(const Fixed& f) {
-	std::cout << "Copy assignment operator called\n";
-	_rawBits = f._rawBits;
-}
 
+/******************** member functions ********************/
 int	Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called\n";
 	return (_rawBits);
@@ -48,6 +52,7 @@ int	Fixed::toInt(void) const {
 	return (_rawBits >> _fracBits);
 }
 
+/******************** << operator overloading ********************/
 std::ostream&	operator<<(std::ostream& os, const Fixed& f) {
 	os << f.toFloat();
 	return (os);
