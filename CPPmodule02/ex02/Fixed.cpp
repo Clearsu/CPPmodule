@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 22:29:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/25 08:50:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,100 +52,109 @@ int	Fixed::toInt(void) const {
 }
 
 /******************** overloading relational operators ********************/
-bool	operator>(const Fixed& f1, const Fixed& f2) {
+bool	Fixed::operator>(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits > f2._rawBits)
 		return (true);
 	return (false);
 }
 
-bool	operator<(const Fixed& f, const Fixed& f2) {
+bool	Fixed::operator<(const Fixed& f, const Fixed& f2) {
 	if (f1._rawBits < f2._rawBits)
 		return (true);
 	return (false);
 }
 
-bool	operator>=(const Fixed& f1, const Fixed& f2) {
+bool	Fixed::operator>=(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits >= f2._rawBits)
 		return (true);
 	return (false);
 }
 
-bool	operator<=(const Fixed& f1, const Fixed& f2) {
+bool	Fixed::operator<=(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits <= f2._rawBits)
 		return (true);
 	return (false);
 }
 
-bool	operator==(const Fixed& f1, const Fixed& f2) {
+bool	Fixed::operator==(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits == f2._rawBits)
 		return (true);
 	return (false);
 }
 
-bool	operator!=(const Fixed& f1, const Fixed& f2) {
+bool	Fixed::operator!=(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits != f2._rawBits)
 		return (true);
 	return (false);
 }
 
 /******************** overloading arithmetic operators ********************/
-int	operator+(const Fixed& f1, const Fixed& f2) {
+int	Fixed::operator+(const Fixed& f1, const Fixed& f2) {
 	return (f1._rawBits + f2._rawBits);
 }
 
-int	operator-(const Fixed& f1, const Fixed& f2) {
+int	Fixed::operator-(const Fixed& f1, const Fixed& f2) {
 	return (f1._rawBits - f2._rawBits);
 }
 
-int	operator*(const Fixed& f1, const Fixed& f2) {
+int	Fixed::operator*(const Fixed& f1, const Fixed& f2) {
 	return (f1._rawBits * f2._rawBits);
 }
 
-int	operator/(const Fixed& f1, const Fixed& f2) {
+int	Fixed::operator/(const Fixed& f1, const Fixed& f2) {
 	return (f1._rawBits / f2._rawBits);
 }
 
 /******************** min and max member functions ********************/
-static Fixed&	min(Fixed& f1, Fixed& f2) {
+static Fixed::Fixed&	min(Fixed& f1, Fixed& f2) {
 	if (f1._rawBits < f2._rawBits)
 		return (f1);
 	return (f2);
 }
 
-static Fixed&	min(const Fixed& f1, const Fixed& f2) {
+static Fixed::Fixed&	min(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits < f2._rawBits)
 		return (f1);
 	return (f2);
 }
 
-static Fixed&	max(Fixed& f1, Fixed& f2) {
+static Fixed::Fixed&	max(Fixed& f1, Fixed& f2) {
 	if (f1._rawBits < f2._rawBits)
 		return (f2);
 	return (f1);
 }
 
-static Fixed&	max(const Fixed& f1, const Fixed& f2) {
+static Fixed::Fixed&	max(const Fixed& f1, const Fixed& f2) {
 	if (f1._rawBits < f2._rawBits)
 		return (f2);
 	return (f1);
 }
 
 /******************** overloading increment and decrement operators ********************/
-Fixed	operator++(void) {
+Fixed	Fixed::operator++(void) {
+	_rawBits += 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int) {
 	Fixed	temp;
 
-	temp._rawBits = this._rawBits + 1;
+	temp = *this;
+	_rawBits += 1;
 	return (temp);
 }
 
-Fixed	operator++(int) {
-
+Fixed	Fixed::operator--(void) {
+	_rawBits -= 1;
+	return (*this);
 }
 
-Fixed	operator--(void) {
-}
+Fixed	Fixed::operator--(int) {
+	Fixed	temp;
 
-Fixed	operator--(int) {
+	temp = *this;
+	_rawBits -= 1;
+	return (temp);
 }
 
 /******************** overloading operator << ********************/
