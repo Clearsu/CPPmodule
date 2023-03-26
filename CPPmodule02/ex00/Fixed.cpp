@@ -6,16 +6,17 @@
 /*   By: jincpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 21:51:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/26 21:16:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
 
-void	Fixed::operator=(const Fixed &f) {
+Fixed&	Fixed::operator=(const Fixed &f) {
 	std::cout << "Copy assignment operator called\n";
 	_value = f._value;
+	return (*this);
 }
 
 int	Fixed::getRawBits(void) const {

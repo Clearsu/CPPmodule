@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:58:54 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/16 17:42:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/26 21:14:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	Zombie::announce(void) {
 }
 
 void	Zombie::setName(std::string str) {
-	name = str;
+	_name = str;
 }
