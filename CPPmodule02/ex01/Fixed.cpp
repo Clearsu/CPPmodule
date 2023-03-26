@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 21:57:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:54:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 #include "Fixed.hpp"
 
 /******************** OCF ********************/
-void	Fixed::operator=(const Fixed& f) {
+Fixed&	Fixed::operator=(const Fixed& f) {
 	std::cout << "Copy assignment operator called\n";
 	_rawBits = f._rawBits;
+	return *this;
 }
 
 /******************** other constructors ********************/
@@ -36,7 +37,7 @@ Fixed::Fixed(const float value) {
 /******************** member functions ********************/
 int	Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called\n";
-	return (_rawBits);
+	return _rawBits;
 }
 
 void	Fixed::setRawBits(int const rawBits) {
@@ -55,5 +56,5 @@ int	Fixed::toInt(void) const {
 /******************** << operator overloading ********************/
 std::ostream&	operator<<(std::ostream& os, const Fixed& f) {
 	os << f.toFloat();
-	return (os);
+	return os;
 }
