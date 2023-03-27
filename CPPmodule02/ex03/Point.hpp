@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 16:14:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/26 21:11:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 14:16:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class	Point {
 
 		const Fixed&	getX(void);
 		const Fixed&	getY(void);
-		bool			isInLine(const Point& p1, const Point& p2, const Point& point);
 };
 
 #endif
