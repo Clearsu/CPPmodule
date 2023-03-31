@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:05:19 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 17:58:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:01:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
+
 // public
 int	Account::getNbAccounts( void ) {
 	return (_nbAccounts);
