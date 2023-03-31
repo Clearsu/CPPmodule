@@ -6,54 +6,54 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:08:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/22 14:47:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:57:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 bool	Contact::getState(void) const {
-	return (state == true);
+	return (_state == true);
 }
 
 const std::string&	Contact::getFirstName(void) const {
-	return (firstName);
+	return (_firstName);
 }
 
 const std::string&	Contact::getLastName(void) const {
-	return (lastName);
+	return (_lastName);
 }
 
 const std::string&	Contact::getNickName(void) const {
-	return (nickName);
+	return (_nickName);
 }
 
 const std::string&	Contact::getPhoneNumber(void) const {
-	return (phoneNumber);
+	return (_phoneNumber);
 }
 
 const std::string&	Contact::getDarkestSecret(void) const {
-	return (darkestSecret);
+	return (_darkestSecret);
 }
 
 void	Contact::setState(const bool state) {
-	this->state = state;
+	_state = state;
 }
 
 void	Contact::setFirstName(const std::string firstName) {
-	this->firstName = firstName;
+	_firstName = firstName;
 }
 
 void	Contact::setLastName(const std::string lastName) {
-	this->lastName = lastName;
+	_lastName = lastName;
 }
 void	Contact::setNickName(const std::string nickName) {
-	this->nickName = nickName;
+	_nickName = nickName;
 }
 void	Contact::setPhoneNumber(const std::string phoneNumber) {
-	this->phoneNumber = phoneNumber;
+	_phoneNumber = phoneNumber;
 }
 
 void	Contact::setDarkestSecret(const std::string darkestSecret) {
-	this->darkestSecret = darkestSecret;
+	_darkestSecret = darkestSecret;
 }

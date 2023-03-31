@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:03:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 20:06:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:43:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 class PhoneBook {
 	private :
-		Contact 			contact[8];
-		int					currentIdx;
+		Contact 			_contact[8];
+		int					_currentIdx;
 		void				increaseIndex(void);
 		void				printCategories(void) const;
 		void				printAllByIndex(void);
@@ -30,7 +30,7 @@ class PhoneBook {
 		int					getIdxToPrint(void);	
 		const std::string	putDotIfLong(const std::string str);
 	public :
-		PhoneBook() : currentIdx(0) {}
+		PhoneBook() : _currentIdx(0) {}
 		void add(void);
 		void search(void);
 		void printError(int flag) const;

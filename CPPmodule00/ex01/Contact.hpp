@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:43:55 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/24 20:06:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:58:18 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class Contact {
 	private :
-		bool		state;
-		std::string firstName;
-		std::string lastName;
-		std::string nickName;
-		std::string phoneNumber;
-		std::string darkestSecret;
+		bool		_state;
+		std::string _firstName;
+		std::string _lastName;
+		std::string _nickName;
+		std::string _phoneNumber;
+		std::string _darkestSecret;
 	public :
-		Contact() :state(false) {}
+		Contact() : _state(false) {}
 		bool				getState(void) const;
 		const std::string	&getFirstName(void) const;
 		const std::string	&getLastName(void) const;
