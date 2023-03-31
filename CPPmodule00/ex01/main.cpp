@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:10:36 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 19:32:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:56:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int	main(void) {
 			phonebook.search();
 		else if (input == "EXIT")
 			break ;
+		else if (std::cin.eof() == true) {
+			std::cout << std::endl;
+			break ;
+		}
+		else if (input == "\0")
+			continue ;
 		else
 			phonebook.printError(INVALID_COMMAND);
 	}
