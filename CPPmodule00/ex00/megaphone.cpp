@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:17:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 19:13:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:25:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	main(int argc, char **argv) {
 		}
 	}
 	std::cout << std::endl;
-	return (0);
+	return 0;
 }
