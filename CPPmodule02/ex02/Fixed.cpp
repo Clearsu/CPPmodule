@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/26 16:55:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:16:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ Fixed	Fixed::operator*(const Fixed& f) {
 Fixed	Fixed::operator/(const Fixed& f) {
 	Fixed	result;
 
-	result._rawBits = (this->_rawBits / f._rawBits) << this->_fracBits;
+	result._rawBits = (this->_rawBits << this->_fracBits) / f._rawBits;
 	return (result);
 }
 
