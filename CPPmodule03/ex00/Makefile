@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/03 20:40:20 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/03 21:26:46 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = claptrap
 
 CC = c++
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 #-Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = megaphone.cpp
+SRCS = main.cpp ClapTrap.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
