@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:05:19 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/31 21:01:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:59:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int	Account::_totalNbWithdrawals = 0;
 
 // public
 int	Account::getNbAccounts( void ) {
-	return (_nbAccounts);
+	return _nbAccounts;
 }
 
 int	Account::getTotalAmount( void ) {
-	return (_totalAmount);
+	return _totalAmount;
 }
 
 int	Account::getNbDeposits( void ) {
-	return (_totalNbDeposits);
+	return _totalNbDeposits;
 }
 
 int	Account::getNbWithdrawals( void ) {
-	return (_totalNbWithdrawals);
+	return _totalNbWithdrawals;
 }
 
 void	Account::displayAccountsInfos( void ) {
@@ -87,7 +87,7 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 	std::cout << "p_amount:" << p_amount << ';';
 	if (_amount < withdrawal) {
 		std::cout << "withdrawal:refused" << std::endl;
-		return (false);
+		return false;
 	}
 	std::cout << "withdrawal:" << withdrawal << ';';
 	_amount -= withdrawal;
@@ -96,11 +96,11 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 	_nbWithdrawals++;
 	std::cout << "nb_withdrawals:" << _nbWithdrawals << std::endl;
 	_totalNbWithdrawals++;
-	return (true);
+	return true;
 }
 
 int		Account::checkAmount( void ) const {
-	return (_amount);
+	return _amount;
 }
 
 void	Account::displayStatus( void ) const { 

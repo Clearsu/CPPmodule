@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/31 20:44:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:59:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	PhoneBook::getIdxToPrint(void) {
 	ssInt >> idxToPrint;
 	if (idxToPrint < 0 || idxToPrint > 7 || _contact[idxToPrint].getState() == false) {
 		printError(INDEX_OUT_OF_RANGE);
-		return (-1);
+		return -1;
 	}
 	return idxToPrint;
 }
