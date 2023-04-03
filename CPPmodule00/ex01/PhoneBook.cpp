@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:09:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/03 18:59:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:09:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	PhoneBook::add(void) {
 	std::cout << "first name: ";
 	std::getline(std::cin, tmp);
 	currentContact.setFirstName(tmp);
+	std::cout << "last name: ";
+	std::getline(std::cin, tmp);
+	currentContact.setLastName(tmp);
+	std::cout << "nickname: ";
 	std::getline(std::cin, tmp);
 	currentContact.setNickName(tmp);
 	std::cout << "phone number: ";
