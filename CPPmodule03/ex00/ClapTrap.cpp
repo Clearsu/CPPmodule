@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/03 21:43:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/04 00:49:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ ClapTrap::ClapTrap(const std::string name) :
 	std::cout << "string constructor called" << std::endl;
 }
 
-const std::string&	ClapTrap::getName(void) {
+const std::string&	ClapTrap::getName(void) const {
 	return _name;
+}
+
+void	ClapTrap::setAttackDamage(unsigned int attackDamage) const {
+	_attackDamage = attackDamage;
 }
 
 void	ClapTrap::attack(const std::string& target) {
@@ -52,7 +56,20 @@ void	ClapTrap::attack(const std::string& target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
+	unsigned int	diff;
+
+	if (_hitPoint <= amount) {
+		diff = _hitPoint;
+		_hitPoint = 0;
+	}
+	else {
+		diff = amount;
+		_hitPoint -= amount;
+	}
+	std::cout << "ClapTrap " << _name << " has taken damage of " << diff << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
+	_hitPoint += amount;
+	std::cout << "ClapTrap " << _name << " has repaired itself of " << amount << " hit point" << std::endl;
 }
