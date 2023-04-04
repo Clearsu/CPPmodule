@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/04 17:47:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:14:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,32 +49,39 @@ const std::string&	ClapTrap::getName(void) const {
 	return _name;
 }
 
-/*************************** setter ***************************/
-void	ClapTrap::setAttackDamage(unsigned int attackDamage) {
-	_attackDamage = attackDamage;
+unsigned int	ClapTrap::getAttackDamage(void) const {
+	return _attackDamage;
 }
 
-/*********************** behaviors ***********************/
+/*********************** actions ***********************/
 void	ClapTrap::attack(const std::string& target) {
+	if (_energyPoint == 0 || _hitPoint == 0) {
+		std::cout << "Attack failed: ClapTrap " << _name \
+			<< " has too low hit or energy point" << std::endl;
+		return ;
+	}
+	--_energyPoint;
 	std::cout << "ClapTrap " << _name << " attacks " << target \
 		<< ", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	unsigned int	diff;
-
-	if (_hitPoint <= amount) {
-		diff = _hitPoint;
+	if (_hitPoint <= amount)
 		_hitPoint = 0;
-	}
-	else {
-		diff = amount;
+	else
 		_hitPoint -= amount;
-	}
-	std::cout << "ClapTrap " << _name << " has taken damage of " << diff << std::endl;
+	std::cout << "ClapTrap " << _name << " has taken damage of " \
+		<< amount << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
+	if (_energyPoint == 0 || _hitPoint == 0) {
+		std::cout << "Repair failed: ClapTrap " << _name \
+			<< " has too low hit or energy point" << std::endl;
+		return ;
+	}
+	--_energyPoint;
 	_hitPoint += amount;
-	std::cout << "ClapTrap " << _name << " has repaired itself of " << amount << " hit point" << std::endl;
+	std::cout << "ClapTrap " << _name << " has repaired itself of " \
+		<< amount << " hit point" << std::endl;
 }

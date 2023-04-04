@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/04 17:43:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:13:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ class	ClapTrap {
 		
 		// getter
 		const std::string&	getName(void) const;
+		unsigned int		getAttackDamage(void) const;
 
-		// setter
-		void	setAttackDamage(unsigned int attackDamage);
-
-		// behaviors
+		// actions
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
