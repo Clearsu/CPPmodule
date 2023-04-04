@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/04 22:14:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:19:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,14 @@ unsigned int	ClapTrap::getAttackDamage(void) const {
 
 /*********************** actions ***********************/
 void	ClapTrap::attack(const std::string& target) {
-	if (_energyPoint == 0 || _hitPoint == 0) {
+	if (_energyPoint == 0) {
 		std::cout << "Attack failed: ClapTrap " << _name \
-			<< " has too low hit or energy point" << std::endl;
+			<< " has too low energy point" << std::endl;
+		return ;
+	}
+	if (_hitPoint == 0) {
+		std::cout << "Attack failed: ClapTrap " << _name \
+			<< " has too low hit point" << std::endl;
 		return ;
 	}
 	--_energyPoint;
@@ -75,9 +80,14 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	if (_energyPoint == 0 || _hitPoint == 0) {
+	if (_energyPoint == 0) {
 		std::cout << "Repair failed: ClapTrap " << _name \
-			<< " has too low hit or energy point" << std::endl;
+			<< " has too low energy point" << std::endl;
+		return ;
+	}
+	if (_hitPoint == 0) {
+		std::cout << "Repair failed: ClapTrap " << _name \
+			<< " has too low hit point" << std::endl;
 		return ;
 	}
 	--_energyPoint;
