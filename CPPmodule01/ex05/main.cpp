@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 14:55:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 21:27:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/04 21:49:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	main(void) {
 	harl.complain("INFO");
 	harl.complain("WARNING");
 	harl.complain("ERROR");
-	harl.complain("YES");
+	harl.complain("YES"); // does nothing
 	return 0;
 }
