@@ -6,16 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:10:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 20:24:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:10:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "Zombie.hpp"
-
-void	checkLeak(void) {
-	system("leaks --list zombie");
-}
 
 int	main(void) {
 	Zombie	dummy;
@@ -28,6 +23,5 @@ int	main(void) {
 	for (int i = 0; i < N; ++i)
 		horde[i].announce();
 	delete [] horde;
-	atexit(checkLeak);
 	return 0;
 }
