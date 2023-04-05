@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 14:56:33 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/26 18:08:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:49:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class	Harl {
 		void	error(void) const;
 	public :
 		Harl();
+		~Harl();
+
 		void	complain(std::string level);
 		int		getLevelStrIdx(std::string levelStr);
 };

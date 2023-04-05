@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 14:58:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/26 18:14:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:49:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	Harl::error(void) const {
 }
 
 //public
-Harl::Harl(void) {
+Harl::Harl() {
+	std::cout << "Harl constructor called" << std::endl;
 	levelStr[0] = "DEBUG";
 	levelStr[1] = "INFO";
 	levelStr[2] = "WARNING";
@@ -40,6 +41,10 @@ Harl::Harl(void) {
 	func[1] = &Harl::info;
 	func[2] = &Harl::warning;
 	func[3] = &Harl::error;
+}
+
+Harl::~Harl() {
+	std::cout << "Harl destructor called" << std::endl;
 }
 
 void	Harl::complain(std::string level) {
