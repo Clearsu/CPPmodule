@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/04 22:17:04 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/06 00:59:30 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = scavtrap
 
 CC = c++
 
@@ -18,7 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
