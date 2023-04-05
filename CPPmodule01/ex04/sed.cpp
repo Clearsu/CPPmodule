@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:52:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/23 20:36:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:56:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ Sed::Sed(char **argv) {
 	std::string fname;
 
 	fname = argv[1];
-	infile.open(fname);
-	outfile.open(fname.append(".replace"));
+	infile.open(fname, std::ios_base::in);
+	if (!infile.is_open()) {
+		std::cerr << "error: failed to open the file" << std::endl;
+		exit(1);
+	}
+	outfile.open(fname.append(".replace"), std::ios_base::out);
 	s1 = argv[2];
 	s2 = argv[3];
 }
