@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/04 22:16:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:21:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int	main(void) {
+	/********** ClapTrap **********/
 	ClapTrap a("jincpark");
 	ClapTrap b("sechung");
 	ClapTrap c;
@@ -48,6 +49,8 @@ int	main(void) {
 	d.takeDamage(1000000);
 	d.attack(a.getName());
 	d.beRepaired(10);
+
+	/********** ScavTrap **********/
 
 	return 0;
 }
