@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:11 by jincpark          #+#    #+#             */
-/*   Updated: 2023/03/26 16:52:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:53:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,10 @@ class	Fixed {
 		static const int	_fracBits = 8;
 	public :
 		//OCF
-		Fixed() : _rawBits(0) {
-			std::cout << "Default constructor called\n";
-		}
-		Fixed(const Fixed &f) : _rawBits(f._rawBits) {
-			std::cout << "Copy constructor called\n";
-		}
-		Fixed&	operator=(const Fixed& f);
-		~Fixed() {
-			std::cout << "Destructor called\n";
-		}
+		Fixed();
+		Fixed(const Fixed &f);
+		Fixed&	operator=(const Fixed &f);
+		~Fixed();
 
 		// other constructors
 		Fixed(const int value);
