@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 20:18:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:09:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ int	main(void)
 		b.attack(a.getName());
 		a.takeDamage(b.getAttackDamage());
 		a.beRepaired(10);
-		b.guardGate();
+	}
+	std::cout << std::endl;
+	std::cout << "### testing derived class's own function ###" << std::endl;
+	{
+		ScavTrap a("jincpark");
+		a.guardGate();
 	}
 	return 0;
 }
