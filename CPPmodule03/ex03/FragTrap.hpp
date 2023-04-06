@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:54:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:44:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 22:29:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 
 # include "ClapTrap.hpp"
 
-class	FragTrap : public ClapTrap
+class	FragTrap : virtual public ClapTrap
 {
 	public :
 		// OCF
 		FragTrap();
 		FragTrap(const FragTrap& s);
 		FragTrap&	operator=(const FragTrap& s);
-		~FragTrap();
+		virtual ~FragTrap();
 
 		// string constructor
 		FragTrap(const std::string name);
 
 		// actions
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	highFivesGuys(void);
+		virtual void	attack(const std::string& target);
+		virtual void	takeDamage(unsigned int amount);
+		virtual void	beRepaired(unsigned int amount);
+		void			highFivesGuys(void);
 };
 
 #endif
