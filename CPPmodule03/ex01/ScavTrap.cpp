@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 01:18:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:53:53 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 /****************************** OCF ******************************/
 ScavTrap::ScavTrap()
-	: _name("nobody"), _hitPoint(100), _energyPoint(50), _attackDamage(20)
+	: _name("nobody"), _energyPoints(50), _attackDamage(20)
 {
+	_hitPoints = 100;
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& s)
-	: _name(s._name), _hitPoint(s._hitPoint), _energyPoint(s._energyPoint)
+	: _name(s._name), _energyPoints(s._energyPoints), _attackDamage(s._attackDamage)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	_attackDamage = s._attackDamage;
+	_hitPoints = s._hitPoints;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& s)
@@ -41,9 +42,10 @@ ScavTrap::~ScavTrap()
 
 /*************************** other constructor ***************************/
 ScavTrap::ScavTrap(const std::string name) :
-	_name(name), _hitPoint(100), _energyPoint(50), _attackDamage(20)
+	_name(name), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << "ScavTrap string constructor called" << std::endl;
+	_hitPoints = 100;
 }
 
 /*************************** getter ***************************/
@@ -57,43 +59,43 @@ unsigned int	ScavTrap::getAttackDamage(void) const {
 
 /*********************** actions ***********************/
 void	ScavTrap::attack(const std::string& target) {
-	if (_energyPoint == 0) {
+	if (_energyPoints == 0) {
 		std::cout << "Attack failed: ScavTrap " << _name \
 			<< " has too low energy point" << std::endl;
 		return ;
 	}
-	if (_hitPoint == 0) {
+	if (_hitPoints == 0) {
 		std::cout << "Attack failed: ScavTrap " << _name \
 			<< " has too low hit point" << std::endl;
 		return ;
 	}
-	--_energyPoint;
+	--_energyPoints;
 	std::cout << "ScavTrap " << _name << " attacks " << target \
 		<< ", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::takeDamage(unsigned int amount) {
-	if (_hitPoint <= amount)
-		_hitPoint = 0;
+	if (_hitPoints <= amount)
+		_hitPoints = 0;
 	else
-		_hitPoint -= amount;
+		_hitPoints -= amount;
 	std::cout << "ScavTrap " << _name << " has taken damage of " \
 		<< amount << std::endl;
 }
 
 void	ScavTrap::beRepaired(unsigned int amount) {
-	if (_energyPoint == 0) {
+	if (_energyPoints == 0) {
 		std::cout << "Repair failed: ScavTrap " << _name \
 			<< " has too low energy point" << std::endl;
 		return ;
 	}
-	if (_hitPoint == 0) {
+	if (_hitPoints == 0) {
 		std::cout << "Repair failed: ScavTrap " << _name \
 			<< " has too low hit point" << std::endl;
 		return ;
 	}
-	--_energyPoint;
-	_hitPoint += amount;
+	--_energyPoints;
+	_hitPoints += amount;
 	std::cout << "ScavTrap " << _name << " has repaired itself of " \
 		<< amount << " hit point" << std::endl;
 }

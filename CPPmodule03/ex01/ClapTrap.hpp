@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 01:13:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:52:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 class	ClapTrap {
 	private :
 		const std::string	_name;
-		unsigned int		_hitPoint;
-		unsigned int		_energyPoint;
+		unsigned int		_energyPoints;
 		unsigned int		_attackDamage;
+	protected :
+		unsigned int		_hitPoints;
 	public :
 		// OCF
 		ClapTrap();
@@ -33,6 +34,7 @@ class	ClapTrap {
 		
 		// getter
 		virtual const std::string&	getName(void) const;
+		unsigned int				getHitPoints(void) const;
 		virtual unsigned int		getAttackDamage(void) const;
 
 		// actions
