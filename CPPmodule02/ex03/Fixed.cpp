@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/03 16:14:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 18:04:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 #include "Fixed.hpp"
 
 /******************** OCF ********************/
-Fixed&	Fixed::operator=(const Fixed& f) {
+Fixed::Fixed() : _rawBits(0) {}
+
+Fixed::Fixed(const Fixed &f) : _rawBits(f._rawBits) {}
+
+Fixed&	Fixed::operator=(const Fixed &f) {
 	_rawBits = f._rawBits;
-	return *this;
+	return (*this);
 }
+
+Fixed::~Fixed() {}
 
 /******************** other constructors ********************/
 Fixed::Fixed(const int value) {

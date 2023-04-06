@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:38:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/03 16:23:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:56:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,22 @@
 #include "Fixed.hpp"
 
 /******************** OCF ********************/
-Fixed&	Fixed::operator=(const Fixed& f) {
+Fixed::Fixed() : _rawBits(0) {
+	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed &f) : _rawBits(f._rawBits) {
+	std::cout << "Copy constructor called" << std::endl;
+}
+
+Fixed&	Fixed::operator=(const Fixed &f) {
+	std::cout << "Copy assignment operator called" << std::endl;
 	_rawBits = f._rawBits;
-	return *this;
+	return (*this);
+}
+
+Fixed::~Fixed() {
+	std::cout << "Destructor called" << std::endl;
 }
 
 /******************** other constructors ********************/
