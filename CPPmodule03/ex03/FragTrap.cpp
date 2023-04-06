@@ -1,0 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
+/*   Updated: 2023/04/06 21:46:04 by jincpark         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
+#include "FragTrap.hpp"
+
+/****************************** OCF ******************************/
+FragTrap::FragTrap() {
+	std::cout << "FragTrap default constructor called" << std::endl;
+	setName("nobody");
+	setHitPoints(100);
+	setEnergyPoints(50);
+	setAttackDamage(20);
+}
+
+FragTrap::FragTrap(const FragTrap& s) {
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	setName(s.getName());
+	setHitPoints(s.getHitPoints());
+	setEnergyPoints(s.getEnergyPoints());
+	setAttackDamage(s.getAttackDamage());
+}
+
+FragTrap&	FragTrap::operator=(const FragTrap& s) {
+	this->~FragTrap();
+	new (this) FragTrap(s);
+	return *this;
+}
+
+FragTrap::~FragTrap() {
+	std::cout << "FragTrap destructor of " << getName() << " called" << std::endl;
+}
+
+/*************************** other constructor ***************************/
+FragTrap::FragTrap(const std::string name) {
+	std::cout << "FragTrap string constructor called" << std::endl;
+	setName(name);
+	setHitPoints(100);
+	setEnergyPoints(50);
+	setAttackDamage(20);
+}
+
+/*********************** actions ***********************/
+void	FragTrap::attack(const std::string& target) {
+	if (getEnergyPoints() == 0) {
+		std::cout << "Attack failed: FragTrap " << getName() \
+			<< " has too low energy point" << std::endl;
+		return ;
+	}
+	if (getHitPoints() == 0) {
+		std::cout << "Attack failed: FragTrap " << getName() \
+			<< " has too low hit point" << std::endl;
+		return ;
+	}
+	setEnergyPoints(getEnergyPoints() - 1);
+	std::cout << "FragTrap " << getName() << " attacks " << target \
+		<< ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+}
+
+void	FragTrap::takeDamage(unsigned int amount) {
+	if (getHitPoints() <= amount)
+		setHitPoints(0);
+	else
+		setHitPoints(getHitPoints() - amount);
+	std::cout << "FragTrap " << getName() << " has taken damage of " \
+		<< amount << std::endl;
+}
+
+void	FragTrap::beRepaired(unsigned int amount) {
+	if (getEnergyPoints() == 0) {
+		std::cout << "Repair failed: FragTrap " << getName() \
+			<< " has too low energy point" << std::endl;
+		return ;
+	}
+	if (getHitPoints() == 0) {
+		std::cout << "Repair failed: FragTrap " << getName() \
+			<< " has too low hit point" << std::endl;
+		return ;
+	}
+	setEnergyPoints(getEnergyPoints() - 1);
+	setHitPoints(getHitPoints() + amount);
+	std::cout << "FragTrap " << getName() << " has repaired itself of " \
+		<< amount << " hit point" << std::endl;
+}
+
+void	FragTrap::highFivesGuys(void) {
+	std::cout << "FragTrap " << getName() << " has requested you a high-five!!" << std::endl;
+}
