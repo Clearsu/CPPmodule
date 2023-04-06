@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 20:48:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:58:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	ClapTrap {
 		ClapTrap&	operator=(const ClapTrap& c);
 		virtual ~ClapTrap();
 
-		// other constructors
+		// string constructors
 		ClapTrap(const std::string name);
 		
 		// getter

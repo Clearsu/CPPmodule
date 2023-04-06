@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:13:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 20:48:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:57:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class	ScavTrap : public ClapTrap
 		ScavTrap(const std::string name);
 
 		// getter
-		virtual const std::string&	getName(void) const;
-		virtual unsigned int		getAttackDamage(void) const;
+		const std::string&	getName(void) const;
+		unsigned int		getAttackDamage(void) const;
 
 		// actions
 		void	attack(const std::string& target);

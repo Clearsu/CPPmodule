@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 20:22:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:05:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void	ScavTrap::beRepaired(unsigned int amount) {
 		<< amount << " hit point" << std::endl;
 }
 
-void	ScavTrap::guardGate(void)
-{
+void	ScavTrap::guardGate(void) {
 	std::cout << "ScavTrap " << _name << " has started gate guarding" << std::endl;
 }
