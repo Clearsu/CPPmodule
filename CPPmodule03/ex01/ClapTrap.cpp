@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 19:55:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:18:38 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 /****************************** OCF ******************************/
 ClapTrap::ClapTrap()
-	: _name("nobody"), _energyPoints(10), _attackDamage(0), _hitPoints(10)
+	: _name("nobody"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& c) : 
-	_name(c._name), _energyPoints(c._energyPoints),
-	_attackDamage(c._attackDamage), _hitPoints(c._hitPoints)
+	_name(c._name), _hitPoints(c._hitPoints), _energyPoints(c._energyPoints),
+	_attackDamage(c._attackDamage)
 {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
@@ -39,7 +39,7 @@ ClapTrap::~ClapTrap() {
 
 /*************************** other constructor ***************************/
 ClapTrap::ClapTrap(const std::string name) :
-	_name(name), _energyPoints(10), _attackDamage(0), _hitPoints(10)
+	_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap string constructor called" << std::endl;
 }
@@ -47,10 +47,6 @@ ClapTrap::ClapTrap(const std::string name) :
 /*************************** getter ***************************/
 const std::string&	ClapTrap::getName(void) const {
 	return _name;
-}
-
-unsigned int	ClapTrap::getHitPoints(void) const {
-	return _hitPoints;
 }
 
 unsigned int	ClapTrap::getAttackDamage(void) const {

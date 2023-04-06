@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 19:54:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:18:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@ int	main(void)
 		a.takeDamage(b.getAttackDamage());
 		a.beRepaired(10);
 		b.guardGate();
-	}
-	std::cout << std::endl;
-	std::cout << "### checking hit points ###" << std::endl;
-	{
-		ClapTrap a("a");
-		ScavTrap b("b");
-		std::cout << "ClapTrap hit points: " << a.getHitPoints() << std::endl;
-		std::cout << "ScavTrap hit points: " << b.getHitPoints() << std::endl;
 	}
 	return 0;
 }

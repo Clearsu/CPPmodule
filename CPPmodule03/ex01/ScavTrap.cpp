@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 19:53:53 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 20:22:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 
 /****************************** OCF ******************************/
 ScavTrap::ScavTrap()
-	: _name("nobody"), _energyPoints(50), _attackDamage(20)
+	: _name("nobody"), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
-	_hitPoints = 100;
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& s)
-	: _name(s._name), _energyPoints(s._energyPoints), _attackDamage(s._attackDamage)
+	: _name(s._name), _hitPoints(s._hitPoints), \
+		  _energyPoints(s._energyPoints), _attackDamage(s._attackDamage)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	_hitPoints = s._hitPoints;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& s)
@@ -42,10 +41,9 @@ ScavTrap::~ScavTrap()
 
 /*************************** other constructor ***************************/
 ScavTrap::ScavTrap(const std::string name) :
-	_name(name), _energyPoints(50), _attackDamage(20)
+	_name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << "ScavTrap string constructor called" << std::endl;
-	_hitPoints = 100;
 }
 
 /*************************** getter ***************************/
