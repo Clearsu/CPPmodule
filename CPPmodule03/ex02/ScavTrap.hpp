@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:13:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:10:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:42:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 
 class	ScavTrap : public ClapTrap
 {
-	private :
-		const std::string	_name;
-		unsigned int		_hitPoints;
-		unsigned int		_energyPoints;
-		unsigned int		_attackDamage;
 	public :
 		// OCF
 		ScavTrap();
@@ -31,10 +26,6 @@ class	ScavTrap : public ClapTrap
 
 		// string constructor
 		ScavTrap(const std::string name);
-
-		// getter
-		const std::string&	getName(void) const;
-		unsigned int		getAttackDamage(void) const;
 
 		// actions
 		void	attack(const std::string& target);

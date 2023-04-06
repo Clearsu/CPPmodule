@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 20:58:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:29:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 class	ClapTrap {
 	private :
-		const std::string	_name;
-		unsigned int		_hitPoints;
-		unsigned int		_energyPoints;
-		unsigned int		_attackDamage;
+		std::string		_name;
+		unsigned int	_hitPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
 	public :
 		// OCF
 		ClapTrap();
@@ -32,9 +32,16 @@ class	ClapTrap {
 		ClapTrap(const std::string name);
 		
 		// getter
-		virtual const std::string&	getName(void) const;
-		unsigned int				getHitPoints(void) const;
-		virtual unsigned int		getAttackDamage(void) const;
+		const std::string&	getName(void) const;
+		unsigned int		getHitPoints(void) const;
+		unsigned int		getEnergyPoints(void) const;
+		unsigned int		getAttackDamage(void) const;
+
+		// setter
+		void	setName(const std::string name);
+		void	setHitPoints(unsigned int value);
+		void	setEnergyPoints(unsigned int value);
+		void	setAttackDamage(unsigned int value);
 
 		// actions
 		virtual void	attack(const std::string& target);
