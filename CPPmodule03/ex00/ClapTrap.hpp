@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 01:26:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:56:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ class	ClapTrap {
 		ClapTrap();
 		ClapTrap(const ClapTrap& c);
 		ClapTrap&	operator=(const ClapTrap& c);
-		virtual ~ClapTrap();
+		~ClapTrap();
 
 		// other constructors
 		ClapTrap(const std::string name);
 		
 		// getter
-		virtual const std::string&	getName(void) const;
-		virtual unsigned int		getAttackDamage(void) const;
+		const std::string&	getName(void) const;
+		unsigned int		getAttackDamage(void) const;
 
 		// actions
-		virtual void	attack(const std::string& target);
-		virtual void	takeDamage(unsigned int amount);
-		virtual void	beRepaired(unsigned int amount);
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 };
 
 #endif
