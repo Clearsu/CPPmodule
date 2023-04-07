@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:39:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:55:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,19 @@ void	ClapTrap::setEnergyPoints(unsigned int value) {
 
 void	ClapTrap::setAttackDamage(unsigned int value) {
 	_attackDamage = value;
+}
+
+/************************** initializer **********************/
+void	ClapTrap::initHitPoints(void) {
+	_hitPoints = 10;
+}
+
+void	ClapTrap::initEnergyPoints(void) {
+	_energyPoints = 10;
+}
+
+void	ClapTrap::initAttackDamage(void) {
+	_attackDamage = 0;
 }
 
 /*********************** actions ***********************/

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/07 11:59:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:53:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,20 @@ FragTrap::FragTrap(const std::string name) : ClapTrap(name) {
 	setEnergyPoints(50);
 	setAttackDamage(20);
 }
+
+/**************************** initializer ***************************/
+void	FragTrap::initHitPoints(void) {
+	setHitPoints(100);
+}
+
+void	FragTrap::initEnergyPoints(void) {
+	setEnergyPoints(100);
+}
+
+void	FragTrap::initAttackDamage(void) {
+	setAttackDamage(30);
+}
+
 
 /*********************** actions ***********************/
 void	FragTrap::attack(const std::string& target) {
