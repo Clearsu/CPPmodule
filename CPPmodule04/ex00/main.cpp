@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:10:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:32:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	main(void)
 {
-	// dynamic polymorphism
+	// subtype polymorphism
 	// calling overriden method is determined at runtime(dynamic binding)
 	{
 		Animal*	meta = new Animal();
@@ -30,7 +30,7 @@ int	main(void)
 		delete meta;
 	}
 	std::cout << std::endl;
-	// no virtualized makeSound() : means no dynamic polymorphism
+	// no virtualized makeSound() : means no subtype polymorphism
 	// everything is determined during compile time
 	{
 		{

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:34:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:11:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:32:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-// no dynamic polymorphism
+// no subtype polymorphism
 void	WrongCat::makeSound(void)
 {
 	std::cout << "WrongCat: Mweweeeweoweowoeow" << std::endl;
