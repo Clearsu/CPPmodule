@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/08 14:16:52 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/08 15:51:37 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = animal
 
 CC = c++
 
@@ -18,7 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
