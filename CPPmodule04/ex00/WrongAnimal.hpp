@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:38:04 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:07:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:16:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	WrongAnimal
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal& w);
 		WrongAnimal&	operator=(const WrongAnimal& w);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		// getter
 		const std::string&	getType(void) const;
