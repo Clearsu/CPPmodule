@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:12:17 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:10:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:53:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Dog::~Dog()
 }
 
 // overriding
-void	Dog::makeSound(void)
+void	Dog::makeSound(void) const
 {
 	std::cout << "Dog: Bark" << std::endl;
 }

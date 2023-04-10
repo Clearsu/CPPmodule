@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:40:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:12:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:53:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Cat::~Cat()
 }
 
 // overriding
-void	Cat::makeSound(void)
+void	Cat::makeSound(void) const
 {
 	std::cout << "Cat: Meow" << std::endl;
 }

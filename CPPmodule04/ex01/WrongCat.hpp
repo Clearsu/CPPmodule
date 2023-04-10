@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:32:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:07:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:56:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class	WrongCat : public WrongAnimal
 		WrongCat&	operator=(const WrongCat& w);
 		~WrongCat();
 
-		// no dynamic polymorphism
-		void	makeSound(void);
+		// no subtype polymorphism
+		void	makeSound(void) const;
 };
 
 #endif

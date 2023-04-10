@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:40:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 15:02:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:55:59 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Cat : public Animal
 		~Cat();
 
 		// overriding
-		void	makeSound(void);
+		void	makeSound(void) const;
 };
 
 #endif

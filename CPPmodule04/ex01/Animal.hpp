@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:17:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 15:25:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:29:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class	Animal
 		void	setType(const std::string& type);
 
 		// member function which children can override
-		virtual void	makeSound(void);
+		virtual void	makeSound(void) const;
 };
 
 #endif
