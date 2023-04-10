@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:51:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:59:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,34 @@
 
 int	main(void)
 {
-	// dynamic polymorphism
-	// calling overriden method is determined during runtime(dynamic binding)
+	// subtype polymorphism
+	// calling overriden method is determined at runtime(dynamic binding)
 	{
 		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
 		meta->makeSound();
-		i->makeSound(); //will output the cat sound!
-		j->makeSound();
 		delete meta;
-		delete j;
-		delete i;
+
+		const Animal* cat = new Cat();
+		std::cout << cat->getType() << " " << std::endl;
+		cat->makeSound(); //will output the cat sound!
+		delete cat;
+
+		const Animal* dog = new Dog();
+		std::cout << dog->getType() << " " << std::endl;
+		dog->makeSound();
+		delete dog;
 	}
 	std::cout << std::endl;
-	// no virtualized makeSound() : means no dynamic polymorphism
+	// no virtualized makeSound() : means no subtype polymorphism
 	// everything is determined during compile time
 	{
 		{
-			WrongAnimal* meta = new WrongAnimal();
+			const	WrongAnimal* meta = new WrongAnimal();
 			meta->makeSound();
 			delete meta;
-			meta = new WrongCat();
-			meta->makeSound(); // the function pointer is still pointing the function in the base class
-			delete meta;
+			const	WrongAnimal* cat = new WrongCat();
+			cat->makeSound(); // the function pointer is pointing the function in the base class
+			delete cat;
 		}
 		std::cout << std::endl;
 		{
