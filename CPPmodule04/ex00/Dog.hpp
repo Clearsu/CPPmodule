@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:10:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 15:20:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:56:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Dog : public Animal
 		~Dog();
 
 		// overriding
-		void	makeSound(void);
+		void	makeSound(void) const;
 };
 
 #endif

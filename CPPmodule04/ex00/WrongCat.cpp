@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:34:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:32:12 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:53:34 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ WrongCat::~WrongCat()
 }
 
 // no subtype polymorphism
-void	WrongCat::makeSound(void)
+void	WrongCat::makeSound(void) const
 {
 	std::cout << "WrongCat: Mweweeeweoweowoeow" << std::endl;
 }

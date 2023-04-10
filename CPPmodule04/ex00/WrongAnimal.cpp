@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:41:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/08 16:32:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:53:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	WrongAnimal::setType(const std::string type)
 }
 
 // no subtype polymorphism
-void	WrongAnimal::makeSound(void)
+void	WrongAnimal::makeSound(void) const
 {
 	std::cout << "WrongAnimal: What does the wrong animal say" << std::endl;
 }
