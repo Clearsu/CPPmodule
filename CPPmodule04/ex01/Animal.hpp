@@ -6,17 +6,21 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:17:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 17:29:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:14:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-#include <string>
+# include <string>
+
+# include "Brain.hpp"
 
 class	Animal
 {
+	private :
+		Brain*	brain;
 	protected :
 		std::string	type;
 	public :
@@ -28,9 +32,11 @@ class	Animal
 
 		// getter
 		const std::string	&getType(void) const;
+		const Brain*		getBrainPtr(void) const;
 
 		// setter
 		void	setType(const std::string& type);
+		void	setBrain(const std::string& idea);
 
 		// member function which children can override
 		virtual void	makeSound(void) const;

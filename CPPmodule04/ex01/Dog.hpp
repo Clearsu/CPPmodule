@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:10:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:56:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:55:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class	Dog : public Animal
 {
+	private :
+		Brain*	_brain;
 	public :
 		// Orthodox Canonical Form
 		Dog();

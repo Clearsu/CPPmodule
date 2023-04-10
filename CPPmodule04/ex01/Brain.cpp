@@ -6,9 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 21:02:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 21:14:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:44:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #include "Brain.hpp"
 
@@ -45,5 +47,5 @@ const std::string&	Brain::getIdea(int index) const
 
 void	Brain::setIdea(int index, const std::string str)
 {
-	this->idea[index] = idea;
+	this->ideas[index] = str;
 }

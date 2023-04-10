@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:28:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:53:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:20:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "Animal.hpp"
 
 // orthodox canonical form
-Animal::Animal() : type("animal")
+Animal::Animal() : brain(0), type("animal")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& a) : type(a.type)
+Animal::Animal(const Animal& a) : brain(0), type(a.type)
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 }
@@ -43,10 +43,24 @@ const std::string&	Animal::getType(void) const
 	return type;
 }
 
+const Brain*		Animal::getBrainPtr(void) const
+{
+	return brain;
+}
+
 // setter
 void	Animal::setType(const std::string& type)
 {
 	this->type = type;
+}
+
+void	Animal::setBrain(const std::string& idea)
+{
+	if (brain)
+	{
+		for (int i = 0; i < 100; i++)
+			brain->setIdea(i, idea);
+	}
 }
 
 // polymorphism

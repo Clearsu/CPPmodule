@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:59:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 22:29:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,35 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
 
+#include <stdlib.h>
 int	main(void)
 {
-	// subtype polymorphism
-	// calling overriden method is determined at runtime(dynamic binding)
 	{
-		const Animal* meta = new Animal();
-		meta->makeSound();
-		delete meta;
-
-		const Animal* cat = new Cat();
-		std::cout << cat->getType() << " " << std::endl;
-		cat->makeSound(); //will output the cat sound!
-		delete cat;
-
-		const Animal* dog = new Dog();
-		std::cout << dog->getType() << " " << std::endl;
-		dog->makeSound();
-		delete dog;
-	}
-	std::cout << std::endl;
-	// no virtualized makeSound() : means no subtype polymorphism
-	// everything is determined during compile time
-	{
+		// original animals
+		Animal*	animals[10];
+		for (int i = 0; i < 5; i++)
 		{
-			const	WrongAnimal* meta = new WrongAnimal();
-			meta->makeSound();
-			delete meta;
-			const	WrongAnimal* cat = new WrongCat();
-			cat->makeSound(); // the function pointer is pointing the function in the base class
-			delete cat;
+			animals[i] = new Cat();
+			animals[i]->setBrain("I want a fish");
 		}
-		std::cout << std::endl;
+		for (int j = 5; j < 10; j++)
 		{
-			WrongCat* cat = new WrongCat();
-			cat->makeSound();
-			delete cat;
+			animals[j] = new Dog();
+			animals[j]->setBrain("I want a bone");
 		}
-		std::cout << std::endl;
+
+		// copy animals and change original animal's brain
+		Animal animals_copy[10];
+		for (int l = 0; l < 10; l++)
+		{
+			animals_copy[l] = *animals[l];
+			animals[l]->setBrain("I am sleepy");
+		}
+		for (int m = 0; m < 10; m++)
+			std::cout << animals_copy[m].getBrainPtr()->getIdea(0) << std::endl;
+		for (int k = 0; k < 10; k++)
+			delete animals[k];
 	}
+	system("leaks animal");
 }
