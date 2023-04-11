@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:54:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/07 12:48:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:41:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	FragTrap : virtual public ClapTrap
 		FragTrap();
 		FragTrap(const FragTrap& s);
 		FragTrap&	operator=(const FragTrap& s);
-		virtual ~FragTrap();
+		~FragTrap();
 
 		// string constructor
 		FragTrap(const std::string name);
