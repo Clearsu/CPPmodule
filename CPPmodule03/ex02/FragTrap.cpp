@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/07 11:57:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:57:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 #include "FragTrap.hpp"
 
 /****************************** OCF ******************************/
-FragTrap::FragTrap() {
+FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "FragTrap default constructor called" << std::endl;
-	setName("nobody");
 	setHitPoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	setEnergyPoints(100);
+	setAttackDamage(30);
 }
 
-FragTrap::FragTrap(const FragTrap& s) {
+FragTrap::FragTrap(const FragTrap& f) : ClapTrap(f) {
 	std::cout << "FragTrap copy constructor called" << std::endl;
-	setName(s.getName());
-	setHitPoints(s.getHitPoints());
-	setEnergyPoints(s.getEnergyPoints());
-	setAttackDamage(s.getAttackDamage());
 }
 
-FragTrap&	FragTrap::operator=(const FragTrap& s) {
-	this->~FragTrap();
-	new (this) FragTrap(s);
+FragTrap&	FragTrap::operator=(const FragTrap& f) {
+	if (this != &f)
+	{
+		this->~FragTrap();
+		new (this) FragTrap(f);
+	}
 	return *this;
 }
 
@@ -44,8 +42,8 @@ FragTrap::~FragTrap() {
 FragTrap::FragTrap(const std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap string constructor called" << std::endl;
 	setHitPoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	setEnergyPoints(100);
+	setAttackDamage(30);
 }
 
 /*********************** actions ***********************/

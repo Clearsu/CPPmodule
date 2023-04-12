@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:39:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:28:44 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ ClapTrap::ClapTrap(const ClapTrap& c) :
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& c) {
-	this->~ClapTrap();
-	new (this) ClapTrap(c);
+	if (this != &c)
+	{
+		this->~ClapTrap();
+		new (this) ClapTrap(c);
+	}
 	return *this;
 }
 

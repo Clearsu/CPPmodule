@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/07 12:34:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:05:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	main(void)
 {
 	std::cout << "### testing constructor and destructor calls ###" << std::endl;
 	{
-		DiamondTrap a;
+		DiamondTrap a("hello");
+		DiamondTrap b(a);
+		DiamondTrap c("yes");
+		c = b;
 	}
 	std::cout << std::endl;
 	std::cout << "### checking attributes ###" << std::endl;

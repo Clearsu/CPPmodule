@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 21:49:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/07 12:59:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:07:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 	initHitPoints();
 	initEnergyPoints();
 	initAttackDamage();
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& d) : ClapTrap(d), ScavTrap(d), FragTrap(d) {
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
+	_name = d._name;
+}
+
+DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& d) {
+	if (this != &d)
+	{
+		this->~DiamondTrap();
+		new (this) DiamondTrap(d);
+	}
+	return *this;
 }
 
 DiamondTrap::~DiamondTrap() {

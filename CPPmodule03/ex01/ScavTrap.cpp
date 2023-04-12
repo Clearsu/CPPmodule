@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/07 11:56:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:25:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 #include "ScavTrap.hpp"
 
 /****************************** OCF ******************************/
-ScavTrap::ScavTrap() {
+ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	setName("nobody");
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackDamage(20);
 }
 
-ScavTrap::ScavTrap(const ScavTrap& s) {
+ScavTrap::ScavTrap(const ScavTrap& s) : ClapTrap(s) {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	setName(s.getName());
-	setHitPoints(s.getHitPoints());
-	setEnergyPoints(s.getEnergyPoints());
-	setAttackDamage(s.getAttackDamage());
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& s) {
-	this->~ScavTrap();
-	new (this) ScavTrap(s);
+	if (this != &s)
+	{
+		this->~ScavTrap();
+		new (this) ScavTrap(s);
+	}
 	return *this;
 }
 
