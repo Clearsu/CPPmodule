@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:12:17 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 22:00:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:32:04 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,23 @@ Dog::Dog() : Animal()
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	setType("Dog");
-	_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		_brain->setIdea(i, "I want a bone");
+	_brain = new Brain("I want a bone");
 }
 
-Dog::Dog(const Dog& d) : Animal()
+Dog::Dog(const Dog& d) : Animal(d)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	setType(d.getType());
-	_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		_brain->setIdea(i, d._brain->getIdea(i));
+	_brain = new Brain(*d._brain);
 }
 
 Dog&	Dog::operator=(const Dog& d)
 {
 	std::cout << "Dog copy assignment operator called" << std::endl;
-	setType(d.getType());
-	for (int i = 0; i < 100; i++)
-		_brain->setIdea(i, d._brain->getIdea(i));
+	if (this != &d)
+	{
+		Animal::operator=(d);
+		*_brain = *d._brain;
+	}
 	return *this;
 }
 
@@ -46,6 +43,19 @@ Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
 	delete _brain;
+}
+
+// string constructor
+Dog::Dog(const std::string idea)
+{
+	std::cout << "Dog string constructor called" << std::endl;
+	_brain = new Brain(idea);
+}
+
+// getter
+const Brain&	Dog::getBrain(void) const
+{
+	return *_brain;
 }
 
 // overriding

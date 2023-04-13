@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:40:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 21:57:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:44:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,19 @@
 class	Cat : public Animal
 {
 	private :
-		Brain*	_brain;
+		Brain	*_brain;
 	public :
 		// Orthodox Canonical Form
 		Cat();
 		Cat(const Cat& c);
 		Cat&	operator=(const Cat& c);
 		~Cat();
+
+		// string constructor
+		Cat(const std::string& idea);
+
+		// getter
+		const Brain&	getBrain(void) const;
 
 		// overriding
 		void	makeSound(void) const;

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:34:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:53:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:07:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ WrongCat::WrongCat() : WrongAnimal()
 	setType("WrongCat");
 }
 
-WrongCat::WrongCat(const WrongCat& c) : WrongAnimal()
+WrongCat::WrongCat(const WrongCat& c) : WrongAnimal(c)
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
-	setType(c.getType());
 }
 
 WrongCat&	WrongCat::operator=(const WrongCat& c)

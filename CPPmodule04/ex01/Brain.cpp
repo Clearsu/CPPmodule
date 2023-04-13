@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 21:02:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 21:44:14 by jincpark         ###   ########.fr       */
+/*   Created: 2023/04/13 16:24:20 by jincpark          #+#    #+#             */
+/*   Updated: 2023/04/13 16:57:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 #include "Brain.hpp"
 
-// Orthodox Canonical Form
+// OCF
 Brain::Brain()
 {
 	std::cout << "Brain default constructor called" << std::endl;
+	setIdea("no idea");
 }
 
-Brain::Brain(const Brain& b)
+Brain::Brain(const Brain &b)
 {
 	std::cout << "Brain copy constructor called" << std::endl;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = b.ideas[i];
+	setIdea(b.getIdea());
 }
 
-Brain&	Brain::operator=(const Brain& b)
+Brain&	Brain::operator=(const Brain &b)
 {
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = b.ideas[i];
-	return *this;
+	setIdea(b.getIdea());
+	return (*this);
 }
 
 Brain::~Brain()
@@ -39,13 +38,22 @@ Brain::~Brain()
 	std::cout << "Brain destructor called" << std::endl;
 }
 
-// getter and setter
-const std::string&	Brain::getIdea(int index) const
+// string constructor
+Brain::Brain(const std::string &idea)
 {
-	return this->ideas[index];
+	std::cout << "Brain string constructor called" << std::endl;
+	setIdea(idea);
 }
 
-void	Brain::setIdea(int index, const std::string str)
+// getter and setter
+const std::string&	Brain::getIdea(void) const
 {
-	this->ideas[index] = str;
+	return _ideaStr;
+}
+
+void	Brain::setIdea(const std::string idea)
+{
+	_ideaStr = idea;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = idea;
 }
