@@ -6,11 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 17:57:21 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:14:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdlib.h>
 
 #include "Cat.hpp"
 #include "Dog.hpp"
@@ -56,5 +57,6 @@ int	main(void)
 	you can't instantiate Animal object
 	Animal test("hello");
 	*/
+	system("leaks animal");
 	return 0;
 }
