@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 17:51:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:57:21 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,10 @@ int	main(void)
 	std::cout << "Dog2's idea: " << dog2->getBrain().getIdea() << std::endl;
 	delete dog1;
 	delete dog2;
+
+	/*
+	you can't instantiate Animal object
+	Animal test("hello");
+	*/
+	return 0;
 }

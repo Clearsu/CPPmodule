@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:17:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 17:43:28 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:54:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Animal
 		// setter
 		void	setType(const std::string& type);
 
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 };
 
 #endif

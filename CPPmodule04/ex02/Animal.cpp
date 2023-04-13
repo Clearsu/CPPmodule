@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:28:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 17:08:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:54:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,4 @@ const std::string&	Animal::getType(void) const
 void	Animal::setType(const std::string& type)
 {
 	this->type = type;
-}
-
-// polymorphism
-void	Animal::makeSound(void) const
-{
-	std::cout << "Animal: What does the animal say" << std::endl;
 }
