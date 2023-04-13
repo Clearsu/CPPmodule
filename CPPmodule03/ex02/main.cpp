@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:08:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:42:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ int	main(void)
 {
 	std::cout << "### testing constructor and destructor calls ###" << std::endl;
 	{
-		FragTrap test("test");
+		FragTrap test1("test1");
+		FragTrap test2(test1);
+		std::cout << test2.getHitPoints() << std::endl;
+		std::cout << test2.getEnergyPoints() << std::endl;
+		std::cout << test2.getAttackDamage() << std::endl;
 	}
 	std::cout << std::endl;
 	std::cout << "### testing virtual functions ###" << std::endl;
