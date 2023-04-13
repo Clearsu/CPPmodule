@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/13 19:03:50 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/13 19:39:33 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ RM = rm -f
 
 SRCS = main.cpp Makefile \
 	   AMateria.cpp Ice.cpp Cure.cpp \
-	   ICharacter.cpp Character.cpp \
-	   IMateriaSource.cpp MateriaSource.cpp
+	   Character.cpp \
+	   MateriaSource.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

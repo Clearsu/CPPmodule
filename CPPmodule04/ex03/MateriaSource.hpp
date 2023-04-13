@@ -6,12 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:31:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 19:34:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 19:43:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
+
+# include "IMateriaSource.hpp"
 
 class	MateriaSource : public IMateriaSource
 {
@@ -20,6 +22,9 @@ class	MateriaSource : public IMateriaSource
 		MateriaSource(MateriaSource const & c);
 		MateriaSource&	operator=(MateriaSource const & c);
 		~MateriaSource();
+
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
 };
 
 #endif
