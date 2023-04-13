@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:54:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/11 19:41:07 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:39:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ class	FragTrap : virtual public ClapTrap
 		FragTrap();
 		FragTrap(const FragTrap& s);
 		FragTrap&	operator=(const FragTrap& s);
-		~FragTrap();
+		virtual ~FragTrap();
 
 		// string constructor
 		FragTrap(const std::string name);
 
 		// initializer
-		void	initHitPoints(void);
-		void	initEnergyPoints(void);
-		void	initAttackDamage(void);
+		virtual void	initHitPoints(void);
+		virtual void	initEnergyPoints(void);
+		virtual void	initAttackDamage(void);
 		// actions
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		virtual void	takeDamage(unsigned int amount);
+		virtual void	beRepaired(unsigned int amount);
 		void	highFivesGuys(void);
 };
 

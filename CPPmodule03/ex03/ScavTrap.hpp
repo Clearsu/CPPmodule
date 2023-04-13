@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:13:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/11 19:40:37 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:40:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ class	ScavTrap : virtual public ClapTrap
 		ScavTrap();
 		ScavTrap(const ScavTrap& s);
 		ScavTrap&	operator=(const ScavTrap& s);
-		~ScavTrap();
+		virtual ~ScavTrap();
 
 		// string constructor
 		ScavTrap(const std::string name);
 
 		// initializer
-		void	initHitPoints(void);
-		void	initEnergyPoints(void);
-		void	initAttackDamage(void);
+		virtual void	initHitPoints(void);
+		virtual void	initEnergyPoints(void);
+		virtual void	initAttackDamage(void);
 
 		// actions
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		virtual void	takeDamage(unsigned int amount);
+		virtual void	beRepaired(unsigned int amount);
 		void			guardGate(void);
 };
 
