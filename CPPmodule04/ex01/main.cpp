@@ -6,11 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 17:58:06 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:13:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdlib.h>
 
 #include "Cat.hpp"
 #include "Dog.hpp"
@@ -52,5 +53,6 @@ int	main(void)
 	delete dog1;
 	delete dog2;
 	
+	system("leaks animal");
 	return 0;
 }
