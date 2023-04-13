@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:12:17 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:53:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:07:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ Dog::Dog() : Animal()
 	setType("Dog");
 }
 
-Dog::Dog(const Dog& d) : Animal()
+Dog::Dog(const Dog& d) : Animal(d)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	setType(d.getType());
 }
 
 Dog&	Dog::operator=(const Dog& d)

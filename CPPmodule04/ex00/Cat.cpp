@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:40:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:53:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:06:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ Cat::Cat() : Animal()
 	setType("Cat");
 }
 
-Cat::Cat(const Cat& c) : Animal()
+Cat::Cat(const Cat& c) : Animal(c)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	setType(c.getType());
 }
 
 Cat&	Cat::operator=(const Cat& c)
