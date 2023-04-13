@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/12 18:05:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:02:30 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,24 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << "### checking actions ###" << std::endl;
 	{
-		DiamondTrap a("jincpark");
-		a.attack("a tree");
-		a.takeDamage(100);
-		a.beRepaired(100);
+		{
+			DiamondTrap a("jincpark");
+			a.attack("a tree");
+			a.takeDamage(100);
+			a.beRepaired(100);
+		}
+		ClapTrap *test1 = new ClapTrap("test1");
+		ClapTrap *test2 = new ScavTrap("test2");
+		ClapTrap *test3 = new FragTrap("test3");
+		ClapTrap *test4 = new DiamondTrap("test4");
+		test1->attack("a frog");
+		test2->attack("a frog");
+		test3->attack("a frog");
+		test4->attack("a frog");
+		delete test1;
+		delete test2;
+		delete test3;
+		delete test4;
 	}
 	std::cout << std::endl;
 	std::cout << "### checking own member function ###" << std::endl;
