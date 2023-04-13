@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 17:51:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:58:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ int	main(void)
 	std::cout << "Dog2's idea: " << dog2->getBrain().getIdea() << std::endl;
 	delete dog1;
 	delete dog2;
+	
+	return 0;
 }
