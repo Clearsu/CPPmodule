@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:13:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 14:40:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:10:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	ScavTrap : virtual public ClapTrap
 		virtual ~ScavTrap();
 
 		// string constructor
-		ScavTrap(const std::string name);
+		ScavTrap(const std::string& name);
 
 		// initializer
 		virtual void	initHitPoints(void);

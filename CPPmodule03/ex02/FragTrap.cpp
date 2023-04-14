@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/12 17:57:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:50:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ FragTrap::~FragTrap() {
 }
 
 /*************************** string constructor ***************************/
-FragTrap::FragTrap(const std::string name) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
 	std::cout << "FragTrap string constructor called" << std::endl;
 	setHitPoints(100);
 	setEnergyPoints(100);

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:54:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:44:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:50:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	FragTrap : public ClapTrap
 		~FragTrap();
 
 		// string constructor
-		FragTrap(const std::string name);
+		FragTrap(const std::string& name);
 
 		// actions
 		void	attack(const std::string& target);

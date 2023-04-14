@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/12 17:30:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:12:45 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ClapTrap::~ClapTrap() {
 }
 
 /*************************** other constructor ***************************/
-ClapTrap::ClapTrap(const std::string name) :
+ClapTrap::ClapTrap(const std::string& name) :
 	_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "string constructor called" << std::endl;
@@ -65,10 +65,6 @@ unsigned int	ClapTrap::getAttackDamage(void) const {
 }
 
 /*************************** setter ***************************/
-void	ClapTrap::setName(const std::string name) {
-	_name = name;
-}
-
 void	ClapTrap::setHitPoints(unsigned int value) {
 	_hitPoints = value;
 }

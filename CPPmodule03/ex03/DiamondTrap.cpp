@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 21:49:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/12 18:07:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:18:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,10 @@ DiamondTrap::~DiamondTrap() {
 }
 
 // string constructor
-DiamondTrap::DiamondTrap(const std::string name)
-	: ClapTrap(name), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(const std::string& name)
+	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
 	std::cout << "DiamondTrap string constructor called" << std::endl;
-	_name = name;
-	setName(name + "_clap_name");
 	initHitPoints();
 	initEnergyPoints();
 	initAttackDamage();

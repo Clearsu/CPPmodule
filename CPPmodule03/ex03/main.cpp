@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:40:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 15:02:30 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:03:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	main(void)
 		test2->attack("a frog");
 		test3->attack("a frog");
 		test4->attack("a frog");
+		test4->takeDamage(99);
+		test4->beRepaired(99);
 		delete test1;
 		delete test2;
 		delete test3;

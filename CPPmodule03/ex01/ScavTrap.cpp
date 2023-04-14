@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/12 18:25:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:49:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ScavTrap::~ScavTrap() {
 }
 
 /*************************** string constructor ***************************/
-ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
 	std::cout << "ScavTrap string constructor called" << std::endl;
 	setHitPoints(100);
 	setEnergyPoints(50);

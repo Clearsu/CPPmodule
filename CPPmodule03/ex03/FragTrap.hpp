@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:54:59 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 14:39:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:10:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	FragTrap : virtual public ClapTrap
 		virtual ~FragTrap();
 
 		// string constructor
-		FragTrap(const std::string name);
+		FragTrap(const std::string& name);
 
 		// initializer
 		virtual void	initHitPoints(void);

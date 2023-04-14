@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:41:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/12 18:26:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:06:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,6 @@ unsigned int	ClapTrap::getAttackDamage(void) const {
 }
 
 /*************************** setter ***************************/
-void	ClapTrap::setName(const std::string name) {
-	_name = name;
-}
-
 void	ClapTrap::setHitPoints(unsigned int value) {
 	_hitPoints = value;
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:13:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/06 21:42:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:47:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	ScavTrap : public ClapTrap
 		~ScavTrap();
 
 		// string constructor
-		ScavTrap(const std::string name);
+		ScavTrap(const std::string& name);
 
 		// actions
 		void	attack(const std::string& target);
