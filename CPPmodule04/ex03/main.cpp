@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:39:43 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 15:01:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/15 04:00:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include "Cure.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include "Floor.hpp"
 
+#include <stdlib.h>
 int	main(void)
 {
 	IMateriaSource* src = new MateriaSource();
@@ -38,5 +40,6 @@ int	main(void)
 	delete me;
 	delete src;
 
+	system("leaks --list Materia");
 	return 0;
 }

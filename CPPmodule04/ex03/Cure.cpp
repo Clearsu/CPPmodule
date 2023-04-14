@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:26:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 14:51:56 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/15 03:51:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 #include "Cure.hpp"
+#include "Character.hpp"
 
 Cure::Cure() : AMateria("cure")
 {
@@ -41,7 +42,7 @@ Cure::~Cure()
 
 AMateria*	Cure::clone(void) const
 {
-	return (new Cure(c));
+	return (new Cure(*this));
 }
 
 void	Cure::use(ICharacter& target)

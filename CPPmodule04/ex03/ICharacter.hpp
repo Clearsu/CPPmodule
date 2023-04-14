@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:44:04 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 15:03:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:39:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
+
+class AMateria;
 
 class ICharacter
 {

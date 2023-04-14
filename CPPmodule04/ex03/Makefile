@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/13 19:39:33 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/15 03:36:30 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animal
+NAME = Materia
 
 CC = c++
 
@@ -18,10 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp Makefile \
-	   AMateria.cpp Ice.cpp Cure.cpp \
-	   Character.cpp \
-	   MateriaSource.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp Floor.cpp MateriaSource.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
