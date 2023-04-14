@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:15:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 14:51:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:01:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define AMATERIA_HPP
 
 # include <string>
+
+# include "ICharacter.hpp"
 
 class	AMateria
 {

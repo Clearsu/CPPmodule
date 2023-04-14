@@ -6,11 +6,15 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:39:43 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 18:41:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:01:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int	main(void)
 {
