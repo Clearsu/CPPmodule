@@ -6,9 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:33:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 04:27:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:51:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #include "Character.hpp"
 

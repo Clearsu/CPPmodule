@@ -6,12 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:15:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 03:07:04 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:51:26 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
+
+# include <string>
 
 class	AMateria
 {

@@ -6,12 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:31:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 19:43:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:52:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
+
+# include <string>
 
 # include "IMateriaSource.hpp"
 

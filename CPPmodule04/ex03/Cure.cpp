@@ -6,9 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:26:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 03:31:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:51:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #include "Cure.hpp"
 

@@ -6,9 +6,11 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:15:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 03:25:59 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:52:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #include "Ice.hpp"
 

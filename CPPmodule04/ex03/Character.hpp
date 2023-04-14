@@ -6,12 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:24:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 04:17:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:51:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
+
+# include <string>
 
 # include "ICharacter.hpp"
 
