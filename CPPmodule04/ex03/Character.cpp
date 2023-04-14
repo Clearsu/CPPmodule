@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 03:33:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/15 04:08:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/15 04:15:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,6 @@ void	Character::use(int idx, ICharacter& target)
 	if (idx < 0 || idx > 3 || _inventory[idx] == NULL)
 		return ;
 	_inventory[idx]->use(target);
-	/*
-	if (_inventory[idx]->getType() == "ice")
-		Ice::use(target);
-	else
-		Cure::use(target);
-		*/
 	delete _inventory[idx];
 	_inventory[idx] = NULL;
 }
