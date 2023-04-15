@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:36:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/15 03:56:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:08:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@
 
 Floor::Floor()
 {
-	std::cout << "Floor default constructor called" << std::endl;
 	for (int i = 0; i < MAXITEM; i++)
 		_dropped[i] = NULL;
 }
 
 Floor::Floor(const Floor& c)
 {
-	std::cout << "Floor copy constructor called" << std::endl;
 	for (int i = 0; i < MAXITEM; i++)
 	{
 		if (c._dropped[i] != NULL)
@@ -51,7 +49,6 @@ Floor&	Floor::operator=(const Floor& c)
 
 Floor::~Floor()
 {
-	std::cout << "Floor destructor called" << std::endl;
 	for (int i = 0; i < MAXITEM; i++)
 	{
 		if (_dropped[i] != NULL)
@@ -69,19 +66,15 @@ void	Floor::setDropped(AMateria* m)
 			return ;
 		}
 	}
-	std::cout << "Too many Materias on the floor" << std::endl;
 }
 
-const AMateria*	Floor::unsetDropped(const AMateria* m)
+AMateria*	Floor::unsetDropped(int idx)
 {
-	for (int i = 0; i < MAXITEM; i++)
-	{
-		if (_dropped[i] == m)
-		{
-			_dropped[i] = NULL;
-			return m;
-		}
-	}
-	std::cout << "No Materias on the floor" << std::endl;
-	return NULL;
+	AMateria*	temp;
+
+	if (idx < 0 || idx > 9 || _dropped[idx] == NULL)
+		return NULL;
+	temp = _dropped[idx];
+	_dropped[idx] = NULL;
+	return temp;
 }

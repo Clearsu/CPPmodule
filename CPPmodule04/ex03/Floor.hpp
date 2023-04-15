@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:36:08 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/15 03:55:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:04:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class	Floor
 		Floor&	operator=(const Floor& c);
 		~Floor();
 
-		void			setDropped(AMateria* m);
-		const AMateria*	unsetDropped(const AMateria* m);
+		void		setDropped(AMateria* m);
+		AMateria*	unsetDropped(int idx);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:37:28 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/15 03:58:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:43:52 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource() : _ice(NULL), _cure(NULL)
-{
-	std::cout << "MateriaSource default constructor called" << std::endl;
-}
+MateriaSource::MateriaSource() : _ice(NULL), _cure(NULL) {}
 
 MateriaSource::MateriaSource(MateriaSource const & c) : _ice(NULL), _cure(NULL)
 {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
 	if (c._ice != NULL)
 		_ice = new Ice();
 	if (c._cure != NULL)
@@ -59,5 +55,6 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		return _ice->clone();
 	if (type == "cure" && _cure != NULL)
 		return _cure->clone();
+	std::cout << "No such Materia type: " << type << std::endl;
 	return NULL;
 }

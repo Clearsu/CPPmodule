@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:15:53 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/15 04:06:45 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:49:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	AMateria
 	protected:
 		std::string const	_type;
     public:
+		AMateria(AMateria const & c);
 		AMateria(std::string const & type);
 		virtual ~AMateria();
 
