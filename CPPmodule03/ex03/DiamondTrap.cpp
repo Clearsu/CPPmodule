@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 21:49:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 13:18:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:17:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "DiamondTrap.hpp"
 
 // OCF
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
+DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap() {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 	_name = "nobody";
 	initHitPoints();
@@ -28,11 +28,10 @@ DiamondTrap::DiamondTrap(const DiamondTrap& d) : ClapTrap(d), ScavTrap(d), FragT
 }
 
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& d) {
-	if (this != &d)
-	{
-		this->~DiamondTrap();
-		new (this) DiamondTrap(d);
-	}
+	if (this == &d)
+		return *this;
+	this->~DiamondTrap();
+	new (this) DiamondTrap(d);
 	return *this;
 }
 
@@ -42,7 +41,8 @@ DiamondTrap::~DiamondTrap() {
 
 // string constructor
 DiamondTrap::DiamondTrap(const std::string& name)
-	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
+	: ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), \
+		  FragTrap(name + "_clap_name"), _name(name)
 {
 	std::cout << "DiamondTrap string constructor called" << std::endl;
 	initHitPoints();

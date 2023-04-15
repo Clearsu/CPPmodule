@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 13:10:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:18:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ ScavTrap::ScavTrap(const ScavTrap& s) : ClapTrap(s) {
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& s) {
-	if (this != &s)
-	{
-		this->~ScavTrap();
-		new (this) ScavTrap(s);
-	}
+	if (this == &s)
+		return *this;
+	this->~ScavTrap();
+	new (this) ScavTrap(s);
 	return *this;
 }
 

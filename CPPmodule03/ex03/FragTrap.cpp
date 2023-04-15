@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:12:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/14 13:15:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:17:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ FragTrap::FragTrap(const FragTrap& f) : ClapTrap(f) {
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap& f) {
-	if (this != &f)
-	{
-		this->~FragTrap();
-		new (this) FragTrap(f);
-	}
+	if (this == &f)
+		return *this;
+	this->~FragTrap();
+	new (this) FragTrap(f);
 	return *this;
 }
 
