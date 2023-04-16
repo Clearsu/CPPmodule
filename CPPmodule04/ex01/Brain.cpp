@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:24:20 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 16:57:52 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:09:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,11 @@ Brain::Brain(const std::string &idea)
 // getter and setter
 const std::string&	Brain::getIdea(void) const
 {
-	return _ideaStr;
+	return _ideas[0];
 }
 
 void	Brain::setIdea(const std::string idea)
 {
-	_ideaStr = idea;
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = idea;
 }

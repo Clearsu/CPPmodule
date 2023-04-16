@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:24:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 16:58:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:09:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class	Brain
 {
 	private :
-		std::string _ideaStr;
 		std::string	_ideas[100];
 	public :
 		// OCF

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 18:13:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:10:02 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(void)
 
 	std::cout << "*** testing Dog ***" << std::endl;
 	Dog	*dog1 = new Dog();
-	Dog	*dog2 = new Dog("I'm not a dat");
+	Dog	*dog2 = new Dog("I'm not a dog");
 	std::cout << "Dog1's idea: " << dog1->getBrain().getIdea() << std::endl;
 	std::cout << "Dog2's idea: " << dog2->getBrain().getIdea() << std::endl;
 	*dog1 = *dog2;
