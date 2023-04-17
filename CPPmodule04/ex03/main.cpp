@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:39:43 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/17 17:36:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:39:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ void	test(void)
 int	main(void)
 {
 	test();
-	system("leaks Materia");
+	system("leaks materia");
 	return 0;
 }
