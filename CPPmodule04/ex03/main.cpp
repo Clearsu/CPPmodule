@@ -6,11 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:39:43 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/17 14:34:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:31:03 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdlib.h>
 
 #include "AMateria.hpp"
 #include "Ice.hpp"
@@ -19,7 +20,6 @@
 #include "MateriaSource.hpp"
 #include "Floor.hpp"
 
-#include <stdlib.h>
 void	test(void)
 {
 	std::cout << "*** testing actions ***" << std::endl;
