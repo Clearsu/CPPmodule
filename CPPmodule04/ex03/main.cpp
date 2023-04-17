@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:39:43 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/17 17:31:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:36:50 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	test(void)
 		Character* sam = new Character("sam");
 		*sam = *me;
 		Character* bob = new Character("bob");
-		std::cout << "// me's actions" << std::endl;
+		std::cout << "// my actions" << std::endl;
 		me->use(0, *bob);
 		me->use(1, *bob);
 		me->use(2, *bob);
