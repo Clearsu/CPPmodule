@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/13 18:13:09 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:27:28 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-int	main(void)
+void	test(void)
 {
 	std::cout << "*** testing as an array of animals ***" << std::endl;
 	Animal	*animals[4];
@@ -52,7 +52,11 @@ int	main(void)
 	std::cout << "Dog2's idea: " << dog2->getBrain().getIdea() << std::endl;
 	delete dog1;
 	delete dog2;
-	
+}
+
+int	main(void)
+{
+	test();	
 	system("leaks animal");
 	return 0;
 }
