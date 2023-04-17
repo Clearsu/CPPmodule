@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/17 17:29:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:34:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,6 @@
 
 void	test(void)
 {
-	std::cout << "*** testing as an array of animals ***" << std::endl;
-	Animal	*animals[4];
-	for (int i = 0; i < 2; i++)
-		animals[i] = new Cat();
-	for (int j = 2; j < 4; j++)
-		animals[j] = new Dog();
-	for (int k = 0; k < 4; k++)
-		animals[k]->makeSound();
-	for (int l = 0; l < 4; l++)
-		delete animals[l];
-	std::cout << std::endl;
-
 	std::cout << "*** testing Cat ***" << std::endl;
 	Cat	*cat1 = new Cat();
 	Cat	*cat2 = new Cat("I'm not a cat");
@@ -52,6 +40,18 @@ void	test(void)
 	std::cout << "Dog2's idea: " << dog2->getBrain().getIdea() << std::endl;
 	delete dog1;
 	delete dog2;
+	std::cout << std::endl;
+
+	std::cout << "*** testing as an array of animals ***" << std::endl;
+	Animal	*animals[4];
+	for (int i = 0; i < 2; i++)
+		animals[i] = new Cat();
+	for (int j = 2; j < 4; j++)
+		animals[j] = new Dog();
+	for (int k = 0; k < 4; k++)
+		animals[k]->makeSound();
+	for (int l = 0; l < 4; l++)
+		delete animals[l];
 }
 
 int	main(void)
