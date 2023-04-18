@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:57:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 15:52:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:17:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ void	Form::beSigned(const Bureaucrat& b)
 		throw Form::GradeTooLowException();
 }
 
+void	Form::execute(const Bureaucrat& execute) const
+{
+	if (_signed == false || execute.getGrade() > _grade2sign)
+		throw Form::CanNotExecuteException();
+}
+
 const char*	Form::GradeTooHighException::what(void) const throw()
 {
 	return ("exception occurred: grade too high");
@@ -58,6 +64,11 @@ const char*	Form::GradeTooHighException::what(void) const throw()
 const char*	Form::GradeTooLowException::what(void) const throw()
 {
 	return ("exception occurred: grade too low");
+}
+
+const char* Form::CanNotExecuteException::what(void) const throw()
+{
+	return ("exception occurred: execution not possible");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& f)
