@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:57:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 11:41:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:52:47 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,18 @@ void	Form::beSigned(const Bureaucrat& b)
 {
 	if (b.getGrade() <= _grade2sign)
 		_signed = true;
+	else
+		throw Form::GradeTooLowException();
 }
 
 const char*	Form::GradeTooHighException::what(void) const throw()
 {
-	return ("exception occurred: form's grade too high");
+	return ("exception occurred: grade too high");
 }
 
 const char*	Form::GradeTooLowException::what(void) const throw()
 {
-	return ("exception occurred: form's grade too low");
+	return ("exception occurred: grade too low");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& f)

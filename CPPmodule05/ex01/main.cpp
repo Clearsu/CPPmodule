@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:58 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 11:45:36 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:01:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,12 @@ int	main(void)
 	}
 	std::cout << std::endl;
 	{
+		Bureaucrat boss("boss", 101);
 		try
 		{
 			std::cout << "*** case4 : testing signForm() ***" << std::endl;
 			{
-				Bureaucrat boss("boss", 101);
 				std::cout << boss << std::endl;
-
 				Form form1("form1", 101, 100);
 				boss.signForm(form1);
 				form1.beSigned(boss);
@@ -93,12 +92,18 @@ int	main(void)
 				boss.signForm(form2);
 				form2.beSigned(boss);
 				boss.signForm(form2);
-
-				Form form3("form3", 149, 100);
-				form3.beSigned(boss);
-				Bureaucrat jack("jack", 150);
-				jack.signForm(form3);
 			}
+		}
+		catch (std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		try
+		{
+			Form form3("form3", 149, 100);
+			form3.beSigned(boss);
+			Bureaucrat jack("jack", 150);
+			jack.signForm(form3);
 		}
 		catch (std::exception& e)
 		{

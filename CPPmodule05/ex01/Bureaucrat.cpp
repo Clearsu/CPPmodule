@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 11:39:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:52:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	Bureaucrat::signForm(const Form& f) const
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("exception occurred: bureaucrat's grade too high");
+	return ("exception occurred: grade too high");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("exception occurred: bureaucrat's grade too low");
+	return ("exception occurred: grade too low");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& b)
