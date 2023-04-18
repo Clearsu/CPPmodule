@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AFrom.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:44:20 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 16:15:41 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:31:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,17 @@ class	AForm
 		AForm(const Form& src);
 		AForm(const std::string& _name, const int _grade2sign, const int _grade2execute);
 		AForm&	operator=(const Form& src);
-		~AForm();
+		virtual ~AForm();
 
 		const std::string&	getName(void) const;
 		bool				getSigned(void) const;
 		int					getGrade2Sign(void) const;
 		int					getGrade2Execute(void) const;
 
-		void	beSigned(const Bureaucrat& b);
-		void	execute(const Bureaucrat& execute);
+		void	setSigned(bool value);
+
+		void			beSigned(const Bureaucrat& b);
+		virtual void	execute(const Bureaucrat& execute) const = 0;
 
 		class	GradeTooHighException : public std::exception
 		{
@@ -52,11 +54,6 @@ class	AForm
 		{
 			public :
 				const char*	what(void) const throw();
-		};
-		class	CanNotExecuteException : public std::exception
-		{
-			public :
-				const char& what(void) const throw();
 		};
 };
 

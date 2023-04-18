@@ -6,72 +6,67 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:57:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 16:17:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:40:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ostream>
 #include <string>
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : _name(NULL), _signed(false), _grade2sign(100), _grade2execute(100) {}
-Form::Form(const Form& src) : _name(src._name), _signed(src._signed),
+AForm::Form() : _name(NULL), _signed(false), _grade2sign(100), _grade2execute(100) {}
+AForm::Form(const Form& src) : _name(src._name), _signed(src._signed),
 								  _grade2sign(src._grade2sign),
 									_grade2execute(src._grade2execute) {}
-Form::Form(const std::string& name, const int grade2sign,
-		const int grade2execute) : _name(name), _signed(false), _grade2sign(grade2sign),
-									_grade2execute(grade2execute)
+AForm::Form(const std::string& name, const int grade2sign, const int grade2execute)
+	: _name(name), _signed(false), _grade2sign(grade2sign), _grade2execute(grade2execute)
 {
 	if (_grade2sign > 150 || _grade2execute > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (_grade2sign < 1 || _grade2execute < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 }
-Form::~Form() {}
+AForm::~Form() {}
 
-Form&	Form::operator=(const Form& src)
+AForm&	Form::operator=(const Form& src)
 {
 	if (this != &src)
 		_signed = src._signed;
 	return *this;
 }
 
-const std::string&	Form::getName(void) const { return _name; }
-bool				Form::getSigned(void) const { return _signed; }
-int					Form::getGrade2Sign(void) const { return _grade2sign; }
-int					Form::getGrade2Execute(void) const { return _grade2execute; }
+const std::string&	AForm::getName(void) const { return _name; }
+bool				AForm::getSigned(void) const { return _signed; }
+int					AForm::getGrade2Sign(void) const { return _grade2sign; }
+int					AForm::getGrade2Execute(void) const { return _grade2execute; }
 
-void	Form::beSigned(const Bureaucrat& b)
+void	AForm::setSigned(const bool value) { this->_signed = value; }
+
+void	AForm::beSigned(const Bureaucrat& b)
 {
 	if (b.getGrade() <= _grade2sign)
 		_signed = true;
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-void	Form::execute(const Bureaucrat& execute) const
+const char*	AForm::GradeTooHighException::what(void) const throw()
 {
-	if (_signed == false || execute.getGrade() > _grade2sign)
-		throw Form::CanNotExecuteException();
+	return ("exception occurred: AForm: grade too high");
 }
 
-const char*	Form::GradeTooHighException::what(void) const throw()
+const char*	AForm::GradeTooLowException::what(void) const throw()
 {
-	return ("exception occurred: grade too high");
+	return ("exception occurred: AForm: grade too low");
 }
 
-const char*	Form::GradeTooLowException::what(void) const throw()
+const char* AForm::CanNotExecuteException::what(void) const throw()
 {
-	return ("exception occurred: grade too low");
+	return ("exception occurred: AForm: execution not possible");
 }
 
-const char* Form::CanNotExecuteException::what(void) const throw()
-{
-	return ("exception occurred: execution not possible");
-}
-
-std::ostream&	operator<<(std::ostream& os, const Form& f)
+std::ostream&	operator<<(std::ostream& os, const AForm& f)
 {
 	os << f.getName() << " " << f.getSigned() << " " << f.getGrade2Sign() << " " << f.getGrade2Execute();
 	return os;
