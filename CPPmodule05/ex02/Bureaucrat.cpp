@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 15:52:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:37:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	Bureaucrat::decreaseGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void	Bureaucrat::signForm(const Form& f) const
+void	Bureaucrat::signForm(const AForm& f) const
 {
 	if (f.getSigned() == true && _grade <= f.getGrade2Sign())
 		std::cout << _name << " signed " << f.getName() << std::endl;

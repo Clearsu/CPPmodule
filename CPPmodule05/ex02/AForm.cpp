@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:57:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 17:40:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:42:54 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,29 @@
 
 #include "AForm.hpp"
 
-AForm::Form() : _name(NULL), _signed(false), _grade2sign(100), _grade2execute(100) {}
-AForm::Form(const Form& src) : _name(src._name), _signed(src._signed),
+AForm::AForm() : _name(NULL), _signed(false), _grade2sign(100), _grade2execute(100) {}
+AForm::AForm(const AForm& src) : _name(src._name), _signed(src._signed),
 								  _grade2sign(src._grade2sign),
 									_grade2execute(src._grade2execute) {}
-AForm::Form(const std::string& name, const int grade2sign, const int grade2execute)
-	: _name(name), _signed(false), _grade2sign(grade2sign), _grade2execute(grade2execute)
+AForm::AForm(const std::string& _name, const int _grade2sign, const int _grade2execute)
+	: _name(_name), _signed(false), _grade2sign(_grade2sign), _grade2execute(_grade2execute)
 {
 	if (_grade2sign > 150 || _grade2execute > 150)
 		throw AForm::GradeTooLowException();
 	else if (_grade2sign < 1 || _grade2execute < 1)
 		throw AForm::GradeTooHighException();
 }
-AForm::~Form() {}
+AForm::AForm(const std::string& _name, const int _signed, const int _grade2sign, const int _grade2execute)
+	: _name(_name), _signed(_signed), _grade2sign(_grade2sign), _grade2execute(_grade2execute)
+{
+	if (_grade2sign > 150 || _grade2execute > 150)
+		throw AForm::GradeTooLowException();
+	else if (_grade2sign < 1 || _grade2execute < 1)
+		throw AForm::GradeTooHighException();
+}
+AForm::~AForm() {}
 
-AForm&	Form::operator=(const Form& src)
+AForm&	AForm::operator=(const AForm& src)
 {
 	if (this != &src)
 		_signed = src._signed;
@@ -59,11 +67,6 @@ const char*	AForm::GradeTooHighException::what(void) const throw()
 const char*	AForm::GradeTooLowException::what(void) const throw()
 {
 	return ("exception occurred: AForm: grade too low");
-}
-
-const char* AForm::CanNotExecuteException::what(void) const throw()
-{
-	return ("exception occurred: AForm: execution not possible");
 }
 
 std::ostream&	operator<<(std::ostream& os, const AForm& f)

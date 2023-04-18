@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:51:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 17:39:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:36:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class	ShrubberyCreationForm : public AForm
 		{
 			const char*	what(void) const throw();
 		};
-}
+};
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:47:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 16:49:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:50:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <stdexcept>
+
+# include "AForm.hpp"
 
 class	RobotomyRequestForm : public AForm
 {
@@ -23,6 +25,6 @@ class	RobotomyRequestForm : public AForm
 		{
 			const char*	what(void) const throw();
 		};
-}
+};
 
 #endif

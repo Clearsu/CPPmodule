@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:44:20 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 17:31:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:41:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ class	AForm
 		const int			_grade2execute;
 	public :
 		AForm();
-		AForm(const Form& src);
+		AForm(const AForm& src);
 		AForm(const std::string& _name, const int _grade2sign, const int _grade2execute);
-		AForm&	operator=(const Form& src);
+		AForm(const std::string& _name, const int _signed, const int _grade2sign, const int _grade2execute);
+		AForm&	operator=(const AForm& src);
 		virtual ~AForm();
 
 		const std::string&	getName(void) const;
@@ -57,6 +58,6 @@ class	AForm
 		};
 };
 
-std::ostream&	 operator<<(std::ostream& os, const Form& f);
+std::ostream&	 operator<<(std::ostream& os, const AForm& f);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:50:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 17:41:19 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:48:19 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 	: AForm(NULL, SH_GRADE, SH_EXEC) {}
-ShrubberyCreationForm::ShrebberyCreationForm(const ShrubberyCreationForm& src)
-	: AForm(src._name, src._signed, src._grade2sign, src._grade2execute) {}
-ShrubberyCreationForm::ShrebberyCreationForm(const std::string name)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src)
+	: AForm(src.getName(), src.getSigned(), src.getGrade2Sign(), src.getGrade2Execute()) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string name)
 	: AForm(name, SH_GRADE, SH_EXEC) {}
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
 {
 	setSigned(src.getSigned());
+	return *this;
 }
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void	ShrubberyCreationForm::execute(const Bureaucrat& execute) const
 {
-	if (_signed == false || execute.getGrade() > _grade2sign)
+	if (getSigned() == false || execute.getGrade() > getGrade2Sign())
 		throw ShrubberyCreationForm::CanNotExecuteException();
 }
 
