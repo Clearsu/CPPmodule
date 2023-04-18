@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/17 21:30:00 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/18 09:36:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._gr
 Bureaucrat::~Bureaucrat() {}
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
-	try
-	{
-		if (_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& src)
@@ -45,28 +38,14 @@ int					Bureaucrat::getGrade(void) const { return _grade; }
 
 void	Bureaucrat::increaseGrade(void)
 {
-	try
-	{
-		if (--_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (--_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void	Bureaucrat::decreaseGrade(void)
 {
-	try
-	{
-		if (++_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (++_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
