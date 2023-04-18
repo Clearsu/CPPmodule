@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/17 17:38:14 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/17 19:33:48 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = materia
+NAME = bureaucrat
 
 CC = c++
 
@@ -18,8 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
-	   Floor.cpp MateriaSource.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

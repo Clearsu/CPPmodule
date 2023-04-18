@@ -6,17 +6,18 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:57:32 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/10 16:59:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:28:37 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdlib.h>
 
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-int	main(void)
+void	test(void)
 {
 	// subtype polymorphism
 	// calling overriden method is determined at runtime(dynamic binding)
@@ -55,4 +56,10 @@ int	main(void)
 		}
 		std::cout << std::endl;
 	}
+}
+
+int	main(void)
+{
+	test();
+	system("leaks animal");
 }
