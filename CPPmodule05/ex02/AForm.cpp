@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:57:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 10:53:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:32:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name(NULL), _signed(false), _grade2sign(100), _grade2execute(100) {}
+AForm::AForm() : _name(NULL), _signed(false), _grade2sign(150), _grade2execute(150) {}
 
 AForm::AForm(const AForm& src) : _name(src._name), _signed(src._signed),
 								  _grade2sign(src._grade2sign),
@@ -44,7 +44,7 @@ bool				AForm::getSigned(void) const { return _signed; }
 int					AForm::getGrade2Sign(void) const { return _grade2sign; }
 int					AForm::getGrade2Execute(void) const { return _grade2execute; }
 
-void	AForm::setSigned(const bool value) { this->_signed = value; }
+void	AForm::setSigned(const bool value) { _signed = value; }
 
 void	AForm::beSigned(const Bureaucrat& b)
 {

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:58 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 10:49:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:31:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ int	main(void)
 	{
 		try
 		{
-			ShrubberyCreationForm a("hello");
-			Bureaucrat dum("dum", 150);
-			a.execute(dum);
+			Bureaucrat jin("Jin", 1);
+			AForm*	form = new ShrubberyCreationForm("here");
+			form->beSigned(jin);
+			jin.signForm(*form);
+			jin.executeForm(*form);
+			delete form;
 		}
 		catch (std::exception& s)
 		{

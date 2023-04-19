@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:48:04 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 11:13:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:31:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,18 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& s
 
 void	RobotomyRequestForm::execute(const Bureaucrat& execute) const
 {
-	if (getSigned() == false || execute.getGrade() > getGrade2Sign())
-		throw RobotomyRequestForm::CanNotExecuteException();
+	if (getSigned() == false)
+		throw RobotomyRequestForm::ExecuteNotSignedException();
+	if (execute.getGrade() > getGrade2Execute())
+		throw RobotomyRequestForm::ExecuteGradeLowException();
 }
 
-const char*	RobotomyRequestForm::CanNotExecuteException::what(void) const throw()
+const char*	RobotomyRequestForm::ExecuteNotSignedException::what(void) const throw()
 {
-	return ("exception occurred: RobotomyRequestForm: \
-			it has not been signed or too low bureaucrat grade");
+	return ("exception occurred: RobotomyRequestForm: it is not signed for execution");
+}
+
+const char*	RobotomyRequestForm::ExecuteGradeLowException::what(void) const throw()
+{
+	return ("exception occurred: RobotomyRequestForm: too low bureaucrat grade to execute");
 }

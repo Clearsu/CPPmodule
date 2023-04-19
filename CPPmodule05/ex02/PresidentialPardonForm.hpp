@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:38:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 11:14:40 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:23:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ class	PresidentialPardonForm : public AForm
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm& src);
 		~PresidentialPardonForm();
 
-		void	execute(const Bureaucrat& executor) const;
-		class	CanNotExecuteException : public std::exception
+		void	execute(const Bureaucrat& execute) const;
+
+		class	ExecuteNotSignedException : public std::exception
+		{
+			const char*	what(void) const throw();
+		};
+		class	ExecuteGradeLowException : public std::exception
 		{
 			const char*	what(void) const throw();
 		};

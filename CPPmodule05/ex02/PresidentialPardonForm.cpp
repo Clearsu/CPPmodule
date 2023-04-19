@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:41:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 11:13:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:29:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,18 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 
 void	PresidentialPardonForm::execute(const Bureaucrat& execute) const
 {
-	if (getSigned() == false || execute.getGrade() > getGrade2Sign())
-		throw PresidentialPardonForm::CanNotExecuteException();
+	if (getSigned() == false)
+		throw PresidentialPardonForm::ExecuteNotSignedException();
+	if (execute.getGrade() > getGrade2Execute())
+		throw PresidentialPardonForm::ExecuteGradeLowException();
 }
 
-const char*	PresidentialPardonForm::CanNotExecuteException::what(void) const throw()
+const char*	PresidentialPardonForm::ExecuteNotSignedException::what(void) const throw()
 {
-	return ("exception occurred: PresidentialPardonForm: \
-			it has not been signed or too low bureaucrat grade");
+	return ("exception occurred: PresidentialPardonForm: it is not signed for execution");
+}
+
+const char*	PresidentialPardonForm::ExecuteGradeLowException::what(void) const throw()
+{
+	return ("exception occurred: PresidentialPardonForm: too low bureaucrat grade to execute");
 }

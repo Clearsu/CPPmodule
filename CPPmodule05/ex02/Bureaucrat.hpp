@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:27 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 22:35:33 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:29:39 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ class	Bureaucrat
 
 		const std::string&	getName(void) const;
 		int					getGrade(void) const;
+
 		void				increaseGrade(void);
 		void				decreaseGrade(void);
-		void				signForm(const AForm& f) const;
+
+		void	signForm(const AForm& form) const;
+		void	executeForm(const AForm& form);
 
 		class	GradeTooHighException : public std::exception
 		{

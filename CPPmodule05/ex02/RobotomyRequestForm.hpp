@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:47:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 11:15:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:18:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ class	RobotomyRequestForm : public AForm
 		~RobotomyRequestForm();
 
 		void	execute(const Bureaucrat& executor) const;
-		class	CanNotExecuteException : public std::exception
+		
+		class	ExecuteNotSignedException : public std::exception
+		{
+			const char*	what(void) const throw();
+		};
+		class	ExecuteGradeLowException : public std::exception
 		{
 			const char*	what(void) const throw();
 		};
