@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 19:21:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 21:03:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:05:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ AForm*	Intern::makeForm(const std::string& name, const std::string& target)
 
 	for (int i = 0; i < 3; i++)
 	{
-		if (name == _nameArray[i])
+		if (name == this->_nameArray[i])
 			ret = (this->*func[i])(target);
 	}
 	if (!ret)

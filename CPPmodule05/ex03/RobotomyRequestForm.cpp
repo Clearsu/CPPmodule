@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:48:04 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 16:30:49 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:07:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& src)
 {
-	setSigned(src.getSigned());
-	_target = src._target;
+	this->setSigned(src.getSigned());
+	this->_target = src._target;
 	return *this;
 }
 
 bool	RobotomyRequestForm::execute(const Bureaucrat& execute) const
 {
-	if (getSigned() == false)
+	if (this->getSigned() == false)
 		throw RobotomyRequestForm::ExecuteNotSignedException();
-	if (execute.getGrade() > getGrade2Execute())
+	if (execute.getGrade() > this->getGrade2Execute())
 		throw RobotomyRequestForm::ExecuteGradeLowException();
 	std::srand(time(NULL));
 	if ((std::rand() & 1) == true)
 	{
-		std::cout << _target << " has been robotomized successfully" << std::endl;
+		std::cout << this->_target << " has been robotomized successfully" << std::endl;
 		return true;
 	}
-	std::cout << "robotomization against " << _target << " failed" << std::endl;
+	std::cout << "robotomization against " << this->_target << " failed" << std::endl;
 	return false;
 }
 

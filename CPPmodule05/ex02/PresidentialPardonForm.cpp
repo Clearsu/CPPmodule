@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:41:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 16:32:20 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 21:53:23 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& src)
 {
 	setSigned(src.getSigned());
-	_target = src._target;
+	this->_target = src._target;
 	return *this;
 }
 
 bool	PresidentialPardonForm::execute(const Bureaucrat& execute) const
 {
-	if (getSigned() == false)
+	if (this->getSigned() == false)
 		throw PresidentialPardonForm::ExecuteNotSignedException();
-	if (execute.getGrade() > getGrade2Execute())
+	if (execute.getGrade() > this->getGrade2Execute())
 		throw PresidentialPardonForm::ExecuteGradeLowException();
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return true;
 }
 

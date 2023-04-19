@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:50:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 16:29:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 21:57:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
 {
-	setSigned(src.getSigned());
-	_target = src._target;
+	this->setSigned(src.getSigned());
+	this->_target = src._target;
 	return *this;
 }
 
 bool	ShrubberyCreationForm::execute(const Bureaucrat& execute) const
 {
-	if (getSigned() == false)
+	if (this->getSigned() == false)
 		throw ShrubberyCreationForm::ExecuteNotSignedException();
-	if (execute.getGrade() > getGrade2Execute())
+	if (execute.getGrade() > this->getGrade2Execute())
 		throw ShrubberyCreationForm::ExecuteGradeLowException();
 
 	std::ofstream of;
