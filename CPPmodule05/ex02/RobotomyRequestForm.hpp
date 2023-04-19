@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:47:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 12:18:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:56:16 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@
 
 class	RobotomyRequestForm : public AForm
 {
+	private :
+		std::string	_target;
 	public :
 		RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& src);
-		RobotomyRequestForm(const std::string name);
+		RobotomyRequestForm(const std::string target);
 		RobotomyRequestForm&	operator=(const RobotomyRequestForm& src);
 		~RobotomyRequestForm();
 
