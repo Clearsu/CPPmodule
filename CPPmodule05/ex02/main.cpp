@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:58 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 22:34:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:49:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(void)
 		try
 		{
 			ShrubberyCreationForm a("hello");
-
+			Bureaucrat dum("dum", 150);
+			a.execute(dum);
 		}
 		catch (std::exception& s)
 		{
