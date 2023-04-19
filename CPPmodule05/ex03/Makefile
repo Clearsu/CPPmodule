@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/18 16:36:01 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/19 19:56:23 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-	   RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+	   RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
