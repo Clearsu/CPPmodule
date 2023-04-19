@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 13:32:24 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:31:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ void	Bureaucrat::signForm(const AForm& form) const
 
 void	Bureaucrat::executeForm(const AForm& form)
 {
-	form.execute(*this);
-	std::cout << this->_name << " executed " << form.getName() << std::endl;
+	if (form.execute(*this))
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	else
+		std::cout << _name << " failed to execute " << form.getName() << std::endl;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()

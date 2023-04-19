@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:47:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 13:56:16 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:30:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	RobotomyRequestForm : public AForm
 		RobotomyRequestForm&	operator=(const RobotomyRequestForm& src);
 		~RobotomyRequestForm();
 
-		void	execute(const Bureaucrat& executor) const;
+		bool	execute(const Bureaucrat& executor) const;
 		
 		class	ExecuteNotSignedException : public std::exception
 		{

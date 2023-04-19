@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:38:18 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 12:23:39 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:32:06 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@
 
 class	PresidentialPardonForm : public AForm
 {
+	private :
+		std::string	_target;
 	public :
 		PresidentialPardonForm();
 		PresidentialPardonForm(const PresidentialPardonForm& src);
-		PresidentialPardonForm(const std::string name);
+		PresidentialPardonForm(const std::string target);
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm& src);
 		~PresidentialPardonForm();
 
-		void	execute(const Bureaucrat& execute) const;
+		bool	execute(const Bureaucrat& execute) const;
 
 		class	ExecuteNotSignedException : public std::exception
 		{

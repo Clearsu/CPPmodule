@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:44:20 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 10:52:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:29:00 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class	AForm
 		void	setSigned(bool value);
 
 		void			beSigned(const Bureaucrat& b);
-		virtual void	execute(const Bureaucrat& execute) const = 0;
+		virtual bool	execute(const Bureaucrat& execute) const = 0;
 
 		class	GradeTooHighException : public std::exception
 		{

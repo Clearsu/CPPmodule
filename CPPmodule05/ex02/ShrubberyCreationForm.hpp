@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:51:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 13:23:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:29:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class	ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& src);
 		~ShrubberyCreationForm();
 
-		void	execute(const Bureaucrat& executor) const;
+		bool	execute(const Bureaucrat& executor) const;
 
 		class	ExecuteNotSignedException : public std::exception
 		{

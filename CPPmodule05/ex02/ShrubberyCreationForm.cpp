@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:50:38 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 13:12:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:29:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat& execute) const
+bool	ShrubberyCreationForm::execute(const Bureaucrat& execute) const
 {
 	if (getSigned() == false)
 		throw ShrubberyCreationForm::ExecuteNotSignedException();
@@ -44,6 +44,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& execute) const
 		throw ShrubberyCreationForm::OutfileOpenFail();
 	of << ASCII_SH << std::endl;
 	of.close();
+	return true;
 }
 
 const char*	ShrubberyCreationForm::ExecuteNotSignedException::what(void) const throw()

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:48:04 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 16:13:22 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:30:49 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& s
 	return *this;
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat& execute) const
+bool	RobotomyRequestForm::execute(const Bureaucrat& execute) const
 {
 	if (getSigned() == false)
 		throw RobotomyRequestForm::ExecuteNotSignedException();
@@ -41,9 +41,12 @@ void	RobotomyRequestForm::execute(const Bureaucrat& execute) const
 		throw RobotomyRequestForm::ExecuteGradeLowException();
 	std::srand(time(NULL));
 	if ((std::rand() & 1) == true)
+	{
 		std::cout << _target << " has been robotomized successfully" << std::endl;
-	else
-		std::cout << "robotomization against " << _target << " failed" << std::endl;
+		return true;
+	}
+	std::cout << "robotomization against " << _target << " failed" << std::endl;
+	return false;
 }
 
 const char*	RobotomyRequestForm::ExecuteNotSignedException::what(void) const throw()
