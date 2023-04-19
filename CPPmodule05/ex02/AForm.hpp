@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:44:20 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 22:41:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:52:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class	AForm
 	public :
 		AForm();
 		AForm(const AForm& src);
-		AForm(const std::string& _name, const int _grade2sign, const int _grade2execute);
 		AForm(const std::string& _name, const int _signed, const int _grade2sign, const int _grade2execute);
 		AForm&	operator=(const AForm& src);
 		virtual ~AForm();

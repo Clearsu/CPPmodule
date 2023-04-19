@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:57:23 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 22:42:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:53:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,11 @@
 #include "AForm.hpp"
 
 AForm::AForm() : _name(NULL), _signed(false), _grade2sign(100), _grade2execute(100) {}
+
 AForm::AForm(const AForm& src) : _name(src._name), _signed(src._signed),
 								  _grade2sign(src._grade2sign),
 									_grade2execute(src._grade2execute) {}
-AForm::AForm(const std::string& _name, const int _grade2sign, const int _grade2execute)
-	: _name(_name), _signed(false), _grade2sign(_grade2sign), _grade2execute(_grade2execute)
-{
-	if (_grade2sign > 150 || _grade2execute > 150)
-		throw AForm::GradeTooLowException();
-	else if (_grade2sign < 1 || _grade2execute < 1)
-		throw AForm::GradeTooHighException();
-}
+
 AForm::AForm(const std::string& _name, const int _signed, const int _grade2sign, const int _grade2execute)
 	: _name(_name), _signed(_signed), _grade2sign(_grade2sign), _grade2execute(_grade2execute)
 {
@@ -35,6 +29,7 @@ AForm::AForm(const std::string& _name, const int _signed, const int _grade2sign,
 	else if (_grade2sign < 1 || _grade2execute < 1)
 		throw AForm::GradeTooHighException();
 }
+
 AForm::~AForm() {}
 
 AForm&	AForm::operator=(const AForm& src)

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:51:10 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 22:36:05 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:58:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-# define SH_GRADE 145
-# define SH_EXEC 137
+# define SH_SIGNGRADE 145
+# define SH_EXECGRADE 137
 
 class	ShrubberyCreationForm : public AForm
 {
