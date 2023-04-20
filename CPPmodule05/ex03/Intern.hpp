@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 19:15:07 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 21:06:23 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/20 17:04:24 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class	Intern
 	private :
 		static const std::string	_nameArray[3];
 		static AForm*	(Intern::*func[3])(const std::string &) const;
+
+		Intern(const Intern& src);
+		Intern&	operator=(const Intern& src);
 	public :
 		Intern();
 		~Intern();

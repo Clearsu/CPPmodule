@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 19:21:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 22:05:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:10:51 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
-Intern::Intern() {}
-Intern::~Intern() {}
 
 const std::string	Intern::_nameArray[3] = {
 	"shrubbery creation", 
@@ -32,6 +29,12 @@ AForm*	(Intern::*Intern::func[3])(const std::string &) const = {
 	&Intern::newRobotomyRequestForm,
 	&Intern::newPresidentialPardonForm
 };
+
+Intern::Intern(const Intern& src) { (void)src; }
+Intern&	Intern::operator=(const Intern& src) { (void)src; return *this; }
+
+Intern::Intern() {}
+Intern::~Intern() {}
 
 AForm*	Intern::newShrubberyCreationForm(const std::string& target) const
 {
@@ -50,10 +53,17 @@ AForm*	Intern::makeForm(const std::string& name, const std::string& target)
 {
 	AForm*	ret = NULL;
 
-	for (int i = 0; i < 3; i++)
+	try
 	{
-		if (name == this->_nameArray[i])
-			ret = (this->*func[i])(target);
+		for (int i = 0; i < 3; i++)
+		{
+			if (name == this->_nameArray[i])
+				ret = (this->*func[i])(target);
+		}
+	}
+	catch (std::bad_alloc& ba)
+	{
+		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
 	}
 	if (!ret)
 		throw Intern::FormNotExistException();
