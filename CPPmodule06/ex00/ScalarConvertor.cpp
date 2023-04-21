@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/21 23:35:03 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/22 03:16:42 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,24 @@
 #include <limits>
 #include <iostream>
 #include <string>
+#include <cmath>
 
 #include "ScalarConvertor.hpp"
 
 int	ScalarConvertor::detectType(const std::string& str)
 {
-	const char*	cstr;
 	size_t		idx;
 	size_t		len;
 	bool		dotflag;
 	bool		decimalflag;
 
-	cstr = str.c_str();
 	idx = 0;
 	len = str.length();
 	dotflag = false;
 	decimalflag = false;
 	if (len == 1 && std::isprint(str[0]) && !std::isdigit(str[0]))
 		return CHAR;
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		++idx;
 	while (std::isdigit(str[idx]))
 		++idx;
@@ -50,16 +49,14 @@ int	ScalarConvertor::detectType(const std::string& str)
 		++idx;
 	}
 	if ((idx == len && dotflag == true && decimalflag == true)
-			|| std::strcmp("nan", cstr) == 0
-			|| std::strcmp("-inf", cstr) == 0
-			|| std::strcmp("+inf", cstr) == 0)
+			|| str == "nan" || str == "inf"
+			|| str == "+inf" || str == "-inf")
 		return DOUBLE;
 	if (str[idx] == 'f')
 		++idx;
 	if ((idx == len && dotflag == true && decimalflag == true)
-			|| std::strcmp("nanf", cstr) == 0
-			|| std::strcmp("-inff", cstr) == 0
-			|| std::strcmp("+inff", cstr) == 0)
+			|| str == "nanf" || str == "inff"
+			|| str == "+inff" || str == "-inff")
 		return FLOAT;
 	return NONE;
 }
@@ -79,7 +76,7 @@ void*	ScalarConvertor::newChar(const std::string& str)
 	}
 	*ret = str[0];
 	std::cout << "value: " << *ret << std::endl;
-	return (void*)ret;
+	return static_cast<void*>(ret);
 }
 
 void*	ScalarConvertor::newInt(const std::string& str)
@@ -104,7 +101,7 @@ void*	ScalarConvertor::newInt(const std::string& str)
 	}
 	*ret = temp;
 	std::cout << "value: " << *ret << std::endl;
-	return (void*)ret;
+	return static_cast<void*>(ret);
 }
 
 void*	ScalarConvertor::newFloat(const std::string& str)
@@ -120,7 +117,7 @@ void*	ScalarConvertor::newFloat(const std::string& str)
 	{
 		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
 	}
-	*ret = (float)std::strtod(str.c_str(), NULL);
+	*ret = static_cast<float>(std::strtod(str.c_str(), NULL));
 	if (*ret == std::numeric_limits<float>::infinity()
 			|| *ret == std::numeric_limits<float>::lowest())
 	{
@@ -128,7 +125,7 @@ void*	ScalarConvertor::newFloat(const std::string& str)
 		throw ScalarConvertor::RangeErrorException();
 	}
 	std::cout << "value: " << *ret << std::endl;
-	return (void*)ret;
+	return static_cast<void*>(ret);
 }
 
 void*	ScalarConvertor::newDouble(const std::string& str)
@@ -151,7 +148,7 @@ void*	ScalarConvertor::newDouble(const std::string& str)
 		throw ScalarConvertor::RangeErrorException();
 	}
 	std::cout << "value: " << *ret << std::endl;
-	return (void*)ret;
+	return static_cast<void*>(ret);
 }
 
 void	ScalarConvertor::convertToChar(void* value, int type)
@@ -160,58 +157,183 @@ void	ScalarConvertor::convertToChar(void* value, int type)
 	int		itemp;
 	float	ftemp;
 	double	dtemp;
+	bool	eflag;
 
 	printVal = 0;
+	eflag = false;
 	std::cout << "char: ";
 	switch (type)
 	{
 		case CHAR :
-			printVal = static_cast<char>(*((char *)value));
+			printVal = *(static_cast<char *>(value));
 			break ;
 		case INT :
-			itemp = *(int *)value;
+			itemp = *(static_cast<int *>(value));
 			if (itemp < 0 || itemp > 127)
 			{
-				std::cout << "impossible";
+				std::cout << "impossible" << std::endl;
+				eflag = true;
 				break ;
 			}
 			else if (std::isprint(itemp) == false)
 			{
-				std::cout << "Non displayable";
+				std::cout << "Non displayable" << std::endl;
+				eflag = true;
 				break ;
 			}
 			printVal = static_cast<char>(itemp);
 			break ;
 		case FLOAT :
-			ftemp = *(float *)value;
-			if (ftemp < 0.0f || ftemp > 127.0f || ftemp - (int)ftemp != 0.0f)
+			ftemp = *(static_cast<float *>(value));
+			if (ftemp < 0.0f || ftemp > 127.0f || ftemp - static_cast<int>(ftemp) != 0.0f)
 			{
-				std::cout << "impossible";
+				std::cout << "impossible" << std::endl;
+				eflag = true;
 				break ;
 			}
-			if (std::isprint((int)ftemp) == false)
+			if (std::isprint(static_cast<int>(ftemp)) == false)
 			{
-				std::cout << "Non displayable";
+				std::cout << "Non displayable" << std::endl;
+				eflag = true;
 				break ;
 			}
 			printVal = static_cast<char>(ftemp);
 			break ;
 		case DOUBLE :
-			dtemp = *(double *)value;
-			if (dtemp < 0.0 || dtemp > 127.0 || dtemp - (long)dtemp != 0.0)
+			dtemp = *(static_cast<double *>(value));
+			if (dtemp < 0.0 || dtemp > 127.0 || dtemp - static_cast<long>(dtemp) != 0.0)
 			{
-				std::cout << "impossible";
+				std::cout << "impossible" << std::endl;
+				eflag = true;
 				break ;
 			}
-			if (std::isprint((int)dtemp) == false)
+			if (std::isprint(static_cast<int>(dtemp)) == false)
 			{
-				std::cout << "Non displayable";
+				std::cout << "Non displayable" << std::endl;
+				eflag = true;
 				break ;
 			}
 			printVal = static_cast<char>(dtemp);
-			break ;
 	}
-	std::cout << printVal << std::endl;
+	if (eflag == false)
+		std::cout << printVal << std::endl;
+}
+
+void	ScalarConvertor::convertToInt(void* value, int type)
+{
+	int		printVal;
+	char	ctemp;
+	float	ftemp;
+	double	dtemp;
+	bool	eflag;
+
+
+	eflag = false;
+	std::cout << "int: ";
+	switch(type)
+	{
+		case CHAR :
+			ctemp = *(static_cast<char *>(value));
+			printVal = static_cast<int>(ctemp);
+			break ;
+		case INT :
+			printVal = *(static_cast<int *>(value));
+			break ;
+		case FLOAT :
+			ftemp = *(static_cast<float *>(value));
+			if (ftemp > 2147483647.0f || ftemp < -2147483648.0f)
+			{
+				std::cout << "impossible" << std::endl;
+				eflag = true;
+				break ;
+			}
+			printVal = static_cast<int>(ftemp);
+			break ;
+		case DOUBLE :
+			dtemp = *(static_cast<double *>(value));
+			if (dtemp > 2147483647.0 || dtemp < -2147483648.0)
+			{
+				std::cout << "impossible" << std::endl;
+				eflag = true;
+				break ;
+			}
+			printVal = static_cast<int>(dtemp);
+	}
+	if (eflag == false)
+		std::cout << printVal << std::endl;
+}
+
+void	ScalarConvertor::convertToFloat(void* value, int type)
+{
+	float	printVal;
+	char	ctemp;
+	int		itemp;
+	double	dtemp;
+	bool	eflag;
+
+	eflag = false;
+	std::cout << "float: ";
+	switch (type)
+	{
+		case CHAR :
+			ctemp = *(static_cast<char *>(value));
+			printVal = static_cast<float>(ctemp);
+			break ;
+		case INT :
+			itemp = *(static_cast<int *>(value));
+			printVal = static_cast<float>(itemp);
+			break ;
+		case FLOAT :
+			printVal = *(static_cast<float *>(value));
+			break ;
+		case DOUBLE :
+			dtemp = *(static_cast<double *>(value));
+			if (dtemp > std::numeric_limits<float>::max()
+					|| dtemp < std::numeric_limits<float>::min())
+			{
+				std::cout << "impossible" << std::endl;
+				eflag = true;
+			}
+			printVal = static_cast<float>(dtemp);
+	}
+	if (eflag == false)
+	{
+		std::cout << printVal;
+		if (printVal < 1e6f && printVal == static_cast<int>(printVal))
+			std::cout << ".0";
+		std::cout << 'f' << std::endl;
+	}
+}
+
+void	ScalarConvertor::convertToDouble(void* value, int type)
+{
+	double	printVal;
+	char	ctemp;
+	int		itemp;
+	float	ftemp;
+
+	std::cout << "double: ";
+	switch (type)
+	{
+		case CHAR :
+			ctemp = *(static_cast<char *>(value));
+			printVal = static_cast<double>(ctemp);
+			break ;
+		case INT :
+			itemp = *(static_cast<int *>(value));
+			printVal = static_cast<double>(itemp);
+			break ;
+		case FLOAT :
+			ftemp = *(static_cast<float *>(value));
+			printVal = static_cast<double>(ftemp);
+			break ;
+		case DOUBLE :
+			printVal = *(static_cast<double *>(value));
+	}
+	std::cout << printVal;
+	if (printVal < 1e14 && printVal == static_cast<int>(printVal))
+		std::cout << ".0";
+	std::cout << std::endl;
 }
 
 ScalarConvertor::ScalarConvertor() {}
@@ -243,6 +365,33 @@ void	ScalarConvertor::convert(const std::string& str)
 			throw ScalarConvertor::NonConvertableException();
 	}
 	ScalarConvertor::convertToChar(value, type);
+	ScalarConvertor::convertToInt(value, type);
+	ScalarConvertor::convertToFloat(value, type);
+	ScalarConvertor::convertToDouble(value, type);
+
+	char*	ctemp;
+	int*	itemp;
+	float*	ftemp;
+	double*	dtemp;
+
+	switch (type)
+	{
+		case CHAR :
+			ctemp = static_cast<char *>(value);
+			delete ctemp;
+			break ;
+		case INT :
+			itemp = static_cast<int *>(value);
+			delete itemp;
+			break ;
+		case FLOAT :
+			ftemp = static_cast<float *>(value);
+			delete ftemp;
+			break ;
+		case DOUBLE :
+			dtemp = static_cast<double *>(value);
+			delete dtemp;
+	}
 }
 
 const char*	ScalarConvertor::NonConvertableException::what(void) const throw()
