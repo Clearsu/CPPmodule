@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/21 17:36:47 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/21 22:39:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ typedef enum { CHAR, INT, FLOAT, DOUBLE, NONE } eTypes;
 class ScalarConvertor
 {
 	private :
-		void	detectType(void);
+		static int		detectType(const std::string& str);
+		static void*	newChar(const std::string& str);
+		static void*	newInt(const std::string& str);
+		static void*	newFloat(const std::string& str);
+		static void*	newDouble(const std::string& str);
+
+		static void	convertToChar(void*	value, int type);
 	public :
 		ScalarConvertor();
 		ScalarConvertor(const ScalarConvertor& src);
@@ -30,10 +36,14 @@ class ScalarConvertor
 
 		static void	convert(const std::string& str);
 
-		class NonConvertableException : public exception
+		class	NonConvertableException : public std::exception
 		{
 			const char*	what(void) const throw();
-		}
-}
+		};
+		class	RangeErrorException : public std::exception
+		{
+			const char* what(void) const throw();
+		};
+};
 
 #endif

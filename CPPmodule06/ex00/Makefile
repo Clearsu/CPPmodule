@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:17:02 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/21 15:27:07 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/21 22:08:21 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = convert
 
 CC = c++
 
@@ -18,7 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp ScalarConversion.cpp
+SRCS = main.cpp ScalarConvertor.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
