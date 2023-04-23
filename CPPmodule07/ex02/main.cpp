@@ -1,8 +1,10 @@
 #include <iostream>
+#include <stdlib.h>
 #include <Array.hpp>
 
 #define MAX_VAL 750
-int main(int, char**)
+
+bool test()
 {
 	{
 		Array<int> test(0);
@@ -54,5 +56,13 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+	return 0;
+}
+
+int main(int, char**)
+{
+	if (test())
+		return 1;
+	system ("leaks template");
     return 0;
 }
