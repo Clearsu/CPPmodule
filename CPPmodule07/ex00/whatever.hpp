@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 15:27:43 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/23 16:18:59 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/23 17:12:12 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	swap(T& a, T& b)
 }
 
 template<typename T>
-T	min(T a, T b)
+const T&	min(const T& a, const T& b)
 {
 	if (a < b)
 		return a;
@@ -30,7 +30,7 @@ T	min(T a, T b)
 }
 
 template<typename T>
-T	max(T a, T b)
+const T&	max(const T& a, const T& b)
 {
 	if (a > b)
 		return a;
