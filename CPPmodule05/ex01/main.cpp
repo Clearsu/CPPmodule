@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:58 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/24 09:48:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:18:09 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 				std::cout << test2 << std::endl;
 			}
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -47,7 +47,7 @@ int	main(void)
 				std::cout << test1 << std::endl;
 			}
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -71,7 +71,7 @@ int	main(void)
 				std::cout << form2 << std::endl;
 			}
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -97,7 +97,7 @@ int	main(void)
 				boss.signForm(form2);
 			}
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -109,7 +109,7 @@ int	main(void)
 			Bureaucrat jack("jack", 150);
 			jack.signForm(form3);
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:58 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 09:40:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:18:05 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 				std::cout << test << std::endl;
 			}
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -45,7 +45,7 @@ int	main(void)
 				std::cout << test << std::endl;
 			}
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
