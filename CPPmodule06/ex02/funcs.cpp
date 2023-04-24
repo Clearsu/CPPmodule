@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 14:28:45 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/23 15:20:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:25:29 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,30 +52,27 @@ void	identify(Base& p)
 
 	try
 	{
-		A& a = dynamic_cast<A&>(p);
-		(void)a;
+		(void)dynamic_cast<A&>(p);
 	}
 	catch (std::bad_cast& bc)
 	{
-		eflag = eflag | 0b001;
+		eflag |= 0b001;
 	}
 	try
 	{
-		B& b = dynamic_cast<B&>(p);
-		(void)b;
+		(void)dynamic_cast<B&>(p);
 	}
 	catch (std::bad_cast& bc)
 	{
-		eflag = eflag | 0b010;
+		eflag |= 0b010;
 	}
 	try
 	{
-		C& c = dynamic_cast<C&>(p);
-		(void)c;
+		(void)dynamic_cast<C&>(p);
 	}
 	catch (std::bad_cast& bc)
 	{
-		eflag = eflag | 0b100;
+		eflag |= 0b100;
 	}
 
 	switch (eflag ^ 0b111)
