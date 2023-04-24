@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:58 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/18 16:01:54 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:48:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ int	main(void)
 				std::cout << boss << std::endl;
 
 				Form form1("form1", 130, 100);
-				form1.beSigned(boss);
 				std::cout << form1 << std::endl;
+				form1.beSigned(boss);
+				std::cout << "signing success" << std::endl;
 
 				Form form2("form2", 100, 100);
 				form2.beSigned(boss);
@@ -77,18 +78,20 @@ int	main(void)
 	}
 	std::cout << std::endl;
 	{
+		std::cout << "*** case4 : testing signForm() ***" << std::endl;
 		Bureaucrat boss("boss", 101);
 		try
 		{
-			std::cout << "*** case4 : testing signForm() ***" << std::endl;
 			{
 				std::cout << boss << std::endl;
 				Form form1("form1", 101, 100);
+				std::cout << form1 << std::endl;
 				boss.signForm(form1);
 				form1.beSigned(boss);
 				boss.signForm(form1);
 
 				Form form2("form2", 100, 100);
+				std::cout << form2 << std::endl;
 				boss.signForm(form2);
 				form2.beSigned(boss);
 				boss.signForm(form2);
@@ -101,6 +104,7 @@ int	main(void)
 		try
 		{
 			Form form3("form3", 149, 100);
+			std::cout << form3 << std::endl;
 			form3.beSigned(boss);
 			Bureaucrat jack("jack", 150);
 			jack.signForm(form3);
