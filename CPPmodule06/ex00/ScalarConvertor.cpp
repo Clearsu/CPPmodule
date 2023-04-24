@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/24 15:00:17 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:12:15 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 #include <cmath>
 
 #include "ScalarConvertor.hpp"
+
+ScalarConvertor::ScalarConvertor() {}
+ScalarConvertor::~ScalarConvertor() {}
+ScalarConvertor::ScalarConvertor(const ScalarConvertor& src) { (void)src; }
+ScalarConvertor&	ScalarConvertor::operator=(const ScalarConvertor& src)
+{
+	(void)src;
+	return *this;
+}
 
 int	ScalarConvertor::detectType(const std::string& str)
 {
@@ -65,10 +74,8 @@ void*	ScalarConvertor::newChar(const std::string& str)
 {
 	char*	ret;
 
-	std::cout << "type: char" << std::endl;
 	ret = new char;
 	*ret = str[0];
-	std::cout << "value: " << *ret << std::endl;
 	return static_cast<void*>(ret);
 }
 
@@ -77,7 +84,6 @@ void*	ScalarConvertor::newInt(const std::string& str)
 	int*	ret;
 	long	temp;
 
-	std::cout << "type: int" << std::endl;
 	ret = new int;
 	temp = std::strtol(str.c_str(), NULL, 10);
 	if (errno == ERANGE || temp != (int)temp)
@@ -86,7 +92,6 @@ void*	ScalarConvertor::newInt(const std::string& str)
 		throw ScalarConvertor::RangeErrorException();
 	}
 	*ret = temp;
-	std::cout << "value: " << *ret << std::endl;
 	return static_cast<void*>(ret);
 }
 
@@ -94,7 +99,6 @@ void*	ScalarConvertor::newFloat(const std::string& str)
 {
 	float*	ret;
 
-	std::cout << "type: float" << std::endl;
 	ret = new float;
 	*ret = static_cast<float>(std::strtod(str.c_str(), NULL));
 	if (errno == ERANGE)
@@ -102,7 +106,6 @@ void*	ScalarConvertor::newFloat(const std::string& str)
 		delete ret;
 		throw ScalarConvertor::RangeErrorException();
 	}
-	std::cout << "value: " << *ret << std::endl;
 	return static_cast<void*>(ret);
 }
 
@@ -110,7 +113,6 @@ void*	ScalarConvertor::newDouble(const std::string& str)
 {
 	double*	ret;
 
-	std::cout << "type: double" << std::endl;
 	ret = new double;
 	*ret = std::strtod(str.c_str(), NULL);
 	if (errno == ERANGE)
@@ -118,7 +120,6 @@ void*	ScalarConvertor::newDouble(const std::string& str)
 		delete ret;
 		throw ScalarConvertor::RangeErrorException();
 	}
-	std::cout << "value: " << *ret << std::endl;
 	return static_cast<void*>(ret);
 }
 
@@ -305,15 +306,6 @@ void	ScalarConvertor::convertToDouble(void* value, int type)
 	if (printVal < 1e14 && printVal == static_cast<int>(printVal))
 		std::cout << ".0";
 	std::cout << std::endl;
-}
-
-ScalarConvertor::ScalarConvertor() {}
-ScalarConvertor::~ScalarConvertor() {}
-ScalarConvertor::ScalarConvertor(const ScalarConvertor& src) { (void)src; }
-ScalarConvertor&	ScalarConvertor::operator=(const ScalarConvertor& src)
-{
-	(void)src;
-	return *this;
 }
 
 void	ScalarConvertor::convert(const std::string& str)
