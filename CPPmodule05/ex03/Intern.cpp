@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 19:21:29 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/20 18:10:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:15:48 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,10 @@ AForm*	Intern::makeForm(const std::string& name, const std::string& target)
 {
 	AForm*	ret = NULL;
 
-	try
+	for (int i = 0; i < 3; i++)
 	{
-		for (int i = 0; i < 3; i++)
-		{
-			if (name == this->_nameArray[i])
-				ret = (this->*func[i])(target);
-		}
-	}
-	catch (std::bad_alloc& ba)
-	{
-		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
+		if (name == this->_nameArray[i])
+			ret = (this->*func[i])(target);
 	}
 	if (!ret)
 		throw Intern::FormNotExistException();
