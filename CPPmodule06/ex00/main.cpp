@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:16 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/21 22:37:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:14:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,14 @@ int	main(int argc, char **argv)
 	{
 		ScalarConvertor::convert(argv[1]);
 	}
-	catch (std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		return 1;
+	}
+	catch (const std::bad_alloc& ba)
+	{
+		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
 		return 1;
 	}
 	return 0;

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/22 03:16:42 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:13:11 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,7 @@ void*	ScalarConvertor::newChar(const std::string& str)
 	char*	ret;
 
 	std::cout << "type: char" << std::endl;
-	try
-	{
-		ret = new char;
-	}
-	catch (std::bad_alloc& ba)
-	{
-		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
-	}
+	ret = new char;
 	*ret = str[0];
 	std::cout << "value: " << *ret << std::endl;
 	return static_cast<void*>(ret);
@@ -85,14 +78,7 @@ void*	ScalarConvertor::newInt(const std::string& str)
 	long	temp;
 
 	std::cout << "type: int" << std::endl;
-	try
-	{
-		ret = new int;
-	}
-	catch (std::bad_alloc& ba)
-	{
-		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
-	}
+	ret = new int;
 	temp = std::strtol(str.c_str(), NULL, 10);
 	if (errno == ERANGE || temp != (int)temp)
 	{
@@ -109,14 +95,7 @@ void*	ScalarConvertor::newFloat(const std::string& str)
 	float*	ret;
 
 	std::cout << "type: float" << std::endl;
-	try
-	{
-		ret = new float;
-	}
-	catch (std::bad_alloc& ba)
-	{
-		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
-	}
+	ret = new float;
 	*ret = static_cast<float>(std::strtod(str.c_str(), NULL));
 	if (*ret == std::numeric_limits<float>::infinity()
 			|| *ret == std::numeric_limits<float>::lowest())
@@ -133,14 +112,7 @@ void*	ScalarConvertor::newDouble(const std::string& str)
 	double*	ret;
 
 	std::cout << "type: double" << std::endl;
-	try
-	{
-		ret = new double;
-	}
-	catch (std::bad_alloc& ba)
-	{
-		std::cerr << "bad_alloc caught: " << ba.what() << std::endl;
-	}
+	ret = new double;
 	*ret = std::strtod(str.c_str(), NULL);
 	if (errno == ERANGE)
 	{
