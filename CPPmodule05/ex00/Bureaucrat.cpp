@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 21:44:13 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:40:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,26 @@ int					Bureaucrat::getGrade(void) const { return this->_grade; }
 
 void	Bureaucrat::increaseGrade(void)
 {
-	if (--this->_grade < 1)
+	if (this->_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
+	--this->_grade;
 }
 
 void	Bureaucrat::decreaseGrade(void)
 {
-	if (++this->_grade > 150)
+	if (this->_grade + 1> 150)
 		throw Bureaucrat::GradeTooLowException();
+	++this->_grade;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("exception occurred: grade too high");
+	return ("error: grade too high");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("exception occurred: grade too low");
+	return ("error: grade too low");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& b)

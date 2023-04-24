@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 19:34:12 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/19 22:04:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:42:31 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,16 @@ int					Bureaucrat::getGrade(void) const { return this->_grade; }
 
 void	Bureaucrat::increaseGrade(void)
 {
-	if (--this->_grade < 1)
+	if (this->_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
+	--this->_grade;
 }
 
 void	Bureaucrat::decreaseGrade(void)
 {
-	if (++this->_grade > 150)
+	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
+	++this->_grade;
 }
 
 void	Bureaucrat::signForm(const AForm& form) const
