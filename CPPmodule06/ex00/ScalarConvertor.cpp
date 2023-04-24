@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/24 10:13:11 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:00:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ void*	ScalarConvertor::newFloat(const std::string& str)
 	std::cout << "type: float" << std::endl;
 	ret = new float;
 	*ret = static_cast<float>(std::strtod(str.c_str(), NULL));
-	if (*ret == std::numeric_limits<float>::infinity()
-			|| *ret == std::numeric_limits<float>::lowest())
+	if (errno == ERANGE)
 	{
 		delete ret;
 		throw ScalarConvertor::RangeErrorException();
@@ -213,7 +212,7 @@ void	ScalarConvertor::convertToInt(void* value, int type)
 			break ;
 		case FLOAT :
 			ftemp = *(static_cast<float *>(value));
-			if (ftemp > 2147483647.0f || ftemp < -2147483648.0f)
+			if (ftemp > 2147483647.0f || ftemp < -2147483648.0f || std::isnan(ftemp))
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
@@ -223,7 +222,7 @@ void	ScalarConvertor::convertToInt(void* value, int type)
 			break ;
 		case DOUBLE :
 			dtemp = *(static_cast<double *>(value));
-			if (dtemp > 2147483647.0 || dtemp < -2147483648.0)
+			if (dtemp > 2147483647.0 || dtemp < -2147483648.0 || std::isnan(dtemp))
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
