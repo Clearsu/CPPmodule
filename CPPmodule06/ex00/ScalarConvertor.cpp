@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:25 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/24 16:12:15 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:01:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ void	ScalarConvertor::convertToChar(void* value, int type)
 			break ;
 		case FLOAT :
 			ftemp = *(static_cast<float *>(value));
-			if (ftemp < 0.0f || ftemp > 127.0f || ftemp - static_cast<int>(ftemp) != 0.0f)
+			if (ftemp < 0 || ftemp > 127 || ftemp - static_cast<int>(ftemp) != 0.0f)
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
@@ -173,7 +173,7 @@ void	ScalarConvertor::convertToChar(void* value, int type)
 			break ;
 		case DOUBLE :
 			dtemp = *(static_cast<double *>(value));
-			if (dtemp < 0.0 || dtemp > 127.0 || dtemp - static_cast<long>(dtemp) != 0.0)
+			if (dtemp < 0 || dtemp > 127 || dtemp - static_cast<long>(dtemp) != 0.0)
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
@@ -213,7 +213,9 @@ void	ScalarConvertor::convertToInt(void* value, int type)
 			break ;
 		case FLOAT :
 			ftemp = *(static_cast<float *>(value));
-			if (ftemp > 2147483647.0f || ftemp < -2147483648.0f || std::isnan(ftemp))
+			if (ftemp > std::numeric_limits<int>::max()
+					|| ftemp < std::numeric_limits<int>::lowest()
+					|| std::isnan(ftemp))
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
@@ -223,7 +225,9 @@ void	ScalarConvertor::convertToInt(void* value, int type)
 			break ;
 		case DOUBLE :
 			dtemp = *(static_cast<double *>(value));
-			if (dtemp > 2147483647.0 || dtemp < -2147483648.0 || std::isnan(dtemp))
+			if (dtemp > std::numeric_limits<int>::max()
+					|| dtemp < std::numeric_limits<int>::lowest()
+					|| std::isnan(dtemp))
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
@@ -261,7 +265,7 @@ void	ScalarConvertor::convertToFloat(void* value, int type)
 		case DOUBLE :
 			dtemp = *(static_cast<double *>(value));
 			if (dtemp > std::numeric_limits<float>::max()
-					|| dtemp < std::numeric_limits<float>::min())
+					|| dtemp < std::numeric_limits<float>::lowest())
 			{
 				std::cout << "impossible" << std::endl;
 				eflag = true;
@@ -271,7 +275,7 @@ void	ScalarConvertor::convertToFloat(void* value, int type)
 	if (eflag == false)
 	{
 		std::cout << printVal;
-		if (printVal < 1e6f && printVal == static_cast<int>(printVal))
+		if (printVal < 1e6f && printVal > -1e6f && printVal == static_cast<int>(printVal))
 			std::cout << ".0";
 		std::cout << 'f' << std::endl;
 	}
@@ -303,7 +307,7 @@ void	ScalarConvertor::convertToDouble(void* value, int type)
 			printVal = *(static_cast<double *>(value));
 	}
 	std::cout << printVal;
-	if (printVal < 1e14 && printVal == static_cast<int>(printVal))
+	if (printVal < 1e6 && printVal > -1e6 && printVal == static_cast<int>(printVal))
 		std::cout << ".0";
 	std::cout << std::endl;
 }
