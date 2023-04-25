@@ -6,46 +6,25 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:02:28 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/25 14:17:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:03:27 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __EASYFIND_HPP__
 #define __EASYFIND_HPP__
 
-#include <vector>
-#include <algorithm>
-#include <stdexcept>
-
-/*
-class	NoSuchValueException : public std::exception
-{
-	public :
-		const char*	what(void) const throw()
-		{
-			return "No such value";
-		}
-};
-
 template<typename T>
-std::size_t	easyfind(const std::vector<T>& v, int n) throw (std::exception)
+bool	easyfind(const T& container, int n)
 {
-	std::size_t	size = v.size();
+	typename T::const_iterator iter = container.begin();
+	typename T::const_iterator end = container.end();
 
-	for (std::size_t i = 0; i < size; i++)
-		if (v[i] == n)
-			return i;
-	throw NoSuchValueException();
-}
-*/
-
-template<typename T>
-typename std::vector<T>::const_iterator&	easyfind(const std::vector<T>& v, int n)
-{
-	typename std::vector<T>::const_iterator& it = std::find(v.begin(), v.end(), n);
-	if (it == v.end())
-		throw std::exception();
-	return it;
+	while (iter != end) {
+		if (*iter == n)
+			return true;
+		++iter;
+	}
+	return false;
 }
 
 #endif
