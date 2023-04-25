@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:02:28 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/25 14:04:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:17:35 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __EASYFIND_HPP__
 
 #include <vector>
+#include <algorithm>
 #include <stdexcept>
 
 /*
@@ -39,9 +40,12 @@ std::size_t	easyfind(const std::vector<T>& v, int n) throw (std::exception)
 */
 
 template<typename T>
-std::vetor<T>::iterator&	easyfind(const std::vector<T>& v, int n) throw (std::exception)
+typename std::vector<T>::const_iterator&	easyfind(const std::vector<T>& v, int n)
 {
-	return v.find(n);
+	typename std::vector<T>::const_iterator& it = std::find(v.begin(), v.end(), n);
+	if (it == v.end())
+		throw std::exception();
+	return it;
 }
 
 #endif
