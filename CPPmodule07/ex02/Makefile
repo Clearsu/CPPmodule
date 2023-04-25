@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/23 18:53:42 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/25 10:48:44 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = templete
+NAME = template
 
 CC = c++
 
