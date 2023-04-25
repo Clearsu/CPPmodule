@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 16:41:44 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/23 23:08:57 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:55:17 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,15 @@ class	Array
 				n = 1;
 				this->_size = 1;
 			}
-			try {
-				this->_arr = new T[n];
-				for (unsigned int i = 0; i < n; i++)
-					this->_arr[i] = 0;
-			} catch (const std::bad_alloc& ba) {
-				std::cerr << "bad alloc caught: " << ba.what() << std::endl;
-			}
+			this->_arr = new T[n];
+			for (unsigned int i = 0; i < n; i++)
+				this->_arr[i] = 0;
 		}
 		Array(const Array& src) {
 			this->_size = src._size;
-			try {
-				this->_arr = new T[src._size];
-				for (unsigned int i = 0; i < src._size; i++)
-					this->_arr[i] = src._arr[i];
-			} catch (const std::bad_alloc& ba) {
-				std::cerr << "bad alloc caught: " << ba.what() << std::endl;
-			}
+			this->_arr = new T[src._size];
+			for (unsigned int i = 0; i < src._size; i++)
+				this->_arr[i] = src._arr[i];
 		}
 		Array&	operator=(const Array& src) {
 			if (this == &src)
