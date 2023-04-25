@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:27:30 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/22 02:09:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:59:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ class ScalarConvertor
 		static void	convertToInt(void* value, int type);
 		static void	convertToFloat(void* value, int type);
 		static void	convertToDouble(void* value, int type);
-	public :
+
 		ScalarConvertor();
 		ScalarConvertor(const ScalarConvertor& src);
 		ScalarConvertor&	operator=(const ScalarConvertor& src);
 		~ScalarConvertor();
-
+	public :
 		static void	convert(const std::string& str);
 
 		class	NonConvertableException : public std::exception
