@@ -6,11 +6,11 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/25 10:58:01 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/27 18:21:29 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind
+NAME = span
 
 CC = c++
 
@@ -18,7 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 %.o : %.cpp
