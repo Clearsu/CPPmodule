@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:00:52 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/29 23:17:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 00:28:13 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	BitcoinExchange {
 	public :
 		static BitcoinExchange*	getInstance(void);
 		static void				deleteInstance(void);
-		static void				exchange(char** argv);
+		void					exchange(char** argv);
 };
 
 #endif

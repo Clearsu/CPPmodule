@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:23:35 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/29 23:19:02 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 00:28:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	main(int argc, char** argv) {
 	}
 	try {
 		BitcoinExchange* btc = BitcoinExchange::getInstance();
-		btc = btc->getInstance();
-		BitcoinExchange::exchange(argv);
+		btc->exchange(argv);
 		BitcoinExchange::deleteInstance();
 	} catch (std::exception& e) {
 		std::cerr << e.what() << '\n';

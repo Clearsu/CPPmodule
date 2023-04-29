@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 21:26:35 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/29 23:04:44 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 00:37:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,39 @@ long	Parser::parseDate(const std::string& line) {
 
 double	Parser::parsePrice(const std::string& line) {
 	return std::strtod(line.c_str() + 11, NULL);
+}
+
+void	Parser::checkInputFormat(const std::string& line) {
+	if (line.length() < 14)
+		throw std::runtime_error("Error: bad input: " + line);
+	if (line[4] != '-' || line[7] != '-' || line[10] != ',')
+	for (int i = 0; i < 4; ++i) {
+		if (std::isdigit(line[i]) == false)
+			throw std::runtime_error("Error: bad input: " + line);
+	}
+	for (int i = 5; i < 7; ++i) {
+		if (std::isdigit(line[i]) == false)
+			throw std::runtime_error("Error: bad input: " + line);
+	}
+	for (int i = 8; i < 10; ++i) {
+		if (std::isdigit(line[i]) == false)
+			throw std::runtime_error("Error: bad input: " + line);
+	}
+	if (line.find(" | ", 0) != 10)
+		throw std::runtime_error("Error: bad input: " + line);
+
+	double	value;
+	char*	endptr = 0;
+
+	value = std::strtod(&(line.c_str()[line.find(" | ", 0) + 3]), &endptr);
+	if (*endptr != '\0')
+		throw std::runtime_error("Error: bad input: " + line);
+	if (value <= 0.0)
+		throw std::runtime_error("Error: not a positive number.");
+	if (value >= 1000.0)
+		throw std::runtime_error("Error: too large a number.");
+}
+
+float	Parser::parseCount(const std::string& line) {
+	return static_cast<float>(std::strtod(&(line.c_str()[line.find(" | ", 0) + 3]), NULL));
 }

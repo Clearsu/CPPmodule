@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:02:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/29 23:22:38 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 01:04:32 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,35 @@ void	BitcoinExchange::deleteInstance(void) {
 }
 
 void	BitcoinExchange::exchange(char** argv) {
-	ifstream infile;
+	std::ifstream	infile;
+	std::string		line;
 
 	infile.open(argv[1], std::ios_base::in);
 	if (infile.is_open() == false)
-		throw std::runtime_error("Error: failed to open: " + argv[1]);
+		throw std::runtime_error("Error: failed to open: " + std::string(argv[1]));
+	std::getline(infile, line);
+	if (line != "date | value")
+		throw std::runtime_error("Error: wrong input file format" + line);
+	while (true) {
+		std::getline(infile, line);
+		if (infile.eof() == true)
+			break ;
+		try {
+			Parser::checkInputFormat(line);
+			long date = Parser::parseDate(line);
+			if (date == 0)
+				throw std::runtime_error("Error: bad input => " + line);
+			double price;
+			while (this->db.find(date) == db.end())
+				--date;
+			price = this->db[date];
+			float count = Parser::parseCount(line);
+			size_t pos = line.find(" | ", 0);
+			line.erase(pos, 3);
+			line.insert(pos, " => ");
+			std::cout << line << " = " << count * price << std::endl;
+		} catch (const std::exception& e) {
+			std::cerr << e.what() << '\n';
+		}
+	}
 }
