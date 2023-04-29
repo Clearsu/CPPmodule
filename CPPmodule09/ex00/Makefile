@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/28 17:00:00 by jincpark         ###   ########.fr        #
+#    Updated: 2023/04/29 22:23:04 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRCS = main.cpp BitcoinExchange.cpp
+SRCS = main.cpp BitcoinExchange.cpp Parser.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 %.o : %.cpp

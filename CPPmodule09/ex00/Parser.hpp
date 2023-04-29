@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Parser.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/29 21:19:28 by jincpark          #+#    #+#             */
+/*   Updated: 2023/04/29 22:48:00 by jincpark         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef __PARSER_HPP__
+#define __PARSER_HPP__
+
+#include <string>
+
+class	Parser {
+	private :
+		Parser();
+		Parser(const Parser& src);
+		Parser& operator=(const Parser& src);
+		~Parser();
+
+		static long		getLastDayOfMonth(long year, long month);
+	public :
+		static bool		checkCsvFormat(const std::string& line);
+		static long		parseDate(const std::string& line);
+		static double	parsePrice(const std::string& line);
+};
+
+#endif
