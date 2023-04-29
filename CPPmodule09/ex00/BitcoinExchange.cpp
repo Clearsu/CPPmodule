@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:02:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 01:04:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 01:28:46 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	BitcoinExchange::deleteInstance(void) {
 void	BitcoinExchange::exchange(char** argv) {
 	std::ifstream	infile;
 	std::string		line;
+	bool			start = true;
 
 	infile.open(argv[1], std::ios_base::in);
 	if (infile.is_open() == false)
@@ -70,17 +71,27 @@ void	BitcoinExchange::exchange(char** argv) {
 		throw std::runtime_error("Error: wrong input file format" + line);
 	while (true) {
 		std::getline(infile, line);
-		if (infile.eof() == true)
+		if (infile.eof() == true) {
+			if (start == true)
+				throw std::runtime_error("Error: no information given.");
 			break ;
+		}
+		start = false;
 		try {
 			Parser::checkInputFormat(line);
 			long date = Parser::parseDate(line);
 			if (date == 0)
 				throw std::runtime_error("Error: bad input => " + line);
 			double price;
-			while (this->db.find(date) == db.end())
-				--date;
-			price = this->db[date];
+			if (this->db.find(date) == db.end()) {
+				std::map<long, double>::iterator it;
+				it = db.upper_bound(date);
+				if (it == db.end())
+					throw std::runtime_error("Error: date out of range.");
+				price = it->second;
+			}
+			else
+				price = this->db[date];
 			float count = Parser::parseCount(line);
 			size_t pos = line.find(" | ", 0);
 			line.erase(pos, 3);
