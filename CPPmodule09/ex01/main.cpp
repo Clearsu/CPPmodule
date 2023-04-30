@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:00:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 15:11:34 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/01 08:24:14 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 int	main(int argc, char **argv) {
 	if (argc != 2) {
-		std::cerr << "Error: bad arguments" << std::endl;
+		std::cout << "Error: bad arguments" << std::endl;
 		return 1;
 	}
 	try {
 		RPN::reversePolishNotation(argv[1]);
 	} catch (const std::exception &e) {
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 		return 1;
 	}
 	return 0;
