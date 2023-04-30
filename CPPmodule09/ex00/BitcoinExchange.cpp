@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:02:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 16:16:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/01 08:24:55 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	BitcoinExchange::exchange(char** argv) {
 			line.insert(pos, " => ");
 			std::cout << line << " = " << count * price << std::endl;
 		} catch (const std::exception& e) {
-			std::cerr << e.what() << '\n';
+			std::cout << e.what() << '\n';
 		}
 	}
 }
