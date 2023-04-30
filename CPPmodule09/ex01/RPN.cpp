@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:14:06 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 15:18:25 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 15:35:22 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,31 @@ bool	RPN::isOperator(char c) {
 }
 
 int	RPN::operate(int val1, int val2, char c) {
+	int	res;
+
 	switch (c) {
-		case '+' : return val1 + val2;
-		case '-' : return val1 - val2;
-		case '*' : return val1 * val2;
+		case '+' :
+			res = val1 + val2;
+			if (res - val1 - val2 != 0)
+				throw std::runtime_error("Error: overflow detected");
+			break ;
+		case '-' : 
+			res = val1 - val2;
+			if (res - val1 + val2 != 0)
+				throw std::runtime_error("Error: overflow detected");
+			break ;
+		case '*' : 
+			res = val1 * val2;
+			if ((val1 > 0 && val2 > 0 && res < 0)
+					|| (((val1 < 0 && val2 > 0) || (val1 > 0 && val2 < 0)) && res > 0))
+				throw std::runtime_error("Error: overflow detected");
+			break ;
 		case '/' : 
 			if (val2 == 0)
 				throw std::runtime_error("Error: devide by zero");
-			return val1 / val2;
+			res = val1 / val2;
 	}
-	return 0;
+	return res;
 }
 
 void	RPN::reversePolishNotation(char* argv) {
