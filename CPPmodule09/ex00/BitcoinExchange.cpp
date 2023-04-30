@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:02:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 01:28:46 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 13:12:10 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ BitcoinExchange::BitcoinExchange() {
 		infile >> line;
 		if (line == "date,exchange_rate")
 			continue ;
-		if (infile.eof() == true)
-			break ;
 		if (Parser::checkCsvFormat(line) == false)
 			throw std::runtime_error("Error: wrong data format: " + line);
 		long date = Parser::parseDate(line);
@@ -40,6 +38,8 @@ BitcoinExchange::BitcoinExchange() {
 			throw std::runtime_error("Error: wrong data format: " + line);
 		double price = Parser::parsePrice(line);
 		this->db.insert(std::pair<long, double>(date, price));
+		if (infile.eof() == true)
+			break ;
 	}
 	infile.close();
 }
