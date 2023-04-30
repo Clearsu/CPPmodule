@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:02:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 13:12:10 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/04/30 16:16:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,11 @@ void	BitcoinExchange::exchange(char** argv) {
 				throw std::runtime_error("Error: bad input => " + line);
 			double price;
 			if (this->db.find(date) == db.end()) {
-				std::map<long, double>::iterator it;
-				it = db.upper_bound(date);
-				if (it == db.end())
-					throw std::runtime_error("Error: date out of range.");
+				std::map<long, double>::iterator it = db.end();
+				if (date < db.begin()->first)
+					throw std::runtime_error("Error: no previous date");
+				while ((--it)->first > date)
+					;
 				price = it->second;
 			}
 			else
