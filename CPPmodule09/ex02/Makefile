@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/05/02 16:52:28 by jincpark         ###   ########.fr        #
+#    Updated: 2023/05/02 21:59:17 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,10 @@ OBJS = ${SRCS:.cpp=.o}
 
 ifdef TEST
 	FLAGS += -DAVERAGE
+endif
+
+ifdef HUGE
+	FLAGS += -DHUGEVAL
 endif
 
 %.o : %.cpp
@@ -46,5 +50,8 @@ re :
 
 test :
 	$(MAKE) TEST=1 all
+
+huge :
+	$(MAKE) HUGE=1 all
 
 .PHONY : all clean fclean re
