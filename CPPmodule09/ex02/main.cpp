@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 08:14:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/02 17:16:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:15:08 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,42 @@ int	main(int argc, char** argv) {
 			<< " elements with std::deque : " << totalDeq / 100.0 << " us" << std::endl;
 
 		obj->isSorted();
+
+		return 0;
+	} catch (std::exception& e) {
+		std::cout << e.what() << '\n';
+		return 1;
+	}
+	#endif
+
+	#ifdef HUGEVAL
+	try {
+		char*	endptr;
+
+		long num = std::strtol(argv[1], &endptr, 10);
+		if (errno == ERANGE || *endptr != '\0'
+				|| num < 0 || num > std::numeric_limits<int>::max()) {
+			throw std::runtime_error("Error: bad arguments");
+		}
+		PmergeMe* obj = PmergeMe::getInstance(static_cast<int>(num));
+
+		vectorStart = PmergeMe::getCurrentTimeMicrosec();
+		obj->sortVector();
+		vectorFinish = PmergeMe::getCurrentTimeMicrosec();
+
+		std::cout << "\e[0;32mTime to process a range of " << obj->getVectorSize()
+			<< " elements with std::vector : " << (vectorFinish - vectorStart) 
+			<< " us\n";
+
+		dequeStart = PmergeMe::getCurrentTimeMicrosec();
+		obj->sortDeque();
+		dequeFinish = PmergeMe::getCurrentTimeMicrosec();
+
+		obj->isSorted();
+
+		std::cout << "Time to process a range of " << obj->getDequeSize()
+			<< " elements with std::deque : " << (dequeFinish - dequeStart)
+			<< " us\n";
 
 		return 0;
 	} catch (std::exception& e) {
