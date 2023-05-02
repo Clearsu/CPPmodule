@@ -6,13 +6,14 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 08:14:15 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/02 16:13:31 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:01:36 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <cerrno>
+#include <cstdlib>
 #include <stdexcept>
 
 #include <sys/time.h>
@@ -22,13 +23,25 @@
 PmergeMe*	PmergeMe::instance = 0;
 
 PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe(const PmergeMe& src) { (void)src; }
+PmergeMe& PmergeMe::operator=(const PmergeMe& src) { (void)src; return *this; }
+PmergeMe::~PmergeMe() {}
+
+PmergeMe::PmergeMe(int num) {
+	int	randval;
+
+	std::srand(std::time(NULL));
+	for (int i = 0; i < num; ++i) {
+		randval = std::rand();
+		this->vec.push_back(randval);
+		this->deq.push_back(randval);
+	}
+}
+
 PmergeMe::PmergeMe(int argc, char** argv) {
 	checkArgc(argc, argv);
 	parseArgv(argc, argv);
 }
-PmergeMe::PmergeMe(const PmergeMe& src) { (void)src; }
-PmergeMe& PmergeMe::operator=(const PmergeMe& src) { (void)src; return *this; }
-PmergeMe::~PmergeMe() {}
 
 void	PmergeMe::checkArgc(int argc, char** argv) {
 	std::size_t	count;
@@ -200,6 +213,13 @@ void	PmergeMe::mergeDeque(int left, int mid, int right) {
 PmergeMe*	PmergeMe::getInstance(int argc, char** argv) {
 	if (PmergeMe::instance == 0) {
 		PmergeMe::instance = new PmergeMe(argc, argv);
+	}
+	return PmergeMe::instance;
+}
+
+PmergeMe*	PmergeMe::getInstance(int num) {
+	if (PmergeMe::instance == 0) {
+		PmergeMe::instance = new PmergeMe(num);
 	}
 	return PmergeMe::instance;
 }

@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 15:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/02 16:00:51 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:00:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	PmergeMe {
 		std::deque<int>		deq_temp;
 
 		PmergeMe();
+		PmergeMe(int num);
 		PmergeMe(int argc, char** argv);
 		PmergeMe(const PmergeMe& src);
 		PmergeMe& operator=(const PmergeMe& src);
@@ -45,6 +46,7 @@ class	PmergeMe {
 		void	mergeDeque(int left, int mid, int right);
 
 	public :
+		static PmergeMe*	getInstance(int num);
 		static PmergeMe*	getInstance(int argc, char** argv);
 		static void			deleteInstance(void);
 		
