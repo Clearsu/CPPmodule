@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/30 15:41:02 by jincpark         ###   ########.fr        #
+#    Updated: 2023/05/02 16:52:28 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ RM = rm -f
 
 SRCS = main.cpp PmergeMe.cpp
 OBJS = ${SRCS:.cpp=.o}
+
+ifdef TEST
+	FLAGS += -DAVERAGE
+endif
 
 %.o : %.cpp
 	$(CC) $(FLAGS) -I. -c $< -o $@
@@ -39,5 +43,8 @@ fclean :
 re :
 	$(MAKE) fclean
 	$(MAKE) all
+
+test :
+	$(MAKE) TEST=1 all
 
 .PHONY : all clean fclean re
