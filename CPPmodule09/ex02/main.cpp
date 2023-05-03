@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 08:14:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/02 22:15:08 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/03 01:44:01 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,34 @@ int	main(int argc, char** argv) {
 	#ifdef AVERAGE
 	try {
 		double	totalVec = 0;
-		PmergeMe* obj = PmergeMe::getInstance(argc, argv);
+		PmergeMe< std::vector<int> > vec(argc, argv);
 
 		for (int i = 0; i < 100; ++i) {
-			vectorStart = PmergeMe::getCurrentTimeMicrosec();
-			obj->sortVector();
-			vectorFinish = PmergeMe::getCurrentTimeMicrosec();
+			vectorStart = vec.getCurrentTimeMicrosec();
+			vec.sort();
+			vectorFinish = vec.getCurrentTimeMicrosec();
 			totalVec += static_cast<double>(vectorFinish - vectorStart);
 		}
-		std::cout <<  "\e[0;32mAverage processing time for " << obj->getVectorSize() 
+		std::cout <<  "\e[0;32mAverage processing time for " << vec.getSize() 
 			<< " elements with std::vector : " << totalVec / 100.0 << " us" << std::endl;
 
+		vec.isSorted();
+
 		double	totalDeq = 0;
+		PmergeMe< std::deque<int> > deq(argc, argv);
 		for (int i = 0; i < 100; ++i) {
-			dequeStart = PmergeMe::getCurrentTimeMicrosec();
-			obj->sortDeque();
-			dequeFinish = PmergeMe::getCurrentTimeMicrosec();
+			dequeStart = deq.getCurrentTimeMicrosec();
+			deq.sortDeque();
+			dequeFinish = deq.getCurrentTimeMicrosec();
 			totalDeq += static_cast<double>(dequeFinish - dequeStart);
 		}
-		std::cout <<  "Average processing time for " << obj->getDequeSize() 
+		std::cout <<  "Average processing time for " << deq.getSize() 
 			<< " elements with std::deque : " << totalDeq / 100.0 << " us" << std::endl;
 
-		obj->isSorted();
+		deq.isSorted();
 
 		return 0;
+
 	} catch (std::exception& e) {
 		std::cout << e.what() << '\n';
 		return 1;
@@ -61,27 +65,33 @@ int	main(int argc, char** argv) {
 				|| num < 0 || num > std::numeric_limits<int>::max()) {
 			throw std::runtime_error("Error: bad arguments");
 		}
-		PmergeMe* obj = PmergeMe::getInstance(static_cast<int>(num));
 
-		vectorStart = PmergeMe::getCurrentTimeMicrosec();
-		obj->sortVector();
-		vectorFinish = PmergeMe::getCurrentTimeMicrosec();
+		PmergeMe< std::vector<int> > vec(num);
 
-		std::cout << "\e[0;32mTime to process a range of " << obj->getVectorSize()
+		vectorStart = vec.getCurrentTimeMicrosec();
+		vec.sort();
+		vectorFinish = vec.getCurrentTimeMicrosec();
+
+		vec.isSorted();
+
+		std::cout << "\e[0;32mTime to process a range of " << vec.getSize()
 			<< " elements with std::vector : " << (vectorFinish - vectorStart) 
 			<< " us\n";
 
-		dequeStart = PmergeMe::getCurrentTimeMicrosec();
-		obj->sortDeque();
-		dequeFinish = PmergeMe::getCurrentTimeMicrosec();
+		PmergeMe< std::deque<int> > deq(num);
 
-		obj->isSorted();
+		dequeStart = deq.getCurrentTimeMicrosec();
+		deq.sort();
+		dequeFinish = deq.getCurrentTimeMicrosec();
 
-		std::cout << "Time to process a range of " << obj->getDequeSize()
+		deq.isSorted();
+
+		std::cout << "Time to process a range of " << deq.getSize()
 			<< " elements with std::deque : " << (dequeFinish - dequeStart)
 			<< " us\n";
 
 		return 0;
+
 	} catch (std::exception& e) {
 		std::cout << e.what() << '\n';
 		return 1;
@@ -89,30 +99,32 @@ int	main(int argc, char** argv) {
 	#endif
 
 	try {
-		PmergeMe* obj = PmergeMe::getInstance(argc, argv);
+		PmergeMe< std::vector<int> > vec(argc, argv);
 
-		obj->printVector("*** before sort ***\n", "\e[0;33m");
+		vec.print("*** before sort ***\n", "\e[0;33m");
 
-		vectorStart = PmergeMe::getCurrentTimeMicrosec();
-		obj->sortVector();
-		vectorFinish = PmergeMe::getCurrentTimeMicrosec();
+		vectorStart = vec.getCurrentTimeMicrosec();
+		vec.sort();
+		vectorFinish = vec.getCurrentTimeMicrosec();
 
-		dequeStart = PmergeMe::getCurrentTimeMicrosec();
-		obj->sortDeque();
-		dequeFinish = PmergeMe::getCurrentTimeMicrosec();
+		vec.isSorted();
 
-		obj->isSorted();
+		PmergeMe< std::deque<int> > deq(argc, argv);
+		dequeStart = deq.getCurrentTimeMicrosec();
+		deq.sort();
+		dequeFinish = deq.getCurrentTimeMicrosec();
 
-		obj->printVector("*** after sort ***\n", "\e[0;36m");
+		deq.isSorted();
 
-		std::cout << "\e[0;32mTime to process a range of " << obj->getVectorSize()
+		vec.print("*** after sort ***\n", "\e[0;36m");
+
+		std::cout << "\e[0;32mTime to process a range of " << vec.getSize()
 			<< " elements with std::vector : " << (vectorFinish - vectorStart) 
 			<< " us\n";
-		std::cout << "Time to process a range of " << obj->getDequeSize()
+		std::cout << "Time to process a range of " << deq.getSize()
 			<< " elements with std::deque : " << (dequeFinish - dequeStart)
 			<< " us\n";
 
-		PmergeMe::deleteInstance();
 	} catch (std::exception& e) {
 		std::cout << e.what() << '\n';
 		return 1;
