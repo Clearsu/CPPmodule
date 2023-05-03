@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 15:43:14 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/03 01:47:29 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:47:56 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ class	PmergeMe {
 				insertionSort(left, right);
 				return ;
 			}
-			mid = left + (left - right) / 2;
+			mid = left + (right - left) / 2;
 			mergeInsertionSort(left, mid);
 			mergeInsertionSort(mid + 1, right);
 			merge(left, mid, right);

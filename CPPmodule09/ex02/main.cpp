@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 08:14:24 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/03 01:44:01 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:49:33 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char** argv) {
 		PmergeMe< std::deque<int> > deq(argc, argv);
 		for (int i = 0; i < 100; ++i) {
 			dequeStart = deq.getCurrentTimeMicrosec();
-			deq.sortDeque();
+			deq.sort();
 			dequeFinish = deq.getCurrentTimeMicrosec();
 			totalDeq += static_cast<double>(dequeFinish - dequeStart);
 		}
