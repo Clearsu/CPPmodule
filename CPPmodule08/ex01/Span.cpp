@@ -6,25 +6,28 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:03:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/27 18:21:26 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:07:58 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include <Span.hpp>
+#include "Span.hpp"
 
-Span::Span() : maxSize(0), currSize(0) {}
+Span::Span() {}
+
 Span::Span(unsigned int N) : maxSize(N), currSize(0) {}
+
 Span::Span(const Span& src)
-	: maxSize(src.maxSize), currSize(src.currSize), vec(src.vec) {}
+	: vec(src.vec), maxSize(src.maxSize), currSize(src.currSize) {}
+
 Span& Span::operator=(const Span& src) {
-	if (this == &src)
-		return *this;
-	this->~Span();
-	new (this) Span(src);
+	this->vec = src.vec;
+	this->maxSize = src.maxSize;
+	this->currSize = src.currSize;
 	return *this;
 }
+
 Span::~Span() {}
 
 void	Span::addNumber(int const n) {
@@ -38,20 +41,22 @@ unsigned int Span::shortestSpan(void) {
 	if (this->currSize == 0 || this->currSize == 1)
 		throw Span::CannotCalculateSpanException();
 
-	std::vector<int>::const_iterator it_i = this->vec.begin();
-	std::vector<int>::const_iterator it_j;
+	std::vector<int>::const_iterator outer_loop = this->vec.begin();
+	std::vector<int>::const_iterator inner_loop;
 	unsigned int shortest = std::numeric_limits<unsigned int>::max();
 
 	for (unsigned int i = 0; i < this->currSize - 1; ++i) {
-		it_j = it_i + 1;
+		inner_loop = outer_loop + 1;
 		for (unsigned int j = i + 1; j < this->currSize; ++j) {
-			if (*it_i < *it_j && static_cast<unsigned int>(*it_j - *it_i) < shortest)
-				shortest = static_cast<unsigned int>(*it_j - *it_i);
-			else if (*it_j < *it_i && static_cast<unsigned int>(*it_i - *it_j) < shortest)
-				shortest = static_cast<unsigned int>(*it_i - *it_j);
-			++it_j;
+			if (*outer_loop < *inner_loop &&
+					static_cast<unsigned int>(*inner_loop - *outer_loop) < shortest)
+				shortest = static_cast<unsigned int>(*inner_loop - *outer_loop);
+			else if (*inner_loop < *outer_loop &&
+					static_cast<unsigned int>(*outer_loop - *inner_loop) < shortest)
+				shortest = static_cast<unsigned int>(*outer_loop - *inner_loop);
+			++inner_loop;
 		}
-		++it_i;
+		++outer_loop;
 	}
 	return shortest;
 }
@@ -68,7 +73,7 @@ unsigned int Span::longestSpan(void) {
 	{
 		if (*it < min)
 			min = *it;
-		if (*it > max)
+		else if (*it > max)
 			max = *it;
 		++it;
 	}
