@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:10:04 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/25 17:07:43 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:22:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main(void)
 {
-	std::vector<int> test1;
+	std::vector<char> test1;
 
 	test1.push_back(3);
 	test1.push_back(1);
@@ -31,7 +31,7 @@ int main(void)
 	std::cout << easyfind(test1, 8) << std::endl;
 	std::cout << easyfind(test1, 10) << std::endl;
 
-	std::list<int> test2;
+	std::list<double> test2;
 
 	test2.push_back(3);
 	test2.push_back(1);
@@ -43,7 +43,7 @@ int main(void)
 	std::cout << easyfind(test2, 8) << std::endl;
 	std::cout << easyfind(test2, 10) << std::endl;
 
-	std::deque<int> test3;
+	std::deque<float> test3;
 
 	test3.push_back(3);
 	test3.push_back(1);
