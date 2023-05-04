@@ -6,12 +6,12 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:00:34 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/01 08:24:14 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:01:25 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <RPN.hpp>
+#include "RPN.hpp"
 
 int	main(int argc, char **argv) {
 	if (argc != 2) {
