@@ -6,15 +6,17 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:24:26 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/28 16:35:48 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:20:07 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <MutantStack.hpp>
+#include <list>
 
-void	mytest(void) {	
-		std::cout << "***** my own test *****" << std::endl;
+#include "MutantStack.hpp"
+
+void	myTest(void) {	
+		std::cout << "\e[0;32m***** my own test *****" << std::endl;
 		MutantStack<int> mstack;
 		
 		mstack.push(1);
@@ -62,8 +64,8 @@ void	mytest(void) {
 		std::cout << '\n' << std::endl;
 }
 
-void	subject_test(void) {
-		std::cout << "***** test from the subject *****" << std::endl;
+void	subjectTest(void) {
+		std::cout << "\e[0;33m***** test from the subject *****" << std::endl;
 		MutantStack<int> mstack;
 
 		mstack.push(5);
@@ -93,9 +95,45 @@ void	subject_test(void) {
 		std::stack<int> s(mstack); 
 }
 
+void	subjectTestWithList(void) {
+		std::cout << "\n\e[0;36m***** test from the subject replaced with list *****" << std::endl;
+		std::list<int> lst;
+
+		lst.push_back(5);
+		lst.push_back(17);
+
+		std::cout << lst.back() << std::endl;
+
+		lst.pop_back();
+
+		std::cout << lst.size() << std::endl;
+
+		lst.push_back(3);
+		lst.push_back(5);
+		lst.push_back(737);
+		lst.push_back(0);
+
+		std::list<int>::iterator it = lst.begin();
+		std::list<int>::iterator ite = lst.end();
+
+		++it;
+		--it;
+
+		while (it != ite) {
+		    std::cout << *it << std::endl;
+			++it;
+		}
+		std::list<int> s(lst); 
+}
+
 int main(void) {
-	mytest();
-	subject_test();
+	try {
+		myTest();
+		subjectTest();
+		subjectTestWithList();
+	} catch (std::exception& e) {
+		std::cout << e.what() << '\n';
+	}
 
 	return 0;
 }

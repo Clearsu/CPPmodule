@@ -6,13 +6,13 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/27 18:21:29 by jincpark         ###   ########.fr        #
+#    Updated: 2023/05/04 19:24:40 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 
-CC = c++
+CXX = c++
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
@@ -21,11 +21,8 @@ RM = rm -f
 SRCS = main.cpp Span.cpp
 OBJS = ${SRCS:.cpp=.o}
 
-%.o : %.cpp
-	$(CC) $(FLAGS) -I. -c $< -o $@
-
 $(NAME) : $(OBJS)
-	$(CC) $(FLAGS) -I. $(OBJS) -o $(NAME)
+	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
 
 all : $(NAME)
 

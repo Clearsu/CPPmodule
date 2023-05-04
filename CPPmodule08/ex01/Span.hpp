@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:43:49 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/27 18:21:27 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:07:57 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 
 class	Span {
 	private :
-		unsigned int const	maxSize;
-		unsigned int 		currSize;
 		std::vector<int>	vec;
-	public :
+		unsigned int		maxSize;
+		unsigned int 		currSize;
+
 		Span();
+	public :
 		Span(unsigned int N);
 		Span(Span const & src);
 		Span& operator=(Span const & src);
