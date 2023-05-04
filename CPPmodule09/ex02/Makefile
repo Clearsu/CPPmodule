@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/05/04 19:40:43 by jincpark         ###   ########.fr        #
+#    Updated: 2023/05/04 19:57:11 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ SRCS = main.cpp PmergeMe.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 ifdef TEST
-	FLAGS += -DAVERAGE
+	CXXFLAGS += -DAVERAGE
 endif
 
 ifdef HUGE
-	FLAGS += -DHUGEVAL
+	CXXFLAGS += -DHUGEVAL
 endif
 
 $(NAME) : $(OBJS)
