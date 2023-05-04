@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:02:48 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/01 08:24:55 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:52:40 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <stdexcept>
 #include <iostream>
 
-#include <BitcoinExchange.hpp>
-#include <Parser.hpp>
+#include "BitcoinExchange.hpp"
+#include "Parser.hpp"
 
 BitcoinExchange* BitcoinExchange::btc = 0;
 
@@ -58,6 +58,28 @@ void	BitcoinExchange::deleteInstance(void) {
 	delete BitcoinExchange::btc;
 }
 
+double	BitcoinExchange::findDateAndGetPrice(const std::string& line) {
+	long date = Parser::parseDate(line);
+	double price;
+
+	Parser::checkInputFormat(line);
+
+	if (date == 0)
+		throw std::runtime_error("Error: bad input => " + line);
+	if (this->db.find(date) == db.end()) {
+		std::map<long, double>::iterator it = db.end();
+		if (date < db.begin()->first)
+			throw std::runtime_error("Error: no previous date");
+		while ((--it)->first > date)
+			;
+		price = it->second;
+	}
+	else
+		price = this->db[date];
+
+	return price;
+}
+
 void	BitcoinExchange::exchange(char** argv) {
 	std::ifstream	infile;
 	std::string		line;
@@ -66,9 +88,11 @@ void	BitcoinExchange::exchange(char** argv) {
 	infile.open(argv[1], std::ios_base::in);
 	if (infile.is_open() == false)
 		throw std::runtime_error("Error: failed to open: " + std::string(argv[1]));
+
 	std::getline(infile, line);
 	if (line != "date | value")
 		throw std::runtime_error("Error: wrong input file format" + line);
+
 	while (true) {
 		std::getline(infile, line);
 		if (infile.eof() == true) {
@@ -78,23 +102,10 @@ void	BitcoinExchange::exchange(char** argv) {
 		}
 		start = false;
 		try {
-			Parser::checkInputFormat(line);
-			long date = Parser::parseDate(line);
-			if (date == 0)
-				throw std::runtime_error("Error: bad input => " + line);
-			double price;
-			if (this->db.find(date) == db.end()) {
-				std::map<long, double>::iterator it = db.end();
-				if (date < db.begin()->first)
-					throw std::runtime_error("Error: no previous date");
-				while ((--it)->first > date)
-					;
-				price = it->second;
-			}
-			else
-				price = this->db[date];
+			double price = BitcoinExchange::findDateAndGetPrice(line);
 			float count = Parser::parseCount(line);
 			size_t pos = line.find(" | ", 0);
+
 			line.erase(pos, 3);
 			line.insert(pos, " => ");
 			std::cout << line << " = " << count * price << std::endl;
