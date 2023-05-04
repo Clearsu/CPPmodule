@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:05:51 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/30 15:07:50 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:58:43 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class	RPN {
 		RPN& operator=(const RPN& src);
 		~RPN();
 
-		static bool	isOperator(char c);	
-		static int	operate(int val1, int val2, char op);
+		static bool	isOperator(const char c);	
+		static int	operate(const int val1, const int val2, const char op);
 	public :
 		static void	reversePolishNotation(char* argv);
 };
