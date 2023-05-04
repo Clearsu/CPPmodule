@@ -6,26 +6,23 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/04/29 22:23:04 by jincpark         ###   ########.fr        #
+#    Updated: 2023/05/04 19:39:57 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = btc
 
-CC = c++
+CXX = c++
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -f
 
 SRCS = main.cpp BitcoinExchange.cpp Parser.cpp
 OBJS = ${SRCS:.cpp=.o}
 
-%.o : %.cpp
-	$(CC) $(FLAGS) -I. -c $< -o $@
-
 $(NAME) : $(OBJS)
-	$(CC) $(FLAGS) -I. $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 all : $(NAME)
 
