@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:24:46 by jincpark          #+#    #+#             */
-/*   Updated: 2023/04/28 16:43:32 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:10:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ class	MutantStack : public std::stack<T> {
 		MutantStack() : std::stack<T>() {}
 		MutantStack(const MutantStack& src) : std::stack<T>(src) {}
 		MutantStack& operator=(const MutantStack& src) {
-			if (this == &src)
-				return *this;
-			this->~MutantStack();
-			this->~stack();
-			new (this) MutantStack(src);
+			if (this != &src)
+				*this = src;
 			return *this;
 		}
 		~MutantStack() {}
