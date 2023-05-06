@@ -6,11 +6,13 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:03:47 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/04 16:07:58 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:37:20 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <algorithm>
+#include <limits>
 
 #include "Span.hpp"
 
@@ -41,22 +43,18 @@ unsigned int Span::shortestSpan(void) {
 	if (this->currSize == 0 || this->currSize == 1)
 		throw Span::CannotCalculateSpanException();
 
-	std::vector<int>::const_iterator outer_loop = this->vec.begin();
-	std::vector<int>::const_iterator inner_loop;
-	unsigned int shortest = std::numeric_limits<unsigned int>::max();
+	std::vector<int> sorted(this->vec);
+	std::vector<int>::iterator begin = this->vec.begin();
+	std::vector<int>::iterator end = this->vec.end();
+	unsigned int	shortest = std::numeric_limits<unsigned int>::max();
+	unsigned int	diff;
 
-	for (unsigned int i = 0; i < this->currSize - 1; ++i) {
-		inner_loop = outer_loop + 1;
-		for (unsigned int j = i + 1; j < this->currSize; ++j) {
-			if (*outer_loop < *inner_loop &&
-					static_cast<unsigned int>(*inner_loop - *outer_loop) < shortest)
-				shortest = static_cast<unsigned int>(*inner_loop - *outer_loop);
-			else if (*inner_loop < *outer_loop &&
-					static_cast<unsigned int>(*outer_loop - *inner_loop) < shortest)
-				shortest = static_cast<unsigned int>(*outer_loop - *inner_loop);
-			++inner_loop;
-		}
-		++outer_loop;
+	std::sort(begin, end);
+	for (std::vector<int>::const_iterator it = begin;
+			it != end - 1; ++it) {
+		diff = *(it + 1) - *it;
+		if (diff < shortest)
+			shortest = diff;
 	}
 	return shortest;
 }
@@ -65,19 +63,10 @@ unsigned int Span::longestSpan(void) {
 	if (this->currSize == 0 || this->currSize == 1)
 		throw Span::CannotCalculateSpanException();
 
-	std::vector<int>::const_iterator it = this->vec.begin();
-	int min = *it;
-	int max = *it;
+	int max = *(std::max_element(this->vec.begin(), this->vec.end()));
+	int min = *(std::min_element(this->vec.begin(), this->vec.end()));
 
-	for (unsigned int i = 0; i < this->currSize; ++i)
-	{
-		if (*it < min)
-			min = *it;
-		else if (*it > max)
-			max = *it;
-		++it;
-	}
-	return static_cast<unsigned int>(max - min);
+	return max - min;
 }
 
 void	Span::addSequence(std::vector<int>::const_iterator begin, \
