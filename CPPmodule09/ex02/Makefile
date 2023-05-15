@@ -6,7 +6,7 @@
 #    By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 17:14:19 by jincpark          #+#    #+#              #
-#    Updated: 2023/05/04 19:57:11 by jincpark         ###   ########.fr        #
+#    Updated: 2023/05/15 14:44:27 by jincpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,4 +51,4 @@ test :
 huge :
 	$(MAKE) HUGE=1 all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re test huge
