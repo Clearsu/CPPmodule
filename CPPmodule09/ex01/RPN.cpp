@@ -6,7 +6,7 @@
 /*   By: jincpark <jincpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:14:06 by jincpark          #+#    #+#             */
-/*   Updated: 2023/05/04 20:16:35 by jincpark         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:25:41 by jincpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	RPN::reversePolishNotation(char* argv) {
 	std::string			_char;
 	int					val1, val2, res;
 
-	while (true) {
-		ss >> _char;
+	ss >> _char;
+	while (_char != "") {
 		if (_char.length() != 1)
 			throw std::runtime_error("Error: invalid argument: " + _char);
 		if (!std::isdigit(_char.c_str()[0]) && !RPN::isOperator(_char.c_str()[0]))
@@ -80,11 +80,10 @@ void	RPN::reversePolishNotation(char* argv) {
 			res = RPN::operate(val1, val2, _char.c_str()[0]);
 			RPN::_stack.push(res);
 		}
-		if (ss.eof() == true) {
-			if (RPN::_stack.size() != 1)
-				throw std::runtime_error("Error: number of numeric values and operators do not match");
-			std::cout << RPN::_stack.top() << std::endl;
-			return ;
-		}
+		_char = "";
+		ss >> _char;
 	}
+	if (RPN::_stack.size() != 1)
+		throw std::runtime_error("Error: number of numeric values and operators do not match");
+	std::cout << RPN::_stack.top() << std::endl;
 }
